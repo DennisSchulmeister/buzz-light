@@ -1,0 +1,21 @@
+Ausgeführte Befehle:
+
+$ yarn init
+$ yarn add --dev knockout
+$ yarn add --dev ko-component-router
+$ yarn add --dev spectre.css
+
+$ yarn add --dev webpack
+$ yarn add --dev extract-text-webpack-plugin
+$ yarn add --dev css-loader
+$ yarn add --dev less-loader
+$ yarn add --dev less
+$ yarn add --dev git://github.com/mishoo/UglifyJS2#harmony
+$ yarn add --dev uglifyjs-webpack-plugin
+$ yarn add --dev url-loader
+$ yarn add --dev file-loader
+$ yarn add --dev html-loader
+$ yarn add --dev webpack-dev-server
+
+$ yarn add --dev shelljs
+$ yarn add --dev watch-run
