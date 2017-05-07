@@ -9,8 +9,6 @@
  */
 "use strict";
 
-let translations = {
+export default {
     "Course ...": "Kurs ...",
 };
-
-export default translations;

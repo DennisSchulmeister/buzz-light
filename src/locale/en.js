@@ -10,6 +10,4 @@
 "use strict";
 
 // Leave empty since english is the default language
-let translations = {};
-
-export default translations;
+export default {};

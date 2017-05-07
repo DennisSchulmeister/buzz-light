@@ -44,7 +44,7 @@ class I18nPlugin {
         // Plugin name
         this.name = "I18n";
 
-        // The current message catalouge
+        // The current message catalog
         this.translations = {};
 
         // Currently selected language
@@ -52,9 +52,9 @@ class I18nPlugin {
     }
 
     /**
-     * Initialize the message cataloage by loading the first translation set.
+     * Initialize the message catalog by loading the first translation set.
      * This returns a promise for the plugin loeader to defer the loading of
-     * all other plugins until the message catalouge is available.
+     * all other plugins until the message catalog is available.
      *
      * The config.js contains a language setting with the default langauge
      * of the site. If this is empty it is tried to get the language from
