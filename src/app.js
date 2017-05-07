@@ -14,19 +14,30 @@ import RouterPlugin from "./router.js";
 // Local configuration (may contain extra plugins)
 import config from "../config.js";
 
-// Initialization of all plugins
-let plugins = [
+// Instantiate all plugins
+let pluginClasses = [
     HomePagePlugin,
     UsersPagePlugin,
     RouterPlugin,
 ];
 
 if (config.plugins) {
-    plugins.concat(config.plugins);
+    pluginClasses.concat(config.plugins);
 }
 
-let pluginInstances = [];
+let plugins = {};
 
-plugins.forEach(plugin => {
-    pluginInstances.push(new plugin(pluginInstances));
+pluginClasses.forEach(plugin => {
+    let instance = new plugin();
+    let name = instance.name ? instance.name : plugin.name;
+    plugins[name] = instance;
 });
+
+// Initialize all plugins separatly so that they may access other plugins
+for (let name in plugins) {
+    let instance = plugins[name];
+    if (!instance.initialize) continue;
+    instance.initialize(plugins);
+}
+
+export default plugins;

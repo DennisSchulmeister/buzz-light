@@ -6,9 +6,14 @@ import PagePlugin from "./base.js";
  * Page plugin for all user-related pages
  */
 class UsersPagePlugin extends PagePlugin {
+    constructor() {
+        super();
+        this.name = "UsersPage";
+    }
+
     /**
      * Append URL routes for the SPA router
-     * @param  {Object} routes At this point already existing routes
+     * @param {Object} routes At this point already existing routes
      */
     defineUrlRoutes(routes) {
         Object.assign(routes, {

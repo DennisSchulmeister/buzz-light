@@ -6,9 +6,14 @@ import PagePlugin from "./base.js";
  * Page plugin for the initial home page.
  */
 class HomePagePlugin extends PagePlugin {
+    constructor() {
+        super();
+        this.name = "HomePage";
+    }
+
     /**
      * Append URL routes for the SPA router
-     * @param  {Object} routes At this point already existing routes
+     * @param {Object} routes At this point already existing routes
      */
     defineUrlRoutes(routes) {
         Object.assign(routes, {

@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Knockout SPA Test</title>
+        <title data-bind="text: title"></title>
 
         <link rel="shortcut icon" href="%public_url%/favicon.svg" />
         <link rel="stylesheet" href="%public_url%/style.css" />
     </head>
     <body>
-        <h1>KO Component Router (Loading: <span data-bind="text: loading"></span>)</h1>
-        <ko-component-router data-bind="css: { opacity: loading() ? .5 : 1 }"></ko-component-router>
+        <h1 data-bind="text: page_name"></h1>
+        <ko-component-router></ko-component-router>
 
         <script src="%public_url%/vendor.bundle.js"></script>
         <script src="%public_url%/app.bundle.js"></script>

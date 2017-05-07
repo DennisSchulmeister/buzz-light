@@ -3,6 +3,7 @@
 // Imports
 import ko from "knockout";
 import Router from "ko-component-router";
+import config from "../config.js";
 
 /**
  * The single page router which will load Knockout components as the content
@@ -10,23 +11,49 @@ import Router from "ko-component-router";
  */
 class RouterPlugin {
     /**
+     * Constructor which initializes this.values to a dictionary with the
+     * following observable bindings.
+     *
+     *   * loading: A boolean which indicates, whether the router is loading
+     *              a new page
+     *   * page_name: Heading title of the currently visible page
+     *   * title: <head> <title> ... </title> </head> string
+     */
+    constructor() {
+        this.name = "Router";
+
+        this.loading = ko.observable(true);
+        this.page_name = ko.observable("Page Name");
+        this.title = ko.computed(() => {
+            let title = config.title ? config.title + ": " : "";
+            return title + this.page_name();
+        });
+
+        this.values = {
+            "loading": this.loading,
+            "page_name": this.page_name,
+            "title": this.title,
+        };
+    }
+
+    /**
      * Initialize the single page router and start routing. This should be
      * the last plugin which gets initialized because otherwise pluginRuntimes
      * will not be complete and might be missing some page plugins.
      *
      * @param {Array} pluginInstances Runtime objects of all previously initialized plugins
      */
-    constructor(pluginInstances) {
-        // Loading flag used to display that the router is loading a new page
-        const loading = ko.observable(true);
-
+    initialize(plugins) {
+        // Auto-update loading flag when the router is loading a new page
         Router.use((ctx) => {
+            let self = this;
+
             return {
                 beforeRender() {
-                    loading(true);
+                    self.loading(true);
                 },
                 afterRender() {
-                    loading(false);
+                    self.loading(false);
                 },
             };
         });
@@ -41,15 +68,16 @@ class RouterPlugin {
         // URL routing from page plugins
         let routes = {};
 
-        pluginInstances.forEach(plugin => {
-            if (!plugin.defineUrlRoutes) return;
+        for (let name in plugins) {
+            let plugin = plugins[name];
+            if (!plugin.defineUrlRoutes) continue;
             plugin.defineUrlRoutes(routes);
-        });
+        }
 
         Router.useRoutes(routes);
 
         // Start routing
-        ko.applyBindings({loading});
+        ko.applyBindings(this.values, document.getElementsByTagName("html")[0]);
     }
 }
 

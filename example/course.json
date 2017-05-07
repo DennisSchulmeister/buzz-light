@@ -1,0 +1,8 @@
+{
+    "name": "Example Course",
+    "pages": {
+        "index.html": {"default": true},
+        "about": {
+        }
+    }
+}
