@@ -42,6 +42,7 @@ class RouterPlugin {
             "loading": this.loading,
             "page_name": this.page_name,
             "title": this.title,
+            "language": ko.observable(""),
         };
     }
 
@@ -85,8 +86,19 @@ class RouterPlugin {
 
         Router.useRoutes(routes);
 
+        // Add current language to the binding context
+        this.values.language = plugins["I18n"].language;
+
         // Start routing
         ko.applyBindings(this.values, document.getElementsByTagName("html")[0]);
+    }
+
+    /**
+     * Getter for the underlying ko-component-router.
+     * @return {Object} The ko-component-router
+     */
+    get ko_router() {
+        return Router;
     }
 }
 

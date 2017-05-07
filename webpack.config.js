@@ -32,8 +32,10 @@ let webpackConfig = {
     devtool: process.env.NODE_ENV == "production" ? "nosources-source-map" : "eval-source-map",
     //devtool: "nosources-source-map",
     devServer: {
-        overlay: true,
-        historyApiFallback: true,
+        // The following value is actually needed so that the dev server sends
+        // out the index.html no matter the real URL. However this breaks source
+        // maps. So which one is the lesser evil?
+        //historyApiFallback: true,
     },
 
     module: {

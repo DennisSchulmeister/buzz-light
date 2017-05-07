@@ -24,6 +24,9 @@ let config = {
         "example": "example",
     },
 
+    // Default language (leave empty for auto-detect)
+    language: "",
+
     // Additional plugin classes
     plugins: [],
 };

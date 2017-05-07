@@ -12,6 +12,8 @@
 import ko from "knockout";
 import plugins from "../../app.js";
 
+const _ = plugins["I18n"].translate;
+
 /**
  * ViewModel class for the course content page. This is actually the page
  * behind most if not everything which can be seen inside a course. Because
@@ -19,7 +21,7 @@ import plugins from "../../app.js";
  */
 class CourseContentPage {
     constructor() {
-        plugins["Router"].page_name("Course ...");
+        plugins["Router"].page_name(_("Course ..."));
     }
 }
 
