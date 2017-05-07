@@ -6,14 +6,17 @@ let config = {
     // Page title
     title: "Buzz Light",
 
-    // Additional plugin classes
-    plugins: [],
+    // URL where the user gets redirects to when requesting the home page
+    home: "/course/example",
 
     // Available courses
     courses: {
         // "id": "relative path"
         "example": "example",
     },
+
+    // Additional plugin classes
+    plugins: [],
 };
 
 export default config;

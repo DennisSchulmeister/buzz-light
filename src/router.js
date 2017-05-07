@@ -23,10 +23,10 @@ class RouterPlugin {
         this.name = "Router";
 
         this.loading = ko.observable(true);
-        this.page_name = ko.observable("Page Name");
+        this.page_name = ko.observable("");
         this.title = ko.computed(() => {
-            let title = config.title ? config.title + ": " : "";
-            return title + this.page_name();
+            let title = config.title ? config.title : "";
+            return this.page_name() ? title + ": " + this.page_name() : title
         });
 
         this.values = {

@@ -22,6 +22,10 @@ let webpackConfig = {
     },
     devtool: process.env.NODE_ENV == "production" ? "nosources-source-map" : "eval-source-map",
     //devtool: "nosources-source-map",
+    devServer: {
+        overlay: true,
+        historyApiFallback: true,
+    },
 
     module: {
         rules: [{

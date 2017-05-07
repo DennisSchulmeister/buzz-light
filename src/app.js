@@ -7,8 +7,8 @@ import "../node_modules/spectre.css/spectre-icons.less";
 import "./app.less";
 
 // Built-in plugins
-import HomePagePlugin from "./pages/home.js";
-import UsersPagePlugin from "./pages/users.js";
+import RedirectHomePlugin from "./home.js";
+import CoursePagePlugin from "./pages/course.js";
 import RouterPlugin from "./router.js";
 
 // Local configuration (may contain extra plugins)
@@ -16,8 +16,8 @@ import config from "../config.js";
 
 // Instantiate all plugins
 let pluginClasses = [
-    HomePagePlugin,
-    UsersPagePlugin,
+    RedirectHomePlugin,
+    CoursePagePlugin,
     RouterPlugin,
 ];
 
