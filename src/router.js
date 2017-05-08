@@ -100,7 +100,7 @@ class RouterPlugin {
      * @return {Object} The ko-component-router
      */
     get ko_router() {
-        return Router;
+        return Router.head;
     }
 }
 

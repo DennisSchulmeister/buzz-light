@@ -17,7 +17,15 @@
         <link rel="stylesheet" href="%public_url%/style.css" />
     </head>
     <body>
-        <h1 data-bind="text: page_name"></h1>
+        <header class="navbar">
+            <section class="nabvar-section">
+                <h1 data-bind="text: page_name"></h1>
+            </section>
+            <section class="navbar-section">
+                <buzz-language-chooser></buzz-language-chooser>
+            </section>
+        </header>
+
         <ko-component-router></ko-component-router>
 
         <script src="%public_url%/vendor.bundle.js"></script>

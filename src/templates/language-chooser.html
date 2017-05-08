@@ -1,0 +1,14 @@
+<div class="dropdown dropdown-right tooltip" data-bind="visible: visible, attr: { 'data-tooltip': tooltip() }">
+    <a href="" class="btn btn-link dropdown-toggle" tabindex="0">
+        <i class="icon icon-location navbar-icon"></i>
+    </a>
+
+    <ul class="menu" data-bind="foreach: languageList">
+        <li class="menu-item">
+            <a href="" data-bind="click: $parent.switchLanguage">
+                <span data-bind="text: name"></span>
+                <i class="icon icon-check" data-bind="visible: $parent.isActive(language)"></i>
+            </a>
+        </li>
+    </ul>
+</div>

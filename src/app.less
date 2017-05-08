@@ -8,6 +8,9 @@
  * License, or (at your option) any later version.
  */
 
+@red: rgb(152, 33, 33);
+@shadow: rgba(255, 255, 255, 0.6) 1px 1px;
+
 body {
     background-color: #6995c2;
     background-size: cover;
@@ -17,4 +20,18 @@ body {
     background-image: url(bg.jpg);
 
     padding: 4rem;
+
+    h1, h2, h3, h4, h5, h6 {
+        text-shadow: @shadow;
+    }
+
+    h1 {
+        color: @red;
+    }
+
+    .navbar-icon {
+        font-size: 180%;
+        color: @red;
+        text-shadow: @shadow;
+    }
 }

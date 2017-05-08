@@ -31,7 +31,9 @@ let availableLanguages = {
  * @return {Promise} Import promise with the translation object (if found)
  */
 function loadTranslation(language) {
-    if (language === "de") {
+    if (language === "en") {
+        return import("./locale/en.js");
+    } else if (language === "de") {
         return import("./locale/de.js");
     }
 }
@@ -49,6 +51,50 @@ class I18nPlugin {
 
         // Currently selected language
         this.language = ko.observable("");
+
+        // Custom component with a language menu
+        let plugin = this;
+
+        ko.components.register("buzz-language-chooser", {
+            viewModel: class LangugeChooserViewModel {
+                constructor() {
+                    // Value bindings
+                    this.visible = Object.keys(availableLanguages).length > 1 ? true : false;
+                    this.language = plugin.language;
+
+                    // Alphabeticaly sorted list of langauges
+                    this.languageList = [];
+
+                    for (let language in availableLanguages) {
+                        let name = availableLanguages[language];
+                        this.languageList.push({ language, name });
+                    }
+
+                    this.languageList.sort((a, b) => {
+                        return a.language > b.language;
+                    })
+                }
+
+                // Switch current language
+                switchLanguage(language) {
+                    plugin.switchLanguage(language.language, true);
+                }
+
+                // Check if language is active
+                isActive(language) {
+                    return language == this.language();
+                }
+
+                // Tooltip, which of course needs to be translated :-)
+                tooltip() {
+                    // Get the current language, so that KO will reevaluate
+                    // the toolip when the language changes
+                    this.language();
+                    return plugin.translate("Switch language");
+                }
+            },
+            template: require("./templates/language-chooser.html"),
+        });
     }
 
     /**
@@ -110,8 +156,8 @@ class I18nPlugin {
             this.language(language);
 
             if (!reload) return;
-            let current_route = Plugins["Router"].ko_router.ctx.route;
-            Plugins["Router"].ko_router.update(current_route);
+            let current_path = plugins["Router"].ko_router.ctx.path;
+            plugins["Router"].ko_router.update(current_path, {force: true});
         });
     }
 

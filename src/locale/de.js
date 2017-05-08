@@ -10,5 +10,9 @@
 "use strict";
 
 export default {
+    // Navbar
+    "Switch language": "Sprache wechseln",
+
+    // Others
     "Course ...": "Kurs ...",
 };
