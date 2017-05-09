@@ -24,6 +24,12 @@ let config = {
         "example": "example",
     },
 
+    // We don't really care for older browsers withouth HTML5 History API.
+    // However hashbang based routing (with an # in the URL) makes life easier
+    // during development. It's safe to set this value to false in production
+    // as it makes for pretier URLs.
+    hashbangUrls: true,
+
     // Default language (leave empty for auto-detect)
     language: "",
 

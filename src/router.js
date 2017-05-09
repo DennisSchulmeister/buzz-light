@@ -72,7 +72,7 @@ class RouterPlugin {
         // Base configuration
         Router.setConfig({
             base: "",
-            hashbang: false,
+            hashbang: config.hashbangUrls,
             activePathCSSClass: "active-path",
         });
 

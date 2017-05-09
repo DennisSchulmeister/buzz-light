@@ -32,9 +32,10 @@ let webpackConfig = {
     devtool: process.env.NODE_ENV == "production" ? "nosources-source-map" : "eval-source-map",
     //devtool: "nosources-source-map",
     devServer: {
-        // The following value is actually needed so that the dev server sends
-        // out the index.html no matter the real URL. However this breaks source
-        // maps. So which one is the lesser evil?
+        // In theory setting historyApiFallback to true allows to test the
+        // single page app without hashbang URLs (no # in the URL).
+        // In reality it breaks source maps. So we set it to false and
+        // enable hashbang URLSs in config.js.
         //historyApiFallback: true,
     },
 
