@@ -87,9 +87,6 @@ class I18nPlugin {
 
                 // Tooltip, which of course needs to be translated :-)
                 tooltip() {
-                    // Get the current language, so that KO will reevaluate
-                    // the toolip when the language changes
-                    this.language();
                     return plugin.translate("Switch language");
                 }
             },
@@ -180,6 +177,11 @@ class I18nPlugin {
     }
 
     _translate(text) {
+        // Get the current language, so that KO reevaluates all computed
+        // bindings which need translations. So don't remove the following
+        // call although it looks pointless at first sight.
+        this.language();
+
         if (text in this.translations) {
             return this.translations[text];
         } else {
