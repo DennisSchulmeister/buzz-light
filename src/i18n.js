@@ -38,6 +38,14 @@ function loadTranslation(language) {
     }
 }
 
+/**
+ * Translation service. This plugin maintains the available languages and
+ * a message catalog which can be queried to get a translated string. For each
+ * language a JavaScript module is asynchronously loaded when needed in order
+ * to load the respective message catalog.
+ *
+ * Using this plugin it is also possible to switch langauges anytime.
+ */
 class I18nPlugin {
     /**
      * Plugin constructor.

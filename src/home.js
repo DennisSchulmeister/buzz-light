@@ -12,7 +12,9 @@
 import config from "../config.js";
 
 /**
- * Page plugin for all user-related pages
+ * Simple plugin which redirects the user to the start URL when the root
+ * URL "/" is requested. This allows to set up kind of a meta course which
+ * contains all static page content.
  */
 class RedirectHomePlugin {
     /**

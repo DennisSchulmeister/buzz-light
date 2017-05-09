@@ -1,0 +1,6 @@
+<div class="toasts" data-bind="foreach: {data: messages, afterAdd: fadeIn, beforeRemove: fadeOut}">
+    <div data-bind="attr: {'class': classes}, buzzTransitionFade: '1.5s'">
+        <button class="btn btn-clear float-right" data-bind="click: $parent.dismiss"></button>
+        <span data-bind="html: content"></span>
+    </div>
+</div>

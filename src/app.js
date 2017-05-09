@@ -17,6 +17,7 @@ import "./app.less";
 
 // Built-in plugins
 import I18nPlugin from "./i18n.js";
+import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
 import CoursePagePlugin from "./pages/course.js";
 import RouterPlugin from "./router.js";
@@ -27,6 +28,7 @@ import config from "../config.js";
 // Instantiate all plugins
 let pluginClasses = [
     I18nPlugin, // Must be first
+    ToastPlugin,
     RedirectHomePlugin,
     CoursePagePlugin,
     RouterPlugin,

@@ -1,0 +1,39 @@
+/*
+ * Buzz - The Social LMS (https://www.buzzlms.de)
+ * © 2017  Dennis Schulmeister-Zimolong <dennis@pingu-mail.de>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ */
+
+@import "../../node_modules/spectre.css/src/variables.less";
+
+@toasts-margin: 2rem;
+
+buzz-toasts {
+    position: fixed;
+    z-index: @zindex-4;
+
+    top: @toasts-margin;
+    right: @toasts-margin;
+    left: @toasts-margin;
+
+    @media (min-width: @size-md) {
+        left: auto;
+        width: calc(@size-sm / 1.8);
+    }
+
+    @media (min-width: @size-lg) {
+        width: calc(@size-md / 2);
+    }
+
+    @media (min-width: @size-xl) {
+        width: calc(@size-lg / 2);
+    }
+
+    @media (min-width: @size-2x) {
+        width: calc(@size-xl / 2);
+    }
+}

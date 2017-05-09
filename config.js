@@ -33,6 +33,9 @@ let config = {
     // Default language (leave empty for auto-detect)
     language: "",
 
+    // Timeout in mili-seconds after which global messages (toasts) disappear
+    toastTimeout: 15000,
+
     // Additional plugin classes
     plugins: [],
 };
