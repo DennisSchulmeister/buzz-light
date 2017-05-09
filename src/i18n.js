@@ -110,18 +110,31 @@ class I18nPlugin {
         let languages = [];
         let promise = undefined;
 
+        // Previously used langauge
+        if (localStorage.language) {
+            languages.push(localStorage.language);
+        }
+
+        // Default language from configuration
         if (config.language) {
             languages.push(config.language);
-        } else if (window.navigator.languages) {
+        }
+
+        // Preferred languages by the browser
+        if (window.navigator.languages) {
             window.navigator.languages.forEach((language) => {
                 languages.push(language);
             });
-        } else {
+        }
+
+        if (window.navigator.language) {
             languages.push(window.navigator.language);
         }
 
+        // Fallback language
         languages.push("en");
 
+        // Try to load the first match
         for (let i in languages) {
             promise = this.switchLanguage(languages[i], false);
             if (promise) break;
@@ -151,6 +164,8 @@ class I18nPlugin {
         return promise.then((messages) => {
             this.translations = messages.default;
             this.language(language);
+
+            localStorage.language = language;
 
             if (!reload) return;
             let current_path = plugins["Router"].ko_router.ctx.path;
