@@ -47,7 +47,7 @@ let webpackConfig = {
             test: /\.less$/,
             use: extractCSS.extract(["css-loader", "less-loader"]),
         },{
-            test: /\.(svg|jpg|png)$/,
+            test: /\.(svg|jpg|png|eot|ttf|woff|woff2)$/,
             use: "url-loader",
         },{
             test: /\.(htm|html)/,

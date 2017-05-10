@@ -11,7 +11,9 @@
 
 export default {
     // Navbar
-    "Switch language": "Sprache wechseln",
+    "Start page": "Startseite",
+    "Language": "Sprache",
+    "Website": "Webseite",
 
     // Others
     "Course ...": "Kurs ...",

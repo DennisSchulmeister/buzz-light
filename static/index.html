@@ -24,7 +24,9 @@
                 <h1 data-bind="text: page_name"></h1>
             </section>
             <section class="navbar-section">
+                <buzz-icon-link params="icon: 'home', href: config.home, tooltip: _('Start page')"></buzz-icon-link>
                 <buzz-language-chooser></buzz-language-chooser>
+                <buzz-icon-link params="icon: 'earth', href: config.website, target: 'blank', tooltip: _('Website')" data-bind="visible: config.website"></buzz-icon-link>
             </section>
         </header>
 

@@ -42,8 +42,10 @@ class RouterPlugin {
             "loading": this.loading,
             "page_name": this.page_name,
             "title": this.title,
+            "config": config,
             "language": ko.observable(""),
             "languages": ko.observable({}),
+            "_": undefined,
         };
     }
 
@@ -90,6 +92,7 @@ class RouterPlugin {
         // Add current language to the binding context
         this.values.language = plugins["I18n"].language;
         this.values.languages(plugins["I18n"].languages);
+        this.values._ = plugins["I18n"].translate;
 
         // Start routing
         ko.applyBindings(this.values, document.getElementsByTagName("html")[0]);

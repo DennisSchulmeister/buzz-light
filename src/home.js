@@ -9,6 +9,7 @@
  */
 "use strict";
 
+import ko from "knockout";
 import config from "../config.js";
 
 /**
@@ -18,7 +19,7 @@ import config from "../config.js";
  */
 class RedirectHomePlugin {
     /**
-     * Simple constructor which merely defines the plugin name.
+     * Plugin constructor.
      */
     constructor() {
         this.name = "RedirectHome";

@@ -18,6 +18,9 @@ let config = {
     // URL where the user gets redirects to when requesting the home page
     home: "/course/example",
 
+    // URL of your external website
+    website: "https://www.github.com/DennisSchulmeister/buzz-light",
+
     // Available courses
     courses: {
         // "id": "relative path"

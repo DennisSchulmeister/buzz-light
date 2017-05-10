@@ -1,0 +1,6 @@
+<a data-bind="if: target, attr: {'class': classes, 'href': href, 'target': target, 'data-tooltip': tooltip}">
+    <i data-bind="attr: {'class': 'navbar-icon icon-' + icon}"></i>
+</a>
+<a data-bind="if: !target, attr: {'class': classes, 'href': href, 'data-tooltip': tooltip}">
+    <i data-bind="attr: {'class': 'navbar-icon icon-' + icon}"></i>
+</a>
