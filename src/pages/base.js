@@ -18,8 +18,9 @@ class PagePlugin {
     /**
      * Override this method to add your routes to the SPA router.
      * @param {Object} routes Route list for ko-component-router
+     * @param {Array} plugins Runtime objects of all plugins
      */
-    defineUrlRoutes(routes) {
+    defineUrlRoutes(routes, plugins) {
     }
 
     /**

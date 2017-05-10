@@ -9,15 +9,6 @@
  */
 "use strict";
 
-export default {
-    // Navbar
-    "Start page": "Startseite",
-    "Language": "Sprache",
-    "Website": "Webseite",
-
-    // 404 Page
-    "Page not found": "Seite nicht gefunden",
-
-    // Others
-    "Course ...": "Kurs ...",
-};
+// Only explicitly imported files will be bundled.
+// Inside the JavaScript the HTML template is imported.
+import NotFoundPage from "./404.js";

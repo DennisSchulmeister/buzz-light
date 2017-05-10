@@ -12,30 +12,25 @@
 import PagePlugin from "./base.js";
 
 /**
- * Page plugin for the course contents. This page plugin will render most
- * if not all contents of a course because in reality a course is just a
- * container for content pages.
+ * Page plugin for a 404 page. This page will always be shown when an unkown
+ * path is requested from the SPA router.
  */
-class CoursePagePlugin extends PagePlugin {
+class NotFoundPagePlugin extends PagePlugin {
     /**
      * Simple constructor which merely defines the plugin name.
      */
     constructor() {
         super();
-        this.name = "CoursePage";
+        this.name = "404Page";
     }
 
     /**
      * Append URL routes for the SPA router
      * @param {Object} routes At this point already existing routes
-     * @param {Array} plugins Runtime objects of all plugins
      */
-    defineUrlRoutes(routes, plugins) {
+    defineUrlRoutes(routes) {
         Object.assign(routes, {
-            "/course": {
-                "/example": this.lazyLoad("course-content-page"),
-                "/*": plugins["404Page"].route,
-            },
+            "/*": this.lazyLoad("404-page"),
         });
     }
 
@@ -44,8 +39,21 @@ class CoursePagePlugin extends PagePlugin {
      * will be lazy-loaded on runtime.
      */
     importHook() {
-        return import("./course/");
+        return import("./404/");
+    }
+
+    /**
+     * Additional property which can be used to include a 404 route in a nested
+     * routing context. We need that in the course plugin becuause there any
+     * URL which starts with /course is catched with a "/course/*" pattern
+     * which prevents the default 404 route to be run when the user requests
+     * an unkown page.
+     *
+     * @return {Array} Array with SPA router middleware functions
+     */
+    get route() {
+        return this.lazyLoad("404-page");
     }
 }
 
-export default CoursePagePlugin;
+export default NotFoundPagePlugin;

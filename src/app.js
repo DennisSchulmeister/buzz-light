@@ -21,6 +21,7 @@ import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
 import CoursePagePlugin from "./pages/course.js";
+import NotFoundPagePlugin from "./pages/404.js";
 import RouterPlugin from "./router.js";
 
 // Local configuration (may contain extra plugins)
@@ -28,11 +29,12 @@ import config from "../config.js";
 
 // Instantiate all plugins
 let pluginClasses = [
-    I18nPlugin, // Must be first
+    I18nPlugin, // Must be the first plugin
     IconLinkPlugin,
     ToastPlugin,
     RedirectHomePlugin,
     CoursePagePlugin,
+    NotFoundPagePlugin, // Must be the last page
     RouterPlugin,
 ];
 

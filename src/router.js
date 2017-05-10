@@ -54,7 +54,7 @@ class RouterPlugin {
      * the last plugin which gets initialized because otherwise pluginRuntimes
      * will not be complete and might be missing some page plugins.
      *
-     * @param {Array} pluginInstances Runtime objects of all previously initialized plugins
+     * @param {Array} plugins Runtime objects of all plugins
      */
     initialize(plugins) {
         // Auto-update loading flag when the router is loading a new page
@@ -84,7 +84,7 @@ class RouterPlugin {
         for (let name in plugins) {
             let plugin = plugins[name];
             if (!plugin.defineUrlRoutes) continue;
-            plugin.defineUrlRoutes(routes);
+            plugin.defineUrlRoutes(routes, plugins);
         }
 
         Router.useRoutes(routes);
