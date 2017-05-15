@@ -17,6 +17,11 @@ export default {
 
     // 404 Page
     "Page not found": "Seite nicht gefunden",
+    "You turn around and suddenly a mystical scroll with 404 verses lies behind you.": "Du drehst dich um und plötzlich liegt hinter dir eine mystische Schriftrolle mit 404 Versen.",
+    "As you read some of them, you notice they all mean something like …": "Während du einige davon liest, fällt dir auf, dass sie alle ungefähr dasselbe bedeuten …",
+    "The requested page could not be found.": "Die gesuchte Seite konnte nicht gefunden werden.",
+    "This is not the page you were looking for.": "Dies ist nicht die Seite, die du gesucht hast.",
+    "Oh, well, that was clear …": "Na ja, war ja klar …",
 
     // Others
     "Course ...": "Kurs ...",

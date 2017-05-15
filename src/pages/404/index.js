@@ -11,4 +11,4 @@
 
 // Only explicitly imported files will be bundled.
 // Inside the JavaScript the HTML template is imported.
-import NotFoundPage from "./404.js";
+import The404Page from "./404.js";

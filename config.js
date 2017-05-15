@@ -37,7 +37,7 @@ let config = {
     language: "",
 
     // Timeout in mili-seconds after which global messages (toasts) disappear
-    toastTimeout: 15000,
+    toastTimeout: 25000,
 
     // Additional plugin classes
     plugins: [],

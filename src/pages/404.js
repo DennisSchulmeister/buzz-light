@@ -15,7 +15,7 @@ import PagePlugin from "./base.js";
  * Page plugin for a 404 page. This page will always be shown when an unkown
  * path is requested from the SPA router.
  */
-class NotFoundPagePlugin extends PagePlugin {
+class The404PagePlugin extends PagePlugin {
     /**
      * Simple constructor which merely defines the plugin name.
      */
@@ -30,7 +30,7 @@ class NotFoundPagePlugin extends PagePlugin {
      */
     defineUrlRoutes(routes) {
         Object.assign(routes, {
-            "/*": this.lazyLoad("404-page"),
+            "/*": this.lazyLoad("the-404-page"),
         });
     }
 
@@ -52,8 +52,8 @@ class NotFoundPagePlugin extends PagePlugin {
      * @return {Array} Array with SPA router middleware functions
      */
     get route() {
-        return this.lazyLoad("404-page");
+        return this.lazyLoad("the-404-page");
     }
 }
 
-export default NotFoundPagePlugin;
+export default The404PagePlugin;

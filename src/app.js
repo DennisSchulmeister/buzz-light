@@ -20,8 +20,9 @@ import I18nPlugin from "./i18n.js";
 import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
+import ResponsivePlugin from "./responsive.js";
 import CoursePagePlugin from "./pages/course.js";
-import NotFoundPagePlugin from "./pages/404.js";
+import The404PagePlugin from "./pages/404.js";
 import RouterPlugin from "./router.js";
 
 // Local configuration (may contain extra plugins)
@@ -33,8 +34,9 @@ let pluginClasses = [
     IconLinkPlugin,
     ToastPlugin,
     RedirectHomePlugin,
+    ResponsivePlugin,
     CoursePagePlugin,
-    NotFoundPagePlugin, // Must be the last page
+    The404PagePlugin, // Must be the last page
     RouterPlugin,
 ];
 

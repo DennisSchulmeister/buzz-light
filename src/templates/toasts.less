@@ -12,6 +12,18 @@
 
 @toasts-margin: 2rem;
 
+@primary-bg: rgba(71, 185, 233, 0.9);
+@primary-fg: rgb(22, 80, 92);
+
+@success-bg: rgba(129, 191, 127, 0.9);
+@success-fg: rgb(48, 70, 47);
+
+@warning-bg: rgba(245, 209, 130, 0.9);
+@warning-fg: rgb(101, 76, 21);
+
+@error-bg: rgba(245, 151, 151, 0.9);
+@error-fg: rgb(75, 21, 21);
+
 buzz-toasts {
     position: fixed;
     z-index: @zindex-4;
@@ -35,5 +47,33 @@ buzz-toasts {
 
     @media (min-width: @size-2x) {
         width: calc(@size-xl / 2);
+    }
+
+    .toast {
+        margin-bottom: 0.5rem;
+    }
+
+    .toast-primary {
+        color: @primary-fg;
+        border-color: @primary-fg !important;
+        background-color: @primary-bg !important;
+    }
+
+    .toast-success {
+        color: @success-fg;
+        border-color: @success-fg !important;
+        background-color: @success-bg !important;
+    }
+
+    .toast-warning {
+        color: @warning-fg;
+        border-color: @warning-fg !important;
+        background-color: @warning-bg !important;
+    }
+
+    .toast-error {
+        color: @error-fg;
+        border-color: @error-fg !important;
+        background-color: @error-bg !important;
     }
 }
