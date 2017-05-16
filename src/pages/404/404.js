@@ -25,8 +25,8 @@ class The404Page {
     }
 }
 
-ko.components.register("404-page", {
-    viewModel: NotFoundPage,
+ko.components.register("the-404-page", {
+    viewModel: The404Page,
     template: require("./404.html"),
 });
 

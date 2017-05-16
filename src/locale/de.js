@@ -17,6 +17,7 @@ export default {
 
     // 404 Page
     "Page not found": "Seite nicht gefunden",
+    "We are sorry, but the requested page could not be found.": "Es tut uns Leid, aber die gesuchte Seite konnte nicht gefunden werden.",
 
     // Others
     "Course ...": "Kurs ...",
