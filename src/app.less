@@ -8,6 +8,8 @@
  * License, or (at your option) any later version.
  */
 
+@import "../node_modules/spectre.css/src/variables.less";
+
 @red: rgb(152, 33, 33);
 @shadow: rgba(255, 255, 255, 0.6) 1px 1px;
 @padding: 4rem;
@@ -70,6 +72,27 @@ body {
     main.fullscreen > *:first-child > div > div > div > div,
     main.fullscreen > *:first-child > div > div > div > div > * {
         flex-grow: 1;
+    }
+}
+
+/*
+ * Making the navbar more responsive
+ */
+header.buzz-navbar {
+    section {
+        display: block;
+    }
+
+    @media (min-width: @size-md) {
+        display: flex;
+
+        section  {
+            flex-grow: 1;
+        }
+
+        section.nogrow {
+            flex-grow: 0;
+        }
     }
 }
 
