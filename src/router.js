@@ -23,10 +23,15 @@ class RouterPlugin {
      * Constructor which initializes this.values to a dictionary with the
      * following observable bindings.
      *
-     *   * loading: A boolean which indicates, whether the router is loading
-     *              a new page
-     *   * page_name: Heading title of the currently visible page
-     *   * title: <head> <title> ... </title> </head> string
+     *   * loading:    A boolean which indicates, whether the router is
+     *                 loading a new page
+     *   * page_name:  Heading title of the currently visible page
+     *   * title:      <head> <title> ... </title> </head> string
+     *   * config:     The configration object from config.js
+     *   * language:   The currently active language
+     *   * languages:  A list of all available languages
+     *   * _:          Translation function to be called in the HTML templates
+     *   * mainClass:  CSS class to set for the <main> content
      */
     constructor() {
         this.name = "Router";
@@ -38,6 +43,8 @@ class RouterPlugin {
             return this.page_name() ? title + ": " + this.page_name() : title
         });
 
+        this.mainClass = ko.observable("");
+
         this.values = {
             "loading": this.loading,
             "page_name": this.page_name,
@@ -46,6 +53,7 @@ class RouterPlugin {
             "language": ko.observable(""),
             "languages": ko.observable({}),
             "_": undefined,
+            "mainClass": this.mainClass,
         };
     }
 
@@ -64,6 +72,7 @@ class RouterPlugin {
             return {
                 beforeRender() {
                     self.loading(true);
+                    self.mainClass("");
                 },
                 afterRender() {
                     self.loading(false);

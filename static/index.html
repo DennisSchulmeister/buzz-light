@@ -30,7 +30,9 @@
             </section>
         </header>
 
-        <ko-component-router></ko-component-router>
+        <main data-bind="attr: {class: mainClass}">
+            <ko-component-router></ko-component-router>
+        </main>
 
         <script src="%public_url%/vendor.bundle.js"></script>
         <script src="%public_url%/app.bundle.js"></script>

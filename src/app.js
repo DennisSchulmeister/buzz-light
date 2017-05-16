@@ -21,7 +21,7 @@ import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
 import CoursePagePlugin from "./pages/course.js";
-import NotFoundPagePlugin from "./pages/404.js";
+import The404PagePlugin from "./pages/404.js";
 import RouterPlugin from "./router.js";
 
 // Local configuration (may contain extra plugins)
@@ -34,7 +34,7 @@ let pluginClasses = [
     ToastPlugin,
     RedirectHomePlugin,
     CoursePagePlugin,
-    NotFoundPagePlugin, // Must be the last page
+    The404PagePlugin, // Must be the last page
     RouterPlugin,
 ];
 

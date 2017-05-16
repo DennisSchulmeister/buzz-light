@@ -19,7 +19,7 @@ const _ = plugins["I18n"].translate;
  * behind most if not everything which can be seen inside a course. Because
  * in reality a course is just a container for content pages.
  */
-class NotFoundPage {
+class The404Page {
     constructor() {
         plugins["Router"].page_name(_("Page not found"));
     }
