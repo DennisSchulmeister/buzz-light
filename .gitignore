@@ -1,2 +1,4 @@
 /node_modules
 /build
+/static/courses/*
+!/static/courses/example
