@@ -21,7 +21,10 @@ const _ = plugins["I18n"].translate;
  */
 class CourseContentPage {
     constructor() {
-        plugins["Router"].page_name(_("Course ..."));
+        this.course = plugins["CoursePage"].course;
+        console.log(this.course.page);
+
+        plugins["Router"].page_name(this.course.manifest.name);
     }
 }
 

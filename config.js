@@ -21,11 +21,17 @@ let config = {
     // URL of your external website
     website: "https://www.github.com/DennisSchulmeister/buzz-light",
 
-    // Available courses
-    courses: {
-        // "id": "relative path"
-        "example": "example",
-    },
+    // Available courses (sub-directories below static/courses or in a production
+    // environmant sub-paths below the courses/ URL path)
+    courses: [
+        "example",
+    ],
+
+    // URL prefix from where all static course files are served
+    // Don't change to "/course" because this will conflict with the URL
+    // scheme of the single page router! This URL is only used "internally"
+    // to get the course definition and static files.
+    courseUrlPrefix: "/courses",
 
     // We don't really care for older browsers withouth HTML5 History API.
     // However hashbang based routing (with an # in the URL) makes life easier

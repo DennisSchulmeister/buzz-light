@@ -19,6 +19,6 @@ export default {
     "Page not found": "Seite nicht gefunden",
     "We are sorry, but the requested page could not be found.": "Es tut uns Leid, aber die gesuchte Seite konnte nicht gefunden werden.",
 
-    // Others
-    "Course ...": "Kurs ...",
+    // Course content
+    "The course definition could not be loaded. (Technical error: ${error})": "Die Kursdefinition konnte nicht geladen werden (Technischer Fehler: ${error})",
 };

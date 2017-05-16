@@ -54,6 +54,22 @@ class The404PagePlugin extends PagePlugin {
     get route() {
         return this.lazyLoad("the-404-page");
     }
+
+    /**
+     * Utility function which replaces the current page with the 404 page.
+     * This doesn't redirect but simply changes the visible content. This is
+     * needed in the course plugin for when the asynchronous loading of the
+     * course manifest fails. In theory the URL is valid but in practice the
+     * requested course cannot be shown.
+     *
+     * * @param {Object} ctx The SPA router context
+     */
+    show(ctx) {
+        this.importHook().then(() => {
+            console.log(ctx.router.component);
+            ctx.router.component("the-404-page");
+        })
+    }
 }
 
 export default The404PagePlugin;
