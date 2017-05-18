@@ -25,7 +25,7 @@ class RouterPlugin {
      *
      *   * loading:    A boolean which indicates, whether the router is
      *                 loading a new page
-     *   * page_name:  Heading title of the currently visible page
+     *   * pageName:  Heading title of the currently visible page
      *   * title:      <head> <title> ... </title> </head> string
      *   * config:     The configration object from config.js
      *   * language:   The currently active language
@@ -37,17 +37,17 @@ class RouterPlugin {
         this.name = "Router";
 
         this.loading = ko.observable(true);
-        this.page_name = ko.observable("");
+        this.pageName = ko.observable("");
         this.title = ko.computed(() => {
             let title = config.title ? config.title : "";
-            return this.page_name() ? title + ": " + this.page_name() : title
+            return this.pageName() ? title + ": " + this.pageName() : title
         });
 
         this.mainClass = ko.observable("");
 
         this.values = {
             "loading": this.loading,
-            "page_name": this.page_name,
+            "pageName": this.pageName,
             "title": this.title,
             "config": config,
             "language": ko.observable(""),

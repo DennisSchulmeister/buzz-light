@@ -39,18 +39,20 @@ class IconLinkPlugin {
             viewModel: class IconLinkViewModel {
                 constructor(params) {
                     if (!params.icon) params.icon = "tux";
+                    if (!params.path) params.path = "";
                     if (!params.href) params.href = "";
                     if (!params.target) params.target = "";
                     if (!params.tooltip) params.tooltip = "";
 
                     this.icon = params.icon;
+                    this.path = params.path;
                     this.href = params.href;
                     this.target = params.target;
                     this.tooltip = params.tooltip;
                     this.classes = "btn btn-link";
 
                     if (params.tooltip) {
-                     this.classes = `${this.classes} tooltip`;
+                        this.classes = `${this.classes} tooltip`;
                     }
                 }
             },

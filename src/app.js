@@ -66,9 +66,11 @@ function initiliazePlugins(startAt) {
             // plugins until the promise resolves
             result.then(() => {
                 initiliazePlugins(i + 1);
-            }).catch(() => {
-                initiliazePlugins(i + 1);
-            });
+            }).catch((error) => {
+                console.log(error);
+                // Don't goon with the initialization because for some strange
+                // reason the counter i is 0 again?!
+             });
 
             break;
         }

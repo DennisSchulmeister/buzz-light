@@ -21,7 +21,7 @@ const _ = plugins["I18n"].translate;
  */
 class The404Page {
     constructor() {
-        plugins["Router"].page_name(_("Page not found"));
+        plugins["Router"].pageName(_("Page not found"));
     }
 }
 
@@ -30,4 +30,4 @@ ko.components.register("the-404-page", {
     template: require("./404.html"),
 });
 
-export { CourseContentPage };
+export default The404Page;

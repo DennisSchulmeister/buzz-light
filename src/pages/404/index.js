@@ -12,3 +12,7 @@
 // Only explicitly imported files will be bundled.
 // Inside the JavaScript the HTML template is imported.
 import The404Page from "./404.js";
+
+export {
+    The404Page,
+}

@@ -20,5 +20,7 @@ export default {
     "We are sorry, but the requested page could not be found.": "Es tut uns Leid, aber die gesuchte Seite konnte nicht gefunden werden.",
 
     // Course content
-    "The course definition could not be loaded. (Technical error: ${error})": "Die Kursdefinition konnte nicht geladen werden (Technischer Fehler: ${error})",
+    "The course definition could not be loaded. (Technical error: ${error})": "Die Kursdefinition konnte nicht geladen werden. (Technischer Fehler: ${error})",
+    "The page content could not be loaded. (Technical error: ${error})": "Der Inhalt dieser Seite konnte nicht geladen werden. (Technischer Fehler: ${error})",
+    "Error in the course definition. Unknown page type: ${pageType}": "Fehler in der Kursdefinition. Unbekannter Seitentyp: ${pageType}",
 };
