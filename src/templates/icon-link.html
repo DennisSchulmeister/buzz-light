@@ -1,10 +1,10 @@
 <span data-bind="if: target">
-    <a data-bind="path: path, attr: {'class': classes, 'href': href, 'target': target, 'data-tooltip': tooltip}">
+    <a data-bind="attr: {'class': classes, 'href': href, 'target': target, 'data-tooltip': tooltip}">
         <i data-bind="attr: {'class': 'navbar-icon icon-' + icon}"></i>
     </a>
 </span>
 <span data-bind="if: !target">
-    <a data-bind="path: path, attr: {'class': classes, 'href': href, 'data-tooltip': tooltip}">
+    <a data-bind="attr: {'class': classes, 'href': href, 'data-tooltip': tooltip}">
         <i data-bind="attr: {'class': 'navbar-icon icon-' + icon}"></i>
     </a>
 </span>
