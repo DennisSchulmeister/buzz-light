@@ -69,7 +69,7 @@ function initiliazePlugins(startAt) {
             result.then(() => {
                 initiliazePlugins(i + 1);
             }).catch(() => {
-                initiliazePlugins(i + 1);
+                //initiliazePlugins(i + 1);
             });
 
             break;
