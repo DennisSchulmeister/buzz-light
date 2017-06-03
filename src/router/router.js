@@ -24,7 +24,7 @@ import ko from "knockout";
  * for the content of each surface element.
  *
  * But unlike Senna.js this implementation allows to load Screens in background
- * (by returning a Prmoise object) whereas Senna.js wants the Screen class to be
+ * (by returning a Promise object) whereas Senna.js wants the Screen class to be
  * defined upfront. In Senna.js the background loading is performed by the Screen
  * object. Here the background loading is performend when the Screen object is
  * loaded and optionally whereas the Screen methods must not be asynchronous.
