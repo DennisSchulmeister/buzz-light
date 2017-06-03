@@ -20,8 +20,8 @@ import I18nPlugin from "./i18n.js";
 import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
-import CoursePagePlugin from "./pages/course.js";
-import The404PagePlugin from "./pages/404.js";
+//import CoursePagePlugin from "./pages/course.js";
+import The404ScreenPlugin from "./screens/404.js";
 import RouterPlugin from "./router.js";
 
 // Local configuration (may contain extra plugins)
@@ -33,8 +33,8 @@ let pluginClasses = [
     IconLinkPlugin,
     ToastPlugin,
     RedirectHomePlugin,
-    CoursePagePlugin,
-    The404PagePlugin, // Must be the last page
+    //CoursePagePlugin,
+    The404ScreenPlugin, // Must be the last screen
     RouterPlugin,
 ];
 
@@ -54,29 +54,19 @@ pluginClasses.forEach(pluginClass => {
 
 // Initialize all plugins now so that they may access each other.
 // The order is the same as in the pluginClasses list above.
-function initiliazePlugins(startAt) {
-    for (let i = startAt; i < instances.length; i++) {
-        let plugin = instances[i];
+function initiliazePlugins() {
+    async function _doInitilizePlugins() {
+        for (let i in instances) {
+            let plugin = instances[i];
 
-        if (!plugin.initialize) continue;
-        let result = plugin.initialize(plugins);
-
-        if (result instanceof Promise) {
-            // If a Promise came back defer the initialization of all other
-            // plugins until the promise resolves
-            result.then(() => {
-                initiliazePlugins(i + 1);
-            }).catch((error) => {
-                console.log(error);
-                // Don't goon with the initialization because for some strange
-                // reason the counter i is 0 again?!
-             });
-
-            break;
+            if (!plugin.initialize) continue;
+            await plugin.initialize(plugins);
         }
     }
+
+    _doInitilizePlugins();
 }
 
-initiliazePlugins(0);
+initiliazePlugins();
 
 export default plugins;

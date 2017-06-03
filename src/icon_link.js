@@ -29,6 +29,14 @@ class IconLinkPlugin {
     /**
      * Plugin constructor.
      */
+    constructor() {
+        this.name = "IconLink";
+    }
+
+    /**
+     * Plugin initialization.
+     * @param {Array} plugins Runtime objects of all plugins
+     */
     initialize(plugins) {
         this.name = "IconLink";
 
@@ -42,6 +50,7 @@ class IconLinkPlugin {
                     if (!params.href) params.href = "";
                     if (!params.target) params.target = "";
                     if (!params.tooltip) params.tooltip = "";
+                    if (!params.class) params.class = "";
 
                     this.icon = params.icon;
                     this.href = params.href;
@@ -51,6 +60,10 @@ class IconLinkPlugin {
 
                     if (params.tooltip) {
                         this.classes = `${this.classes} tooltip`;
+                    }
+
+                    if (params.class) {
+                        this.classes = `${this.classes} ${params.class}`;
                     }
                 }
             },

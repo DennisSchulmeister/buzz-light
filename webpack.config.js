@@ -21,7 +21,7 @@ const extractCSS = new ExtractTextPlugin("style.css");
 
 let webpackConfig = {
     entry: {
-        vendor: ["knockout", "ko-component-router", "jquery",],
+        vendor: ["knockout", "jquery",],
         app: path.join(__dirname, "src", "app.js"),
     },
     output: {

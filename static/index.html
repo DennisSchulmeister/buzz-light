@@ -21,18 +21,16 @@
 
         <header class="buzz-navbar">
             <section>
-                <h1 data-bind="text: pageName"></h1>
+                <h1 data-bind="text: screenTitle"></h1>
             </section>
             <section class="nogrow">
-                <buzz-icon-link params="icon: 'home', href: config.home, tooltip: _('Start page')"></buzz-icon-link>
+                <buzz-icon-link params="icon: 'home', href: config.home, tooltip: _('Start page'), class: 'internal'"></buzz-icon-link>
                 <buzz-language-chooser></buzz-language-chooser>
                 <buzz-icon-link params="icon: 'earth', href: config.website, target: 'blank', tooltip: _('Website')" data-bind="visible: config.website"></buzz-icon-link>
             </section>
         </header>
 
-        <main data-bind="attr: {class: mainClass}">
-            <ko-component-router></ko-component-router>
-        </main>
+        <main id="main-content"></main>
 
         <script src="%public_url%/vendor.bundle.js"></script>
         <script src="%public_url%/app.bundle.js"></script>

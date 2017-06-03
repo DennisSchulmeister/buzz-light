@@ -27,23 +27,22 @@ class RedirectHomePlugin {
 
     /**
      * Append URL routes for the SPA router
-     * @param {Object} routes At this point already existing routes
+     * @param {Object} router The SPA router instance
      */
-    defineUrlRoutes(routes) {
-        Object.assign(routes, {
-            "/": this.redirect,
+    addRoutes(router) {
+        router.addRoute({
+            path: "^/$",
+            handler: () => RedirectHomeScreen,
         });
     }
+}
 
-    /**
-     * Called by the SPA router when the home page "/" is requested. This
-     * doesn't really load a knockout.js component but instead redirects the
-     * user to the real home page as defined in ../config.js.
-     *
-     * @param {Object} ctx The router context
-     */
-    redirect(ctx) {
-        ctx.router.update(config.home);
+/**
+ * SPA router screen which overrides the current URL.
+ */
+class RedirectHomeScreen {
+    onShow() {
+        return config.home;
     }
 }
 

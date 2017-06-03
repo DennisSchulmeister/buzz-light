@@ -15,17 +15,21 @@ let config = {
     // Page title
     title: "Buzz Light",
 
+    // Base path where your website sits on the server (prefix for the
+    // url configuration, e.g. "/subsdir").
+    basePath: "",
+
+    // We don't really care for older browsers withouth HTML5 History API.
+    // However hashbang based routing (with an # in the URL) makes life easier
+    // during development. It's safe to set this value to false in production
+    // as it makes for pretier URLs.
+    hashBang: true,
+
     // URL where the user gets redirects to when requesting the home page
     home: "/course/example",
 
     // URL of your external website
     website: "https://www.github.com/DennisSchulmeister/buzz-light",
-
-    // Available courses (sub-directories below static/courses or in a production
-    // environmant sub-paths below the courses/ URL path)
-    courses: [
-        "example",
-    ],
 
     // URL prefix from where all static course files are served
     // Don't change to "/course" because this will conflict with the URL
@@ -33,11 +37,11 @@ let config = {
     // to get the course definition and static files.
     courseUrlPrefix: "/courses",
 
-    // We don't really care for older browsers withouth HTML5 History API.
-    // However hashbang based routing (with an # in the URL) makes life easier
-    // during development. It's safe to set this value to false in production
-    // as it makes for pretier URLs.
-    hashbangUrls: true,
+    // Available courses (sub-directories below static/courses or in a production
+    // environmant sub-paths below the courses/ URL path)
+    courses: [
+        "example",
+    ],
 
     // Default language (leave empty for auto-detect)
     language: "",

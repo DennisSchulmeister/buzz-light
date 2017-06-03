@@ -8,7 +8,7 @@
         "build:static": "npm run clean; node scripts/build-static.js",
         "build:webpack": "webpack",
         "build": "npm run build:static; npm run build:webpack",
-        "watch": "watch-run -p 'static/**' npm run build:static",
+        "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
         "devserver": "npm run watch & webpack-dev-server --content-base build/"
     },
     "config": {
@@ -25,7 +25,6 @@
         "html-loader": "^0.4.5",
         "jquery": "^3.2.1",
         "knockout": "^3.4.2",
-        "ko-component-router": "^4.4.4",
         "less": "^2.7.2",
         "less-loader": "^4.0.3",
         "shelljs": "^0.7.7",

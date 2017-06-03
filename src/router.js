@@ -11,108 +11,98 @@
 
 // Imports
 import ko from "knockout";
-import Router from "ko-component-router";
+import Router from "./router/router.js";
 import config from "../config.js";
 
 /**
- * The single page router which will load Knockout components as the content
- * of the page.
+ * Plugin to manage the singleton SPA router instance. This plugin queries the
+ * other plugins to add routes to the SPA router. The screen plugins in turn
+ * add their routes which asynchronously load the screens with their respective
+ * ko-components.
+ *
+ * Also this plugin adds a few global context values which are available inside
+ * the screens' ko-components, like the page name, the translation object and
+ * so on.
  */
 class RouterPlugin {
     /**
      * Constructor which initializes this.values to a dictionary with the
      * following observable bindings.
      *
-     *   * loading:    A boolean which indicates, whether the router is
-     *                 loading a new page
-     *   * pageName:  Heading title of the currently visible page
-     *   * title:      <head> <title> ... </title> </head> string
-     *   * config:     The configration object from config.js
-     *   * language:   The currently active language
-     *   * languages:  A list of all available languages
-     *   * _:          Translation function to be called in the HTML templates
-     *   * mainClass:  CSS class to set for the <main> content
+     *   * screenTitle: Heading title of the currently visible page
+     *   * title: <head> <title> ... </title> </head> string
+     *   * config: The configration object from config.js
+     *   * language: The currently active language
+     *   * languages: A list of all available languages
+     *   * _: Translation function to be called in the HTML templates
+     *   * mainClass: CSS class to set for the <main> content
+     *   * loading: Flag, whether the router is loading a screen (read-only)
+     *   * currentPath: Currently visible path (read-only)
      */
     constructor() {
         this.name = "Router";
-
-        this.loading = ko.observable(true);
-        this.pageName = ko.observable("");
-        this.title = ko.computed(() => {
-            let title = config.title ? config.title : "";
-            return this.pageName() ? title + ": " + this.pageName() : title
-        });
-
-        this.mainClass = ko.observable("");
+        this._router = null;
 
         this.values = {
-            "loading": this.loading,
-            "pageName": this.pageName,
+            "screenTitle": ko.observable(""),
             "title": this.title,
             "config": config,
             "language": ko.observable(""),
             "languages": ko.observable({}),
             "_": undefined,
-            "mainClass": this.mainClass,
+            "loading": ko.observable(false),
+            "currentPath": ko.observable(""),
         };
+
+        this.title = ko.computed(() => {
+            let title = config.title ? config.title : "";
+            return this.values.screenTitle() ? title + ": " + this.values.screenTitle() : title
+        });
     }
 
     /**
      * Initialize the single page router and start routing. This should be
-     * the last plugin which gets initialized because otherwise pluginRuntimes
-     * will not be complete and might be missing some page plugins.
+     * the last plugin which gets initialized because otherwise some page
+     * plugins might not be fully initialized, yet.
      *
      * @param {Array} plugins Runtime objects of all plugins
      */
     initialize(plugins) {
-        // Auto-update loading flag when the router is loading a new page
-        Router.use((ctx) => {
-            let self = this;
-
-            return {
-                beforeRender() {
-                    self.loading(true);
-                    self.mainClass("");
-                },
-                afterRender() {
-                    self.loading(false);
-                },
-            };
-        });
-
-        // Base configuration
-        Router.setConfig({
-            base: "",
-            hashbang: config.hashbangUrls,
-            activePathCSSClass: "active-path",
-        });
-
-        // URL routing from page plugins
-        let routes = {};
-
-        for (let name in plugins) {
-            let plugin = plugins[name];
-            if (!plugin.defineUrlRoutes) continue;
-            plugin.defineUrlRoutes(routes, plugins);
-        }
-
-        Router.useRoutes(routes);
-
         // Add current language to the binding context
         this.values.language = plugins["I18n"].language;
         this.values.languages(plugins["I18n"].languages);
         this.values._ = plugins["I18n"].translate;
 
+        // Configure router and query plugins for routes
+        this._router = new Router({
+            basePath: config.basePath || "",
+            hashBang: config.hashBang || false,
+            bindingContext: this.values,
+        });
+
+        this._router.loading.subscribe(v => this.values.loading(v));
+        this._router.currentPath.subscribe(v => this.values.currentPath(v));
+        this._router.currentTitle.subscribe(v => this.values.screenTitle(v));
+
+        this._router.addSurface("main-content");
+
+        for (let name in plugins) {
+            let plugin = plugins[name];
+            if (!plugin.addRoutes) continue;
+            plugin.addRoutes(this._router);
+        }
+
         // Start routing
+        this._router.activate();
         ko.applyBindings(this.values, document.getElementsByTagName("html")[0]);
     }
 
     /**
-     * Getter for the underlying ko-component-router.
-     * @return {Object} The ko-component-router
+     * Return the SPA router instance.
+     * @return {Object} The senna.js App object
      */
-    get ko_router() {
-        return Router.head;
+    get router() {
+        return this._router;
     }
 }
 

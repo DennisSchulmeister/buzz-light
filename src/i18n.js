@@ -84,8 +84,9 @@ class I18nPlugin {
                 }
 
                 // Switch current language
-                switchLanguage(language) {
+                switchLanguage(language, event) {
                     plugin.switchLanguage(language.language, true);
+                    event.preventDefault();
                 }
 
                 // Check if language is active
@@ -151,7 +152,7 @@ class I18nPlugin {
      * catalog will be loaded and nothing else happens. This means that the
      * new language will not be used before the next translate() call. If
      * the reload parameter is set the SPA router will reload the currently
-     * visible page in order to update the UI.
+     * visible page in order to fully update the UI including the screen title.
      *
      * @param  {String} language The new language to use
      * @param  {Boolean} reload  Flag whether to reload the current page
@@ -171,8 +172,7 @@ class I18nPlugin {
             localStorage.language = language;
 
             if (!reload) return;
-            let current_path = plugins["Router"].ko_router.ctx.path;
-            plugins["Router"].ko_router.update(current_path, {force: true});
+            plugins["Router"].router.reload();
         });
     }
 

@@ -9,25 +9,15 @@
  */
 "use strict";
 
-import ko from "knockout";
 import plugins from "../../app.js";
-
 const _ = plugins["I18n"].translate;
 
 /**
- * ViewModel class for the course content page. This is actually the page
- * behind most if not everything which can be seen inside a course. Because
- * in reality a course is just a container for content pages.
+ * ViewModel class for the 404 screen main content.
  */
-class The404Page {
+class The404ScreenMain {
     constructor() {
-        plugins["Router"].pageName(_("Page not found"));
     }
 }
 
-ko.components.register("the-404-page", {
-    viewModel: The404Page,
-    template: require("./404.html"),
-});
-
-export default The404Page;
+export default The404ScreenMain;

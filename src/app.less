@@ -38,39 +38,13 @@ body {
         margin: 0;
     }
 
-    // Make the main content fill the entire vertical space when in "fullscreen"
-    // mode. This scary chain of selectors stems from ko-component-router deeply
-    // nesting the page content like this:
-    //
-    //   <main class="fullscreen">
-    //       <ko-component-router>
-    //           <div>
-    //               <div>
-    //                   <div>
-    //                       <div>
-    //                           page content from template
-    //                       </div>
-    //                   </div>
-    //               </div>
-    //           </div>
-    //       </ko-component-router>
-    //   </main>
-    main.fullscreen,
-    main.fullscreen > *:first-child,
-    main.fullscreen > *:first-child > div,
-    main.fullscreen > *:first-child > div > div,
-    main.fullscreen > *:first-child > div > div > div,
-    main.fullscreen > *:first-child > div > div > div > div {
+    // Make main content fill the entire vertical space when in fullscreen mode
+    main.fullscreen {
         display: flex;
         flex-direction: column;
     }
 
-    main.fullscreen > *:first-child,
-    main.fullscreen > *:first-child > div,
-    main.fullscreen > *:first-child > div > div,
-    main.fullscreen > *:first-child > div > div > div,
-    main.fullscreen > *:first-child > div > div > div > div,
-    main.fullscreen > *:first-child > div > div > div > div > * {
+    main.fullscreen > *:first-child {
         flex-grow: 1;
     }
 }
@@ -119,5 +93,9 @@ body {
         font-size: 180%;
         color: @red;
         text-shadow: @shadow;
+    }
+
+    .menu-item {
+        cursor: pointer;
     }
 }
