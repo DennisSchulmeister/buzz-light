@@ -53,9 +53,6 @@ class Router {
      *         (Default: true)
      *   * loadingClass: CSS class name to set for the surfaces while the
      *         router is loading (default: loading)
-     *   * internalLinkClass: CSS class if interal links which cause the
-     *         router to show a new screen instead of navigating to a new
-     *         web page. (Default: internal)
      *   * bindingContext: Dictionary with ko bindings which will be available
      *         inside the templates which knockout uses to render the surface
      *         contents.
@@ -68,7 +65,6 @@ class Router {
             hashBang: config.hashBang || false,
             pushHistory: config.pushHistory == undefined ? true : config.pushHistory,
             loadingClass: config.loadingClass || "loading",
-            internalLinkClass: config.internalLinkClass || "internal",
             bindingContext: config.bindingContext || {},
         };
 
@@ -215,13 +211,14 @@ class Router {
      */
     async goto(newPath, updateHistory) {
         // Apply handler for the current path and render screen
-        if (updateHistory == undefined) updateHistory = true;
-        newPath = newPath || "/";
-
         let oldPath = this.currentPath();
         let oldTitle = document.title;
         let newTitle = "";
 
+        newPath = newPath || "/";
+        newPath = this._parseRelativePath(oldPath, newPath);
+
+        if (updateHistory == undefined) updateHistory = true;
         this.loading(true);
 
         while (newPath) {
@@ -437,10 +434,11 @@ class Router {
         while (target && target.nodeName != "A") target = target.parentNode;
         if (!target || target.nodeName != "A") return;
 
-        if (!target.classList.contains(this.config.internalLinkClass)) return;
+        let path = target.hash.slice(1);
+        if (!path.length) return;
 
         event.preventDefault();
-        if (this.active) this.goto(target.pathname);
+        if (this.active) this.goto(path);
     }
 
     /**
@@ -476,6 +474,36 @@ class Router {
         } else {
             return location.pathname;
         }
+    }
+
+    /**
+     * Parse a given path string and handle relative movements like ./ or ../.
+     * This takes the previously active path as a start and then parses the
+     * new path relative to that. If the new path is an absolute path the old
+     * path will be ignored. Otherwise both paths will be joined step by step.
+     *
+     * @param  {String} oldPath Current path
+     * @param  {String} newPath New possibly relative path
+     * @return {String} The final path to go to
+     */
+    _parseRelativePath(oldPath, newPath) {
+        let result = [];
+        if (!newPath.startsWith("/")) result = oldPath.split("/")
+        if (oldPath.endsWith("/")) result.pop();
+
+        newPath.split("/").forEach(element => {
+            switch (element) {
+                case ".":
+                    break;
+                case "..":
+                    result.pop();
+                    break;
+                default:
+                    result.push(element);
+            }
+        });
+
+        return result.join("/");
     }
 }
 
