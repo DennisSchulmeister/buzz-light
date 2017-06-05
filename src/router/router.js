@@ -82,6 +82,7 @@ class Router {
 
         this.currentPath = ko.observable("");
         this.currentTitle = ko.observable("");
+        this.breadcrumb = ko.observableArray();
         this._titleSubscription = null;
 
         this.active = false;
@@ -137,9 +138,32 @@ class Router {
      *   * id (optional): ID of the route
      *   * path: Regex to match the current URL
      *   * handler: Handler function which returns one of the following:
-     *                1. A Screen class
-     *                2. A Screen instance
-     *                3. A Promise for one of the above
+     *         1. A Screen class
+     *         2. A Screen instance
+     *         3. A Promise for one of the above
+     *   * breadcrumb: An array with breadcrumb entries (optional). Each entry
+     *         must be an object with the following properties:
+     *             * path: URL path where the breadcrumb entry leads to
+     *             * title: Display title of the breadcrumb entry. This can
+     *                   either be a string or ko-observable.
+     *
+     * Given an breadcurmb array like this:
+     *
+     *   [{
+     *       path: "/",
+     *       title: "Home"
+     *     },{
+     *       path: "/help/",
+     *       title: "Help",
+     *     }, {
+     *        path: "/help/breadcrumbs",
+     *        title, "Breadcrumbs 1&1",
+     *     }]
+     *
+     * The resulting breadcrumb will like similar to this, with each entry
+     * being a clickable link:
+     *
+     *   Home / Help / Breadcrumbs 1&1
      *
      * @param {Object} route Navigational route
      */
@@ -212,8 +236,11 @@ class Router {
 
                 if (matchResult) {
                     matchResult = matchResult.slice(1);
-                    this.currentPath(newPath);
                     matchedRoute = route;
+
+                    this.currentPath(newPath);
+                    this.breadcrumb(matchedRoute.breadcrumb || []);
+
                     break;
                 }
             }

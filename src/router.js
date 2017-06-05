@@ -52,6 +52,7 @@ class RouterPlugin {
             "_": undefined,
             "loading": ko.observable(false),
             "currentPath": ko.observable(""),
+            "breadcrumb": ko.observableArray(),
         };
 
         this.title = ko.computed(() => {
@@ -83,6 +84,7 @@ class RouterPlugin {
         this._router.loading.subscribe(v => this.values.loading(v));
         this._router.currentPath.subscribe(v => this.values.currentPath(v));
         this._router.currentTitle.subscribe(v => this.values.screenTitle(v));
+        this._router.breadcrumb.subscribe(v => this.values.breadcrumb(v));
 
         this._router.addSurface("main-content");
 

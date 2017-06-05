@@ -26,7 +26,7 @@ let config = {
     hashBang: true,
 
     // URL where the user gets redirects to when requesting the home page
-    home: "/course/example/",
+    home: "/course/overview/",
 
     // URL of your external website
     website: "https://www.github.com/DennisSchulmeister/buzz-light",
@@ -40,8 +40,8 @@ let config = {
     // Available courses (sub-directories below static/courses or in a production
     // environmant sub-paths below the courses/ URL path)
     courses: [
-        "example",
-        "test",
+        "overview",
+        "buzz-tutorial",
     ],
 
     // Default language (leave empty for auto-detect)

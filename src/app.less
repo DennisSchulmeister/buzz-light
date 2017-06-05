@@ -10,7 +10,7 @@
 
 @import "../node_modules/spectre.css/src/variables.less";
 
-@red: rgb(152, 33, 33);
+@red: rgb(172, 33, 33);
 @shadow: rgba(255, 255, 255, 0.6) 1px 1px;
 @padding: 4rem;
 
@@ -98,4 +98,20 @@ body {
     .menu-item {
         cursor: pointer;
     }
+
+    a, a:visited {
+        color: @red;
+    }
+
+    a:hover {
+        color: saturate(@red, 50%);
+    }
+}
+
+/**
+ * Fix breadcrumb margins too large
+ */
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 2.5em;
 }

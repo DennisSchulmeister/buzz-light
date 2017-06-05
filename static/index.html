@@ -22,6 +22,7 @@
         <header class="buzz-navbar">
             <section>
                 <h1 data-bind="text: screenTitle"></h1>
+                <buzz-breadcrumb params="items: breadcrumb"></buzz-breadcrumb>
             </section>
             <section class="nogrow">
                 <buzz-icon-link params="icon: 'home', href: config.home, tooltip: _('Start page'), class: 'internal'"></buzz-icon-link>

@@ -1,0 +1,16 @@
+{
+    "language": {
+        "": {
+            "name": "Course Overview",
+            "pages": {
+                "": "index.en.html"
+            }
+        },
+        "de": {
+            "name": "Kursübersicht",
+            "pages": {
+                "": "index.de.html"
+            }
+        }
+    }
+}

@@ -11,6 +11,7 @@
 
 import ko from "knockout";
 import config from "../config.js";
+import RedirectScreen from "./router/redirect.js";
 
 /**
  * Simple plugin which redirects the user to the start URL when the root
@@ -32,17 +33,8 @@ class RedirectHomePlugin {
     addRoutes(router) {
         router.addRoute({
             path: "^/$",
-            handler: () => RedirectHomeScreen,
+            handler: () => new RedirectScreen(config.home),
         });
-    }
-}
-
-/**
- * SPA router screen which overrides the current URL.
- */
-class RedirectHomeScreen {
-    onShow() {
-        return config.home;
     }
 }
 

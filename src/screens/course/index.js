@@ -66,32 +66,11 @@ class CourseScreen extends Screen {
      */
     async onShow(oldPath, newPath) {
         // Find best matching page definition for the current language
-        let errorMessage = undefined;
-        let language = plugins["I18n"].language();
+        let definition = this.course.getPageDefinition(this.pagePath, this.subpagePath);
+        let errorMessage = definition.errorMessage;
 
-        if (language in this.course.manifest.language
-                && "pages" in this.course.manifest.language[language]
-                && this.pagePath in this.course.manifest.language[language].pages) {
-            this.page = this.course.manifest.language[language].pages[this.pagePath];
-        } else if ("" in this.course.manifest.language
-                && "pages" in this.course.manifest.language[""]
-                && this.pagePath in this.course.manifest.language[""].pages) {
-            this.page = this.course.manifest.language[""].pages[this.pagePath];
-        } else {
-            errorMessage = _("Page ${pagePath} is neither defined for language ${language} nor the fallback language.")
-                           .replace("${pagePath}", this.pagePath)
-                           .replace("${language}", language);
-        }
-
-        if (this.subpagePath && this.subpagePath.length > 0) {
-            this.subpage = this.page.pages[this.subpagePath];
-
-            if (!this.subpage) {
-                errorMessage = _("Definition of sub page ${subpagePath} of page ${pagePath} is missing.")
-                               .replace("${pagePath}", this.pagePath)
-                               .replace("${subpagePath}", this.subpagePath);
-            }
-        }
+        this.page = definition.page;
+        this.subpage = definition.subpage;
 
         // Check correctness of the page definition
         if (!errorMessage) {

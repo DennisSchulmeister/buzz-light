@@ -17,6 +17,7 @@ import "./app.less";
 
 // Built-in plugins
 import I18nPlugin from "./i18n.js";
+import BreadcrumbPlugin from "./breadcrumb.js";
 import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
@@ -30,6 +31,7 @@ import config from "../config.js";
 // Instantiate all plugins
 let pluginClasses = [
     I18nPlugin, // Must be the first plugin
+    BreadcrumbPlugin,
     IconLinkPlugin,
     ToastPlugin,
     RedirectHomePlugin,

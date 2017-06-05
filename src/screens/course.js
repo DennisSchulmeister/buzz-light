@@ -10,8 +10,10 @@
 "use strict";
 
 import $ from "jquery";
+import ko from "knockout";
 import config from "../../config.js";
 import ScreenPlugin from "./base.js";
+import RedirectScreen from "../router/redirect.js";
 
 /**
  * Screen plugin for the course contents. This page plugin will render most
@@ -27,7 +29,6 @@ class CourseScreenPlugin extends ScreenPlugin {
         this.name = "CourseScreen";
 
         this.router = undefined;
-        this.course = new CourseData();
     }
 
     /**
@@ -36,6 +37,7 @@ class CourseScreenPlugin extends ScreenPlugin {
      */
     initialize(plugins) {
         this.plugins = plugins;
+        this.course = new CourseData(plugins);
     }
 
     /**
@@ -150,7 +152,7 @@ class CourseScreenPlugin extends ScreenPlugin {
 
         if (!manifestRaw) return;
 
-        let course = new CourseData();
+        let course = new CourseData(this.plugins);
         course.courseId = courseId;
         course.manifest = this.cleanManifest(courseId, manifestRaw);
         course.contentUrl = contentUrl;
@@ -229,12 +231,47 @@ class CourseScreenPlugin extends ScreenPlugin {
         let newRoutes = [];
         let seenPages = {};
 
+        let breadcrumbCourse = [{
+            path: this.getCourseUrl(this.course.courseId),
+            title: ko.computed(() => this.course.getTitle()),
+        }];
+
+        let _breadcrumbPage = (pagePath, subpagePath) => {
+            // Return single breadcrumb entry for a page or subpage
+            let courseUrl = this.getCourseUrl(this.course.courseId);
+            let definition = this.course.getPageDefinition(pagePath, subpagePath);
+
+            pagePath = pagePath || "";
+            subpagePath = subpagePath || "";
+
+            return {
+                path: `${courseUrl}${pagePath}${subpagePath}`,
+                title: ko.computed(() => {
+                    if (definition.subpage && definition.subpage.name.length > 0) {
+                        return definition.subpage.name;
+                    } else if (definition.page && definition.page.name.length > 0) {
+                        return definition.page.name;
+                    } else if (subpagePath) {
+                        return subpagePath;
+                    } else {
+                        return pagePath;
+                    }
+                }),
+            }
+        }
+
         for (let language in this.course.manifest.language) {
             for (let pagePath in this.course.manifest.language[language].pages) {
                 if (pagePath in seenPages) continue;
                 seenPages[pagePath] = true;
 
                 let page = this.course.manifest.language[language].pages[pagePath];
+                let breadcrumbPage = [];
+
+                if (pagePath != "") {
+                    breadcrumbPage = breadcrumbCourse.slice();
+                    breadcrumbPage.push(_breadcrumbPage(pagePath));
+                }
 
                 // Add routes in reverse order so we don't need to update the
                 // index after each splice() later
@@ -247,10 +284,34 @@ class CourseScreenPlugin extends ScreenPlugin {
                             let module = await this.importModule();
                             return new module.CourseScreen(this.course, pagePath, "");
                         },
+                        breadcrumb: breadcrumbPage,
                     });
                 } else {
                     // Container page with subpages
-                    for (let subpagePath in page.pages) {
+                    let subpagePaths = Object.keys(page.pages);
+
+                    subpagePaths.sort((a,b) => {
+                        let aPos = page.pages[a].pos || 0;
+                        let bPos = page.pages[b].pos || 0;
+
+                        if (aPos < bPos) return -1;
+                        if (aPos > bPos) return 1;
+                        return 0;
+                    });
+
+                    if (subpagePaths.length > 0) {
+                        newRoutes.unshift({
+                            id: routeId,
+                            path: `^${this.course.courseUrl}${pagePath}$`,
+                            handler: () => new RedirectScreen(`${this.course.courseUrl}${pagePath}${subpagePaths[0]}`),
+                            breadcrumb: breadcrumbPage,
+                        });
+                    }
+
+                    subpagePaths.forEach(subpagePath => {
+                        let breadcrumbSubpage = breadcrumbPage.slice();
+                        breadcrumbSubpage.push(_breadcrumbPage(pagePath, subpagePath));
+
                         newRoutes.unshift({
                             id: routeId,
                             path: `^${this.course.courseUrl}${pagePath}${subpagePath}$`,
@@ -258,8 +319,9 @@ class CourseScreenPlugin extends ScreenPlugin {
                                 let module = await this.importModule();
                                 return new module.CourseScreen(this.course, pagePath, subpagePath);
                             },
+                            breadcrumb: breadcrumbSubpage,
                         });
-                    }
+                    });
                 }
             }
         }
@@ -319,11 +381,97 @@ class RedirectCourseScreen {
  *   *
  */
 class CourseData {
-    constructor() {
+    constructor(plugins) {
+        this.plugins = plugins;
+
         this.courseId = "";
         this.manifest = undefined;
         this.contentUrl = "";
         this.courseUrl = "";
+    }
+
+    /**
+     * Gets the course title in the current language.
+     * @return {String} Course title in the current language
+     */
+    getTitle() {
+        let title = this.courseId;
+        let language = this.plugins["I18n"].language();
+
+        if (language in this.manifest.language
+                && "pages" in this.manifest.language[language]
+                && "" in this.manifest.language[language].pages
+                && "name" in this.manifest.language[language].pages[""]
+                && this.manifest.language[language].pages[""].name.length > 0) {
+            // Title of the start page in current language
+            title = this.manifest.language[language].pages[""].name;
+        } else if (language in this.manifest.language
+                && "name" in this.manifest.language[language]
+                && this.manifest.language[language].name.length > 0) {
+            // Course name in current language
+            title = this.manifest.language[language].name;
+        } else if ("" in this.manifest.language
+                && "pages" in this.manifest.language[""]
+                && "" in this.manifest.language[""].pages
+                && "name" in this.manifest.language[""].pages[""]
+                && this.manifest.language[""].pages[""].name.length > 0) {
+            // Title of the start page in fallback language
+            title = this.manifest.language[""].pages[""].name;
+        } else if ("" in this.manifest.language
+                && "name" in this.manifest.language[""]
+                && this.manifest.language[""].name.length > 0) {
+            // Course name in fallback language
+            title = this.manifest.language[""].name;
+        }
+
+        return title;
+    }
+
+    /**
+     * Returns the best fitting definition of a searched page and subpage
+     * (optional) according to the current language.
+     *
+     * @param  {String} pagePath Path of the searched page
+     * @param  {String} subpagePath Relative path of the searched subpage (optional)
+     * @return {Object} Object with the properties page, subpage and errorMessage
+     */
+    getPageDefinition(pagePath, subpagePath) {
+        let result = {
+            page: null,
+            subpage: null,
+            errorMessage: null,
+        };
+
+        let language = this.plugins["I18n"].language();
+        const _ = this.plugins["I18n"].translate;
+
+        if (language in this.manifest.language
+                && "pages" in this.manifest.language[language]
+                && pagePath in this.manifest.language[language].pages) {
+            result.page = this.manifest.language[language].pages[pagePath];
+        } else if ("" in this.manifest.language
+                && "pages" in this.manifest.language[""]
+                && pagePath in this.manifest.language[""].pages) {
+            result.page = this.manifest.language[""].pages[pagePath];
+        } else {
+            result.errorMessage = _("Page ${pagePath} is neither defined for language ${language} nor the fallback language.")
+                                 .replace("${pagePath}", pagePath)
+                                 .replace("${language}", language);
+            return result;
+        }
+
+        if (subpagePath && subpagePath.length > 0) {
+            result.subpage = result.page.pages[subpagePath];
+
+            if (!result.subpage) {
+                result.errorMessage = _("Definition of sub page ${subpagePath} of page ${pagePath} is missing.")
+                               .replace("${pagePath}", pagePath)
+                               .replace("${subpagePath}", subpagePath);
+                return result;
+            }
+        }
+
+        return result;
     }
 }
 
