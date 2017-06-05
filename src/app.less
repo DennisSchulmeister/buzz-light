@@ -39,12 +39,14 @@ body {
     }
 
     // Make main content fill the entire vertical space when in fullscreen mode
-    main.fullscreen {
+    main.fullscreen,
+    main.fullscreen > *:first-child {
         display: flex;
         flex-direction: column;
     }
 
-    main.fullscreen > *:first-child {
+    main.fullscreen > *:first-child,
+    main.fullscreen > *:first-child > * {
         flex-grow: 1;
     }
 }
