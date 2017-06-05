@@ -156,7 +156,7 @@ class CourseScreen extends Screen {
      */
     onLeave(oldPath, newPath) {
         if (!newPath.startsWith(plugins["CourseScreen"].getCourseUrl(this.course.courseId))) {
-            plugins["CourseScreen"].removeCourseRoutes();
+            plugins["CourseScreen"].removeCourseRoutes(this.course.courseId);
         }
 
         ko.components.unregister("course-screen-page");

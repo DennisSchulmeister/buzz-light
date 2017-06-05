@@ -278,13 +278,13 @@ class CourseScreenPlugin extends ScreenPlugin {
      * generic catch-all route again. Will be called when the user navigates
      * away from the course in order to clean up memory.
      */
-    removeCourseRoutes() {
-        let routeId = this.getCourseRouteId(this.course.courseId);
+    removeCourseRoutes(courseId) {
+        let routeId = this.getCourseRouteId(courseId);
         let index = this.router.routes.findIndex(r => r.id === routeId);
         this.router.removeRoute(routeId);
 
-        if (index < 0) index = this.router.routes.length;
-        this.router.routes.splice(index, 0, this.getCourseCatchAllRoute(this.course.courseId));
+        if (index < 0) index = this.router.routes.length - 1;
+        this.router.routes.splice(index, 0, this.getCourseCatchAllRoute(courseId));
     }
 }
 

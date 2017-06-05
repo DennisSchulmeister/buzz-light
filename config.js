@@ -41,6 +41,7 @@ let config = {
     // environmant sub-paths below the courses/ URL path)
     courses: [
         "example",
+        "test",
     ],
 
     // Default language (leave empty for auto-detect)
