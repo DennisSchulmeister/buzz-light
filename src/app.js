@@ -20,7 +20,7 @@ import I18nPlugin from "./i18n.js";
 import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
-//import CoursePagePlugin from "./pages/course.js";
+import CourseScreenPlugin from "./screens/course.js";
 import The404ScreenPlugin from "./screens/404.js";
 import RouterPlugin from "./router.js";
 
@@ -33,7 +33,7 @@ let pluginClasses = [
     IconLinkPlugin,
     ToastPlugin,
     RedirectHomePlugin,
-    //CoursePagePlugin,
+    CourseScreenPlugin,
     The404ScreenPlugin, // Must be the last screen
     RouterPlugin,
 ];

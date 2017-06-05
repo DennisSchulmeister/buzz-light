@@ -107,7 +107,7 @@ class Router {
      * @param {String} id DOM ID of the now unmanaged surface element
      */
     removeSurface(id) {
-        this._surfaces = this._surfaces.filter(sId => sId != id);
+        this._surfaces = this._surfaces.filter(s => s != id);
         delete this._surfaceClasses[id];
         this._setLoadingClass(false, id);
     }
@@ -120,6 +120,10 @@ class Router {
      */
     get surfaces() {
         return this._surfaces;
+    }
+
+    set surfaces(surfaces) {
+        this._surfaces = surfaces;
     }
 
     /**
@@ -155,7 +159,7 @@ class Router {
      * @param {[type]} id [description]
      */
     removeRoute(id) {
-        this._routes = this._routes.filter(rId => rId != id);
+        this._routes = this._routes.filter(r => r.id != id);
     }
 
     /**
@@ -170,6 +174,10 @@ class Router {
      */
     get routes() {
         return this._routes;
+    }
+
+    set routes(routes) {
+        this._routes = routes;
     }
 
     /**
@@ -221,6 +229,7 @@ class Router {
         // NOTE: history.pushState needs a context object (first parameter) in
         // order to prevent the browser from loading a new page from the server.
         if (updateHistory && this.config.pushHistory) {
+            // FIXME: Push old path instead of new path and repair broken history in Firefox
             let url = "";
 
             if (this.config.hashBang) {
@@ -230,7 +239,7 @@ class Router {
             }
 
             let title = this._currentScreen && this._currentScreen.title ? this._currentScreen.title() : "";
-            history.pushState({path: newPath}, title, url);
+            history.pushState(newPath, title, url);
         }
     }
 
@@ -270,7 +279,7 @@ class Router {
         let alternativePath = "";
 
         if (screen && screen.onShow) {
-            alternativePath = screen.onShow(oldPath, newPath);
+            alternativePath = await screen.onShow(oldPath, newPath);
         }
 
         if (alternativePath) {
@@ -283,7 +292,7 @@ class Router {
             let surfaceDOM = document.getElementById(surfaceId);
             if (!surfaceDOM) continue;
 
-            let content = screen ? screen.getSurfaceContent(surfaceId) : null;
+            let content = screen ? await screen.getSurfaceContent(surfaceId) : null;
 
             if (content && content.componentName) {
                 content.surfaceClasses = content.surfaceClasses || [];
@@ -296,6 +305,7 @@ class Router {
 
                 surfaceDOM.innerHTML = "";
                 surfaceDOM.appendChild(componentDOM);
+
                 ko.applyBindings(this.config.bindingContext, componentDOM);
             } else {
                 surfaceDOM.innerHTML = "";
@@ -404,7 +414,7 @@ class Router {
      */
     _onHistoryChanged(event) {
         if (!this.active) return
-        let path = event.state && event.state.path ? event.state.path : this._getPathFromUrl();
+        let path = event.state && event.state ? event.state : this._getPathFromUrl();
         this.goto(path, event.state === null);
     }
 

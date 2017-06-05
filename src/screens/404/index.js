@@ -35,7 +35,7 @@ class The404Screen extends Screen {
     /**
      * Register needed ko components on during navigation to this screen.
      */
-    onShow(oldPath, newPath) {
+    async onShow(oldPath, newPath) {
         this.title(_("Page not found"));
 
         ko.components.register("the-404-screen-main", {

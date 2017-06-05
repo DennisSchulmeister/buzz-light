@@ -21,6 +21,11 @@ export default {
 
     // Course content
     "The course definition could not be loaded. (Technical error: ${error})": "Die Kursdefinition konnte nicht geladen werden. (Technischer Fehler: ${error})",
-    "The page content could not be loaded. (Technical error: ${error})": "Der Inhalt dieser Seite konnte nicht geladen werden. (Technischer Fehler: ${error})",
-    "Error in the course definition. Unknown page type: ${pageType}": "Fehler in der Kursdefinition. Unbekannter Seitentyp: ${pageType}",
+    "Error in the course definition.": "Fehler in der Kursdefinition.",
+    "Page ${pagePath} is neither defined for language ${language} nor the fallback language.": "Die Seite ${pagePath} ist weder für die Sprache ${language} noch für die Standardsprache definiert.",
+    "Unknown page type: ${pageType}": "Unbekannter Seitentyp: ${pageType}",
+    "No subpage defined for page type ${pageType}.": "Keine Unterseite für Seitentyp ${pageType} definiert.",
+    "Page type ${pageType} does not support subpages.": "Seitentyp ${pageType} unterstützt keine Unterseiten.",
+    "Definition of sub page ${subpagePath} of page ${pagePath} is missing.": "Die Definition der Unterseite ${subpagePath} der Seite ${pagePath} fehlt.",
+    "The page content could not be loaded. (Technical error: ${error})": "Der Seiteninhalt konnte nicht geladen werden. (Technischer Fehler: ${error})",
 };

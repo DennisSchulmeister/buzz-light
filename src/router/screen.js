@@ -48,7 +48,7 @@ class Screen {
      * @param  {String} newPath New path to be shown
      * @return {String} Navigate to another path instead or undefined
      */
-    onShow(oldPath, newPath) {
+    async onShow(oldPath, newPath) {
         return undefined;
     }
 
@@ -74,7 +74,7 @@ class Screen {
      * @param  {String} id Surface id whose content is requested
      * @return {String} Name of the ko-component to be shown inside the surface
      */
-    getSurfaceContent(id) {
+    async getSurfaceContent(id) {
         if (this.content) {
             return this.content[id];
         } else {

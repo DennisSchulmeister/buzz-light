@@ -3,15 +3,54 @@
         "": {
             "name": "Example Course",
             "pages": {
-                "/": "/en/index.html",
-                "/pageTypes": "/en/pagetypes.html"
+                "": "en/index.html",
+
+                "pagetypes/tabs": {
+                    "type": "tabs",
+                    "name": "Page Type: Tabs",
+                    "pages": {
+                        "tab1": {
+                            "file": "en/pagetypes/tab1.html",
+                            "name": "Tab 1"
+                        },
+                        "tab2": {
+                            "file": "en/pagetypes/tab2.html",
+                            "name": "Tab 2"
+                        },
+                        "tab3": {
+                            "file": "en/pagetypes/tab3.html",
+                            "name": "Tab 3"
+                        }
+                    }
+                }
+
             }
         },
+
         "de": {
             "name": "Beispielkurs",
             "pages": {
-                "/": "/de/index.html",
-                "/pageTypes": "/de/pagetypes.html"
+                "": "de/index.html",
+
+                "pagetypes/tabs": {
+                    "type": "tabs",
+                    "name": "Seitentyp: Tabs",
+                    "pages": {
+                        "tab1": {
+                            "file": "de/pagetypes/tab1.html",
+                            "name": "Tab 1"
+                        },
+                        "tab2": {
+                            "file": "de/pagetypes/tab2.html",
+                            "name": "Tab 2"
+                        },
+                        "tab3": {
+                            "file": "de/pagetypes/tab3.html",
+                            "name": "Tab 3"
+                        }
+                    }
+                }
+
             }
         }
     }

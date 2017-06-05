@@ -63,6 +63,7 @@ class ToastPlugin {
      */
     message(message) {
         this._addMessage(message, "");
+        console.log(message);
     }
 
     /**
@@ -71,6 +72,7 @@ class ToastPlugin {
      */
     primary(message) {
         this._addMessage(message, "primary");
+        console.log(`[primary]: ${message}`);
     }
 
     /**
@@ -79,6 +81,7 @@ class ToastPlugin {
      */
     success(message) {
         this._addMessage(message, "success");
+        console.log(`[success]: ${message}`);
     }
 
     /**
@@ -87,6 +90,7 @@ class ToastPlugin {
      */
     warning(message) {
         this._addMessage(message, "warning");
+        console.log(`[warning]: ${message}`);
     }
 
     /**
@@ -95,6 +99,7 @@ class ToastPlugin {
      */
     error(message) {
         this._addMessage(message, "error");
+        console.log(`[error]: ${message}`);
     }
 
     /**

@@ -12,7 +12,7 @@
 import ScreenPlugin from "./base.js";
 
 /**
- * Page plugin for the 404 screen. This screen will always be shown when an
+ * Screen plugin for the 404 screen. This screen will always be shown when an
  * unkown path is requested from the SPA router.
  */
 class The404ScreenPlugin extends ScreenPlugin {
@@ -21,7 +21,7 @@ class The404ScreenPlugin extends ScreenPlugin {
      */
     constructor() {
         super();
-        this.name = "404Page";
+        this.name = "404Screen";
     }
 
     /**
@@ -39,8 +39,16 @@ class The404ScreenPlugin extends ScreenPlugin {
     addRoutes(router) {
         router.addRoute({
             path: ".*",
-            handler: this.lazyRouteHandler("The404Screen"),
+            handler: this.handler,
         });
+    }
+
+    /**
+     * Route handler which calls the 404 screen.
+     * @return {Function} Route handle function
+     */
+    get handler() {
+        return this.lazyRouteHandler("The404Screen");
     }
 
     /**
