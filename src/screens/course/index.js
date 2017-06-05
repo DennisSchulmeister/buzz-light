@@ -59,6 +59,8 @@ class CourseScreen extends Screen {
         this.page;
         this.subpage;
         this.pageType;
+
+        this.the500screen = null;
     }
 
     /**
@@ -88,7 +90,9 @@ class CourseScreen extends Screen {
         if (errorMessage) {
             errorMessage = _("Error in the course definition.") + ` ${errorMessage}`;
             plugins["Toast"].error(errorMessage);
-            return;
+
+            this.the500screen = await plugins["500Screen"].getScreen();
+            return this.the500screen.onShow(oldPath, newPath);
         }
 
         // Register ko-components according to page type
@@ -125,7 +129,9 @@ class CourseScreen extends Screen {
 
             errorMessage = _("The page content could not be loaded. (Technical error: ${error})").replace("${error}", errorText);
             plugins["Toast"].error(errorMessage);
-            return;
+
+            this.the500screen = await plugins["500Screen"].getScreen();
+            return this.the500screen.onShow(oldPath, newPath);
         }
     }
 
@@ -143,6 +149,10 @@ class CourseScreen extends Screen {
         if (this.pageType.subpages) {
             ko.components.unregister("course-screen-subpage");
         }
+
+        if (this.the500screen) {
+            this.the500screen.onLeave(oldPath, newPath);
+        }
     }
 
     /**
@@ -152,13 +162,17 @@ class CourseScreen extends Screen {
      * @return {String} Name of the ko-component to be shown inside the surface
      */
     async getSurfaceContent(id) {
-        let componentName = "";
-        if (id === "main-content") componentName = "course-screen-page";
+        if (this.the500screen) {
+            return this.the500screen.getSurfaceContent(id);
+        } else {
+            let componentName = "";
+            if (id === "main-content") componentName = "course-screen-page";
 
-        return {
-            componentName: componentName,
-            surfaceClasses: this.pageType.surfaceClasses || "",
-            componentClasses: this.pageType.componentClasses || "",
+            return {
+                componentName: componentName,
+                surfaceClasses: this.pageType.surfaceClasses || "",
+                componentClasses: this.pageType.componentClasses || "",
+            }
         }
     }
 }

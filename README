@@ -10,6 +10,7 @@ $ yarn add --dev extract-text-webpack-plugin
 $ yarn add --dev css-loader
 $ yarn add --dev less-loader
 $ yarn add --dev less
+$ yarn add --dev style-loader
 $ yarn add --dev git://github.com/mishoo/UglifyJS2#harmony
 $ yarn add --dev uglifyjs-webpack-plugin
 $ yarn add --dev url-loader

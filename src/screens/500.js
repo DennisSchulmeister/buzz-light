@@ -13,16 +13,16 @@ import config from "../../config.js";
 import ScreenPlugin from "./base.js";
 
 /**
- * Screen plugin for the 404 screen. This screen will always be shown when an
- * unkown path is requested from the SPA router.
+ * Screen plugin for the 500 screen. This screen will be shown in certain
+ * situations where an internal error occurs.
  */
-class The404ScreenPlugin extends ScreenPlugin {
+class The500ScreenPlugin extends ScreenPlugin {
     /**
      * Simple constructor which merely defines the plugin name.
      */
     constructor() {
         super();
-        this.name = "404Screen";
+        this.name = "500Screen";
     }
 
     /**
@@ -40,15 +40,10 @@ class The404ScreenPlugin extends ScreenPlugin {
     addRoutes(router) {
         if (config.developmentMode) {
             router.addRoute({
-                path: "^/404/$",
+                path: "^/500/$",
                 handler: this.handler,
             });
         }
-
-        router.addRoute({
-            path: ".*",
-            handler: this.handler,
-        });
     }
 
     /**
@@ -56,33 +51,33 @@ class The404ScreenPlugin extends ScreenPlugin {
      * @return {Promise} Loaded module content
      */
     importModule() {
-        return import("./404/");
+        return import("./500/");
     }
 
     /**
-     * Utility function to show the 404 page without actually navigating to it.
+     * Utility function to show the 500 page without actually navigating to it.
      * Only call this while the SPA router isn't navigation to another page,
      * already. If it is, call the handler function provided by the handler
      * propoerty directly.
      */
     show() {
-        let handler = this.lazyRouteHandler("The404Screen");
+        let handler = this.lazyRouteHandler("The500Screen");
         this.plugins["Router"].router.applyHandler(handler);
     }
 
     /**
-     * Route handler which calls the 404 screen. Use this when you want to
-     * trigger the 404 page while the router is navigating but the request
+     * Route handler which calls the 500 screen. Use this when you want to
+     * trigger the 500 page while the router is navigating but the request
      * cannot be completed.
      *
      * @return {Function} Route handle function
      */
     get handler() {
-        return this.lazyRouteHandler("The404Screen");
+        return this.lazyRouteHandler("The500Screen");
     }
 
     /**
-     * Use this when you need the 404 screen directly.
+     * Use this when you need the 500 screen directly.
      * @return {Promise} The404Screen class
      */
     async getScreen() {
@@ -91,4 +86,4 @@ class The404ScreenPlugin extends ScreenPlugin {
     }
 }
 
-export default The404ScreenPlugin;
+export default The500ScreenPlugin;

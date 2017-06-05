@@ -114,7 +114,7 @@ class CourseScreenPlugin extends ScreenPlugin {
             this.course = result[1];
 
             if (this.course) return new RedirectCourseScreen(this);
-            else return this.plugins["404Screen"].handler();
+            else return this.plugins["500Screen"].handler();
         }
     }
 

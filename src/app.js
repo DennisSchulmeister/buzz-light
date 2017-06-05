@@ -22,6 +22,7 @@ import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
 import RedirectHomePlugin from "./home.js";
 import CourseScreenPlugin from "./screens/course.js";
+import The500ScreenPlugin from "./screens/500.js";
 import The404ScreenPlugin from "./screens/404.js";
 import RouterPlugin from "./router.js";
 
@@ -36,6 +37,7 @@ let pluginClasses = [
     ToastPlugin,
     RedirectHomePlugin,
     CourseScreenPlugin,
+    The500ScreenPlugin,
     The404ScreenPlugin, // Must be the last screen
     RouterPlugin,
 ];

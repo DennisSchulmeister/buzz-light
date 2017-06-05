@@ -25,6 +25,10 @@ let config = {
     // as it makes for pretier URLs.
     hashBang: true,
 
+    // Set to false once you go into production. When set to true it is possible
+    // to test the 404 and 500 screen via the URLs /404/ and /500/.
+    developmentMode: true,
+
     // URL where the user gets redirects to when requesting the home page
     home: "/course/overview/",
 

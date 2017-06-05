@@ -19,6 +19,11 @@ export default {
     "Page not found": "Seite nicht gefunden",
     "We are sorry, but the requested page could not be found.": "Es tut uns Leid, aber die gesuchte Seite konnte nicht gefunden werden.",
 
+    // 500 Page
+    "Internal error": "Interner Fehler",
+    "Please excuse the bad picture.": "Wir bitten das schlechte Bild zu entschuldigen.",
+    "Our technicans already work on it.": "Unsere Techniker arbeiten bereits daran.",
+
     // Course content
     "The course definition could not be loaded. (Technical error: ${error})": "Die Kursdefinition konnte nicht geladen werden. (Technischer Fehler: ${error})",
     "Error in the course definition.": "Fehler in der Kursdefinition.",

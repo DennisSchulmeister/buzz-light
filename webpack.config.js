@@ -35,19 +35,30 @@ let webpackConfig = {
         // In theory setting historyApiFallback to true allows to test the
         // single page app without hashbang URLs (no # in the URL).
         // In reality it breaks source maps. So we set it to false and
-        // enable hashbang URLSs in config.js.
+        // enable hashbang URLs in config.js.
         //historyApiFallback: true,
     },
 
     module: {
         rules: [{
             test: /\.css$/,
-            use: extractCSS.extract(["css-loader"]),
+            use: extractCSS.extract({
+                use: [
+                    "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
+                ],
+                fallbackLoader: "style-loader",
+            }),
         }, {
             test: /\.less$/,
-            use: extractCSS.extract(["css-loader", "less-loader"]),
+            use: extractCSS.extract({
+                use: [
+                    "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
+                    "less-loader",
+                ],
+                fallbackLoader: "style-loader",
+            }),
         },{
-            test: /\.(svg|jpg|png|eot|ttf|woff|woff2)$/,
+            test: /\.(svg|jpg|png|gif|eot|ttf|woff|woff2)$/,
             use: "url-loader",
         },{
             test: /\.(htm|html)/,
