@@ -59,6 +59,8 @@ class RouterPlugin {
             let title = config.title ? config.title : "";
             return this.values.screenTitle() ? title + ": " + this.values.screenTitle() : title
         });
+
+        this.title.subscribe(v => document.title = v);
     }
 
     /**
@@ -96,7 +98,7 @@ class RouterPlugin {
 
         // Start routing
         this._router.activate();
-        ko.applyBindings(this.values, document.getElementsByTagName("html")[0]);
+        ko.applyBindings(this.values);
     }
 
     /**

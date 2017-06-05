@@ -9,7 +9,8 @@
         "build:webpack": "webpack",
         "build": "npm run build:static; npm run build:webpack",
         "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
-        "devserver": "npm run watch & webpack-dev-server --content-base build/"
+        "devserver": "npm run watch & webpack-dev-server --content-base build/",
+        "staticserver": "npm run build; http-server ./build"
     },
     "config": {
         "src_dir": "src",
@@ -23,6 +24,7 @@
         "extract-text-webpack-plugin": "^2.1.0",
         "file-loader": "^0.11.1",
         "html-loader": "^0.4.5",
+        "http-server": "^0.10.0",
         "jquery": "^3.2.1",
         "knockout": "^3.4.2",
         "less": "^2.7.2",

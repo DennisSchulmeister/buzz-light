@@ -20,3 +20,4 @@ $ yarn add --dev webpack-dev-server
 
 $ yarn add --dev shelljs
 $ yarn add --dev watch-run
+$ yarn add --dev http-server

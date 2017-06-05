@@ -46,7 +46,7 @@ let webpackConfig = {
                 use: [
                     "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
                 ],
-                fallbackLoader: "style-loader",
+                fallback: "style-loader",
             }),
         }, {
             test: /\.less$/,
@@ -55,7 +55,7 @@ let webpackConfig = {
                     "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
                     "less-loader",
                 ],
-                fallbackLoader: "style-loader",
+                fallback: "style-loader",
             }),
         },{
             test: /\.(svg|jpg|png|gif|eot|ttf|woff|woff2)$/,

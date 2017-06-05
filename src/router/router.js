@@ -214,20 +214,23 @@ class Router {
      *     the current screen or going back in history. (Default: true)
      */
     async goto(newPath, updateHistory) {
+        // Apply handler for the current path and render screen
         if (updateHistory == undefined) updateHistory = true;
         newPath = newPath || "/";
+
+        let oldPath = this.currentPath();
+        let oldTitle = document.title;
+        let newTitle = "";
 
         this.loading(true);
 
         while (newPath) {
             // Search first matching handler
+            let matchResult = null;
             let matchedRoute = {
                 path: ".*",
                 handler: null,
             };
-
-            let matchResult = null;
-            let oldPath = this.currentPath();
 
             for (let i in this._routes) {
                 let route = this._routes[i];
@@ -247,26 +250,42 @@ class Router {
 
             // Apply handler and thus update all surfaces
             newPath = await this.applyHandler(matchedRoute.handler, matchResult, oldPath, newPath);
+            newTitle = document.title;
         }
 
         newPath = this.currentPath();
         this.loading(false);
 
         // Update browser history
-        // NOTE: history.pushState needs a context object (first parameter) in
-        // order to prevent the browser from loading a new page from the server.
         if (updateHistory && this.config.pushHistory) {
-            // FIXME: Push old path instead of new path and repair broken history in Firefox
             let url = "";
 
             if (this.config.hashBang) {
-                url = `${location.protocol}//${location.host}${location.pathname}${location.search}#${newPath}`;
+                url = `${this.config.basePath}#${newPath}`;
             } else {
-                url = `${location.protocol}//${location.host}${this.config.basePath}${newPath}${location.search}${location.hash}`;
+                url = `${this.config.basePath}${newPath}`;
             }
 
-            let title = this._currentScreen && this._currentScreen.title ? this._currentScreen.title() : "";
-            history.pushState(newPath, title, url);
+            // state, title, url: title is ignored in favour of document.title
+            //
+            // BEWARE: Setting the document title modifies the current history
+            // entry! So when the new screen has been rendered, most likely a
+            // new title has been set which modifies the history entry of the
+            // previous screen. That's why the document title is temporarily
+            // set to its previous value.
+            //
+            // But as it turns out it takes a little while for the history
+            // object to pick up the changed title. Therefor the history is
+            // written after a short timeout. Otherwise the previous history
+            // entry would have the name of the next screen.
+            document.title = oldTitle; // Modifies previous history entry
+
+            window.setTimeout(() => {
+                if (oldPath.length) history.pushState(newPath, "", url);
+                else history.replaceState(newPath, "", url);
+
+                document.title = newTitle; // Modifies current history entry
+            }, 50);
         }
     }
 
@@ -441,8 +460,8 @@ class Router {
      */
     _onHistoryChanged(event) {
         if (!this.active) return
-        let path = event.state && event.state ? event.state : this._getPathFromUrl();
-        this.goto(path, event.state === null);
+        let path = event.state ? event.state : this._getPathFromUrl();
+        this.goto(path, false);
     }
 
     /**
