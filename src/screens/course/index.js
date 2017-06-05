@@ -28,7 +28,7 @@ let pageTypes = {
     },
     /*
     "impress.js": {
-        subpages: true,
+        subpages: false,
         template: require("./impressjs.html"),
         surfaceClasses: "fullscreen",
     },
@@ -99,26 +99,26 @@ class CourseScreen extends Screen {
         let viewModel = new CourseScreenMain(this);
 
         try {
-            if (!this.pageType.template) {
-                ko.components.register("course-screen-page", {
-                    viewModel: { instance: viewModel },
-                    template: await $.get({
-                        url: `${this.course.contentUrl}${this.page.file}`,
-                        dataType: "html",
-                    }),
-                });
-            } else {
-                ko.components.register("course-screen-page", {
+            if (this.pageType.template) {
+                ko.components.register("course-screen-template", {
                     viewModel: { instance: viewModel },
                     template: this.pageType.template,
                 });
             }
 
             if (this.pageType.subpages) {
-                ko.components.register("course-screen-subpage", {
+                ko.components.register("course-screen-content", {
                     viewModel: { instance: viewModel },
                     template: await $.get({
                         url: `${this.course.contentUrl}${this.subpage.file}`,
+                        dataType: "html",
+                    }),
+                });
+            } else {
+                ko.components.register("course-screen-content", {
+                    viewModel: { instance: viewModel },
+                    template: await $.get({
+                        url: `${this.course.contentUrl}${this.page.file}`,
                         dataType: "html",
                     }),
                 });
@@ -144,11 +144,11 @@ class CourseScreen extends Screen {
             plugins["CourseScreen"].removeCourseRoutes(this.course.courseId);
         }
 
-        ko.components.unregister("course-screen-page");
-
-        if (this.pageType.subpages) {
-            ko.components.unregister("course-screen-subpage");
+        if (this.pageType.template) {
+            ko.components.unregister("course-screen-template");
         }
+
+        ko.components.unregister("course-screen-content");
 
         if (this.the500screen) {
             this.the500screen.onLeave(oldPath, newPath);
@@ -166,7 +166,10 @@ class CourseScreen extends Screen {
             return this.the500screen.getSurfaceContent(id);
         } else {
             let componentName = "";
-            if (id === "main-content") componentName = "course-screen-page";
+
+            if (id === "main-content") {
+                componentName = this.pageType.template ? "course-screen-template" : "course-screen-content";
+            }
 
             return {
                 componentName: componentName,
