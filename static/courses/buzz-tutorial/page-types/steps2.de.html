@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-body">
+        <p>
+            In der <tt>course.json</tt>-Datei muss eine Seite mit Unterseiten
+            definiert werden. Folgende Seitentypen stehen dabei zur Verfügung:
+        </p>
+        <dl>
+            <dt>steps-large</dt>
+            <dd>Ablaufschritte mit einer Maximalbreite von 1280 px</dd>
+
+            <dt>steps-medium</dt>
+            <dd>Ablaufschritte mit einer Maximalbreite von 960 px</dd>
+
+            <dt>steps-small</dt>
+            <dd>Ablaufschritte mit einer Maximalbreite von 480 px</dd>
+        </dl>
+    </div>
+    <div class="card-image">
+<pre class="code" data-lang="course.json"><code>{
+    "language": {
+        "": {
+            "name": "Buzz Tutorial",
+            "pages": {
+                ...
+                "page-types/tabs/": {
+                    "name": "Schritt-Für-Schritt-Abläufe",
+                    "type": "steps-large",
+                    "pages": {
+                        "1": {
+                            "pos": 1,
+                            "name": "So sieht es aus",
+                            "file": "page-types/steps1.de.html"
+                        },
+                        "2": {
+                            "pos": 2,
+                            "name": "Beispiel für course.json",
+                            "file": "page-types/steps2.de.html"
+                        },
+                        "3": {
+                            "pos": 3,
+                            "name": "Inhalt der HTML-Dateien",
+                            "file": "page-types/steps3.de.html"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+    </div>
+    <div class="card-footer">
+        <a href="#../1/" class="btn">Zurück</a>
+        <a href="#../3/" class="btn btn-primary">Weiter</a>
+    </div>
+</div>

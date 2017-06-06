@@ -105,11 +105,31 @@ body {
     }
 
     a, a:visited {
-        color: @red;
+        color: @red !important;
     }
 
     a:hover {
-        color: saturate(@red, 50%);
+        color: saturate(@red, 50%) !important;
+    }
+
+    a.btn.btn-primary,
+    a:visited.btn.btn-primary,
+    btn.btn-primary a,
+    btn.btn-primary a:visited {
+        color: white !important;
+    }
+
+    .code {
+        background: rgb(36, 36, 36);
+    }
+
+    .code code {
+        background: transparent;
+        color: white;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.55);
     }
 }
 

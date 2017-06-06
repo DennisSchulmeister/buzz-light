@@ -50,8 +50,6 @@ class BreadcrumbPlugin {
      * @param {Array} plugins Runtime objects of all plugins
      */
     initialize(plugins) {
-        this.name = "IconLink";
-
         let _ = plugins["I18n"].translate;
         let plugin = this;
 

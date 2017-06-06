@@ -1,0 +1,48 @@
+<p>
+    In the <tt>course.json</tt> files sub-pages must be defined. The following
+    page types are available for that:
+</p>
+<dl>
+    <dt>tabs-large</dt>
+    <dd>Tab pages with a maximum width of 1280 px</dd>
+
+    <dt>tabs-medium</dt>
+    <dd>Tab pages with a maximum width of 960 px</dd>
+
+    <dt>tabs-small</dt>
+    <dd>Tab pages with a maximum width of 480 px</dd>
+</dl>
+<p>
+    And this is how <tt>course.json</tt> looks:
+</p>
+<pre class="code" data-lang="course.json"><code>{
+    "language": {
+        "": {
+            "name": "Buzz Tutorial",
+            "pages": {
+                ...
+                "page-types/tabs/": {
+                    "name": "Tabbed Sub-Pages",
+                    "type": "tabs-large",
+                    "pages": {
+                        "1": {
+                            "pos": 1,
+                            "name": "That's How It Looks",
+                            "file": "page-types/tabs1.en.html"
+                        },
+                        "2": {
+                            "pos": 2,
+                            "name": "course.json Example",
+                            "file": "page-types/tabs2.en.html"
+                        },
+                        "3": {
+                            "pos": 3,
+                            "name": "Content of the HTML Pages",
+                            "file": "page-types/tabs3.en.html"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>

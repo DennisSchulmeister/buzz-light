@@ -1,0 +1,13 @@
+<div class="columns">
+    <ul class="step" data-bind="foreach: subpages">
+        <li class="step-item" data-bind="css: {active: path == $parent.subpagePath}">
+            <a data-bind="text: name, attr: {href: '#' + fullPath}"></a>
+        </li>
+    </ul>
+</div>
+
+<br />
+
+<div class="columns">
+    <course-screen-content style="width: 100%"></course-screen-content>
+</div>

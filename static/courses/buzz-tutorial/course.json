@@ -62,68 +62,68 @@
                 },
                 "page-types/fullscreen/": {
                     "name": "Screen-filling Pages",
-                    "type": "grid-large",
+                    "type": "fullscreen",
                     "file": "page-types/fullscreen.en.html"
                 },
                 "page-types/tabs/": {
                     "name": "Tabbed Sub-Pages",
-                    "type": "grid-large",
+                    "type": "tabs-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Tab Page 1",
+                            "name": "That's How It looks",
                             "file": "page-types/tabs1.en.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Tab Page 2",
+                            "name": "course.json Example",
                             "file": "page-types/tabs2.en.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Tab Page 3",
+                            "name": "Content of the HTML Pages",
                             "file": "page-types/tabs3.en.html"
                         }
                     }
                 },
                 "page-types/steps/": {
                     "name": "Step-For-Step Sequences",
-                    "type": "grid-large",
+                    "type": "steps-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Step 1",
+                            "name": "That's How It Looks",
                             "file": "page-types/steps1.en.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Step 2",
+                            "name": "course.json Example",
                             "file": "page-types/steps2.en.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Step 3",
+                            "name": "Content of the HTML Pages",
                             "file": "page-types/steps3.en.html"
                         }
                     }
                 },
                 "page-types/chapters/": {
                     "name": "Chapters Like a Book",
-                    "type": "grid-large",
+                    "type": "chapters-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Example for a Chapter",
+                            "name": "That's How It Looks",
                             "file": "page-types/chapters1.en.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Some Other Chapter",
+                            "name": "course.json Example",
                             "file": "page-types/chapters2.en.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Further Important Information",
+                            "name": "Content of the HTML Pages",
                             "file": "page-types/chapters3.en.html"
                         }
                     }
@@ -229,68 +229,68 @@
                 },
                 "page-types/fullscreen/": {
                     "name": "Bildschirmfüllende Seiten",
-                    "type": "grid-large",
+                    "type": "fullscreen",
                     "file": "page-types/fullscreen.de.html"
                 },
                 "page-types/tabs/": {
                     "name": "Per Tabreiter umschaltbare Unterseiten",
-                    "type": "grid-large",
+                    "type": "tabs-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Tabreiter 1",
+                            "name": "So sieht es aus",
                             "file": "page-types/tabs1.de.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Tabreiter 2",
+                            "name": "Beispiel für course.json",
                             "file": "page-types/tabs2.de.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Tabreiter 3",
+                            "name": "Inhalt der HTML-Dateien",
                             "file": "page-types/tabs3.de.html"
                         }
                     }
                 },
                 "page-types/steps/": {
                     "name": "Schritt-Für-Schritt-Abläufe",
-                    "type": "grid-large",
+                    "type": "steps-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Schritt 1",
+                            "name": "So sieht es aus",
                             "file": "page-types/steps1.de.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Schritt 2",
+                            "name": "Beispiel für course.json",
                             "file": "page-types/steps2.de.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Schritt 3",
+                            "name": "Inhalt der HTML-Dateien",
                             "file": "page-types/steps3.de.html"
                         }
                     }
                 },
                 "page-types/chapters/": {
                     "name": "Unterkapitel wie in einem Buch",
-                    "type": "grid-large",
+                    "type": "chapters-large",
                     "pages": {
                         "1": {
                             "pos": 1,
-                            "name": "Ein Beispiel für ein Unterkapitel",
+                            "name": "So sieht es aus",
                             "file": "page-types/chapters1.de.html"
                         },
                         "2": {
                             "pos": 2,
-                            "name": "Noch ein anderes Unterkapitel",
+                            "name": "Beispiel für course.json",
                             "file": "page-types/chapters2.de.html"
                         },
                         "3": {
                             "pos": 3,
-                            "name": "Weitere wichtige Inhalte",
+                            "name": "Inhalt der HTML-Dateien",
                             "file": "page-types/chapters3.de.html"
                         }
                     }

@@ -59,6 +59,21 @@ let pageTypes = {
         template: require("./tabs.html"),
         surfaceClasses: ["container", "grid-480",],
     },
+    "steps-large": {
+        subpages: true,
+        template: require("./steps.html"),
+        surfaceClasses: ["container", "grid-1280",],
+    },
+    "steps-medium": {
+        subpages: true,
+        template: require("./steps.html"),
+        surfaceClasses: ["container", "grid-960",],
+    },
+    "steps-small": {
+        subpages: true,
+        template: require("./steps.html"),
+        surfaceClasses: ["container", "grid-480",],
+    },
     /*
     "impress.js": {
         subpages: false,
@@ -140,20 +155,28 @@ class CourseScreen extends Screen {
             }
 
             if (this.pageType.subpages) {
+                let template = await $.get({
+                    url: `${this.course.contentUrl}${this.subpage.file}`,
+                    dataType: "html",
+                });
+
+                template = template.replace("%content-url%", this.course.contentUrl);
+
                 ko.components.register("course-screen-content", {
                     viewModel: { instance: viewModel },
-                    template: await $.get({
-                        url: `${this.course.contentUrl}${this.subpage.file}`,
-                        dataType: "html",
-                    }),
+                    template: template,
                 });
             } else {
+                let template = await $.get({
+                    url: `${this.course.contentUrl}${this.page.file}`,
+                    dataType: "html",
+                });
+
+                template = template.replace("%content-url%", this.course.contentUrl);
+
                 ko.components.register("course-screen-content", {
                     viewModel: { instance: viewModel },
-                    template: await $.get({
-                        url: `${this.course.contentUrl}${this.page.file}`,
-                        dataType: "html",
-                    }),
+                    template: template,
                 });
             }
         } catch (error) {

@@ -1,0 +1,46 @@
+<h2>Beschreibung</h2>
+<p>
+    Dies ist der einfachste Seitentyp. Es handelt es sich einfach um eine
+    HTML-Seite mit beliebigem Inhalt.
+    Die Gestaltung ist deshalb aber auch am schwierigsten, da man auf großen
+    Bildschirmen mit der Breite klar kommen muss, ohne dass der Text zu sehr
+    auseinander gerissen wird.
+</p>
+<p>
+    Zum Glück gibt es hierfür verschiedene Seitentypen unterschiedlicher Größe.
+    Insbesondere die Grids können bei der Gestaltung helfen.
+</p>
+<dl>
+    <dt>plain</dt>
+    <dd>Leere Seite mit maximaler Breite (Dies ist der Standardseitentyp)</dd>
+
+    <dt>grid-large</dt>
+    <dd>Zentriertes CSS-Grid mit einer Maximalbreite von 1280 px</dd>
+
+    <dt>grid-medium</dt>
+    <dd>Zentriert CSS-Grid mit einer Maximalbreite von 960 px</dd>
+
+    <dt>grid-small</dt>
+    <dd>Zentriert CSS-Grid mit einer Maximalbreite von 480 px</dd>
+</dl>
+<br />
+
+<h2>Beispiel für die course.json</h2>
+<p>
+    Und so sieht die <tt>course.json</tt> aus:
+</p>
+<pre class="code" data-lang="course.json"><code>{
+    "language": {
+        "": {
+            "name": "Buzz Tutorial",
+            "pages": {
+                ...
+                "page-types/plain/": {
+                    "name": "Einfache Seiten ohne Template",
+                    "type": "grid-large",
+                    "file": "page-types/plain.de.html"
+                }
+            }
+        }
+    }
+}</code></pre>
