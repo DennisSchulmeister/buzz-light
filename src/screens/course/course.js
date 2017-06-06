@@ -32,6 +32,7 @@ class CourseScreenMain {
      *   * page: Page definition of the current page (container)
      *   * subpage: Page definition of the current subpage, if any
      *   * thePage: Page definition of the current page or subpage
+     *   * subpages: Ordered list of all subpages, if any
      *
      *   * pageName: Display name of the current page
      *   * subpageName: Display name of the current subpage, if any
@@ -51,6 +52,26 @@ class CourseScreenMain {
         this.page = courseScreen.page;
         this.subpage = courseScreen.subpage;
         this.thePage = this.subpage ? this.subpage : this.page;
+
+        // Ordered list of all subpages
+        let subpagePaths = Object.keys(courseScreen.page.pages);
+        this.subpages = [];
+
+        subpagePaths.sort((a,b) => {
+            let aPos = courseScreen.page.pages[a].pos || 0;
+            let bPos = courseScreen.page.pages[b].pos || 0;
+
+            if (aPos < bPos) return -1;
+            if (aPos > bPos) return 1;
+            return 0;
+        });
+
+        subpagePaths.forEach(subpagePath => {
+            let subpage = Object.assign({}, courseScreen.page.pages[subpagePath]);
+            subpage.path = subpagePath;
+            subpage.fullPath = `${courseScreen.course.courseUrl}${courseScreen.pagePath}${subpagePath}`;
+            this.subpages.push(subpage);
+        });
 
         // Display name of the current page and subpage
         this.pageName = this.page.name;

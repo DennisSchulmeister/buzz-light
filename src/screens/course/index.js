@@ -9,6 +9,8 @@
  */
 "use strict";
 
+import styles from "./course.less";
+
 import $ from "jquery";
 import ko from "knockout";
 import Screen from "../../router/screen.js";
@@ -18,13 +20,44 @@ import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
 
 let pageTypes = {
-    single: {
+    plain: {
         subpages: false,
         template: null,
     },
-    tabs: {
+    fullscreen: {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["fullscreen",],
+    },
+    "grid-large": {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["container", "grid-1280",],
+    },
+    "grid-medium": {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["container", "grid-960",],
+    },
+    "grid-small": {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["container", "grid-480",],
+    },
+    "tabs-large": {
         subpages: true,
         template: require("./tabs.html"),
+        surfaceClasses: ["container", "grid-1280",],
+    },
+    "tabs-medium": {
+        subpages: true,
+        template: require("./tabs.html"),
+        surfaceClasses: ["container", "grid-960",],
+    },
+    "tabs-small": {
+        subpages: true,
+        template: require("./tabs.html"),
+        surfaceClasses: ["container", "grid-480",],
     },
     /*
     "impress.js": {

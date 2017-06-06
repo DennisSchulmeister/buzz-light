@@ -3,13 +3,19 @@
         "": {
             "name": "Course Overview",
             "pages": {
-                "": "index.en.html"
+                "": {
+                    "file": "index.en.html",
+                    "type": "grid-large"
+                }
             }
         },
         "de": {
             "name": "Kursübersicht",
             "pages": {
-                "": "index.de.html"
+                "": {
+                    "file": "index.de.html",
+                    "type": "grid-large"
+                }
             }
         }
     }

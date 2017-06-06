@@ -46,6 +46,8 @@ let config = {
     courses: [
         "overview",
         "buzz-tutorial",
+        "vertsys",
+        "webprog",
     ],
 
     // Default language (leave empty for auto-detect)

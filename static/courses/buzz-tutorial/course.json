@@ -6,7 +6,7 @@
                 "": "en/index.html",
 
                 "pagetypes/tabs": {
-                    "type": "tabs",
+                    "type": "tabs-large",
                     "name": "Page Type: Tabs",
                     "pages": {
                         "tab1": {
@@ -36,7 +36,7 @@
                 "": "de/index.html",
 
                 "pagetypes/tabs": {
-                    "type": "tabs",
+                    "type": "tabs-large",
                     "name": "Seitentyp: Tabs",
                     "pages": {
                         "tab1": {

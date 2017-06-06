@@ -9,13 +9,13 @@
  */
 "use strict";
 
+import styles from "./500.less";
+
 import ko from "knockout";
 import Screen from "../../router/screen.js";
 
 import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
-
-import styles from "./500.less";
 
 /**
  * Interface to the SPA router for the 500 screen

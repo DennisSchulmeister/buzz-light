@@ -30,7 +30,7 @@ body {
     }
 
     main {
-        margin: 0 @padding @padding @padding;
+        margin: @padding;
         flex-grow: 1;
     }
 
@@ -84,12 +84,15 @@ body {
     background-image: url(bg.jpg);
 
     h1, h2, h3, h4, h5, h6 {
+        color: @red;
         text-shadow: @shadow;
     }
 
-    h1 {
-        color: @red;
-    }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2.4rem; }
+    h4 { font-size: 2rem; }
+    h5 { font-size: 1.6rem; }
+    h6 { font-size: 1.2rem; }
 
     .navbar-icon {
         font-size: 180%;
