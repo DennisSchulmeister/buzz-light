@@ -19,15 +19,17 @@
         <buzz-toasts></buzz-toasts>
 
         <header class="buzz-navbar">
-            <section>
-                <h1 data-bind="text: screenTitle"></h1>
-                <buzz-breadcrumb params="items: breadcrumb"></buzz-breadcrumb>
-            </section>
-            <section class="nogrow">
-                <buzz-icon-link params="icon: 'home', href: '#' + config.home, tooltip: _('Start page')"></buzz-icon-link>
-                <buzz-language-chooser></buzz-language-chooser>
-                <buzz-icon-link params="icon: 'earth', href: config.website, target: 'blank', tooltip: _('Website')" data-bind="visible: config.website"></buzz-icon-link>
-            </section>
+            <div class="buzz-navbar-container">
+                <section>
+                    <h1 data-bind="text: screenTitle"></h1>
+                    <buzz-breadcrumb params="items: breadcrumb"></buzz-breadcrumb>
+                </section>
+                <section class="nogrow">
+                    <buzz-icon-link params="icon: 'home', href: '#' + config.home, tooltip: _('Start page')"></buzz-icon-link>
+                    <buzz-language-chooser></buzz-language-chooser>
+                    <buzz-icon-link params="icon: 'earth', href: config.website, target: 'blank', tooltip: _('Website')" data-bind="visible: config.website"></buzz-icon-link>
+                </section>
+            </div>
         </header>
 
         <main id="main-content"></main>

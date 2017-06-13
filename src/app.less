@@ -55,12 +55,15 @@ body {
  * Making the navbar more responsive
  */
 header.buzz-navbar {
+/*
     section {
         display: block;
     }
-
+*/
     @media (min-width: @size-md) {
-        display: flex;
+        .buzz-navbar-container {
+            display: flex;
+        }
 
         section  {
             flex-grow: 1;
