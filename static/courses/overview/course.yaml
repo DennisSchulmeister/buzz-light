@@ -1,0 +1,15 @@
+---
+language: ""
+name: Course Overview
+pages:
+    "":
+        file: index.en.html
+        type: grid-large
+
+---
+language: de
+name: Kursübersicht
+pages:
+    "":
+        file: index.de.html
+        type: grid-large

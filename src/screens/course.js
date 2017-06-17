@@ -11,6 +11,8 @@
 
 import $ from "jquery";
 import ko from "knockout";
+import yaml from "js-yaml";
+
 import config from "../../config.js";
 import ScreenPlugin from "./base.js";
 import RedirectScreen from "../router/redirect.js";
@@ -136,13 +138,38 @@ class CourseScreenPlugin extends ScreenPlugin {
      */
     async loadCourseData(courseId) {
         let contentUrl = `${config.courseUrlPrefix}/${courseId}/`;
+        let manifestYaml = undefined;
         let manifestRaw = undefined;
 
         try {
-            manifestRaw = await $.get({
-                url: `${contentUrl}course.json`,
-                dataType: "json"
+            manifestYaml = await $.get({
+                url: `${contentUrl}course.yaml`,
+                dataType: "text"
             });
+
+            manifestRaw = {
+                "language": {},
+            };
+
+            yaml.safeLoadAll(manifestYaml, YamlDocument => {
+                switch (typeof(YamlDocument.language)) {
+                    case "object":
+                        // Old form: One large Dict with only a language property
+                        // which contains course definitions in multiple languages
+                        for (let language in YamlDocument.language) {
+                            manifestRaw.language[language] = YamlDocument.language[language];
+                        }
+
+                        break;
+                    case "string":
+                        // New form: Multiple YAML documents, each saying which
+                        // language it describes
+                        manifestRaw.language[YamlDocument.language] = YamlDocument;
+                        break;
+                }
+            });
+
+            console.log(manifestRaw);
         } catch (error) {
             // Failed to load the course.json manifest
             let _ = this.plugins["I18n"].translate;
@@ -188,6 +215,7 @@ class CourseScreenPlugin extends ScreenPlugin {
                     let subpage = page.pages[subpagePath];
                     delete page.pages[subpagePath];
 
+                    if (subpagePath === "0") subpagePath = "";  // YAML empty string as dict key
                     if (subpagePath.startsWith("/")) subpagePath = subpagePath.slice(1);
                     if (subpagePath.length > 0 && !subpagePath.endsWith("/")) subpagePath += "/";
 
@@ -205,6 +233,7 @@ class CourseScreenPlugin extends ScreenPlugin {
                         let page = manifest.language[language].pages[pagePath];
                         delete manifest.language[language].pages[pagePath];
 
+                        if (pagePath === "0") pagePath = "";  // YAML empty string as dict key
                         if (pagePath.startsWith("/")) pagePath = pagePath.slice(1);
                         if (pagePath.length > 0 && !pagePath.endsWith("/")) pagePath += "/";
 

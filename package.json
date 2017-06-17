@@ -26,6 +26,7 @@
         "html-loader": "^0.4.5",
         "http-server": "^0.10.0",
         "jquery": "^3.2.1",
+        "js-yaml": "^3.8.4",
         "knockout": "^3.4.2",
         "less": "^2.7.2",
         "less-loader": "^4.0.3",

@@ -4,6 +4,7 @@ $ yarn init
 $ yarn add --dev knockout
 $ yarn add --dev spectre.css
 $ yarn add --dev jquery
+$ yarn add --dev js-yaml
 
 $ yarn add --dev webpack
 $ yarn add --dev extract-text-webpack-plugin

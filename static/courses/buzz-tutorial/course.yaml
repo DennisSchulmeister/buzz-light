@@ -1,0 +1,319 @@
+---
+language: ""
+name: Buzz Tutorial
+pages:
+    # Index page
+    "":
+        file: index.en.html
+        type: grid-large
+
+    # Installation and Setup
+    setup/software/:
+        name: Required Software
+        type: grid-large
+        file: setup/software.en.html
+
+    setup/git-setup/:
+        name: Setup git
+        type: grid-large
+        file: setup/git-setup.en.html
+
+    setup/git-clone/:
+        name: Clone git Repository
+        type: grid-large
+        file: setup/git-clone.en.html
+
+    setup/npm-install/:
+        name: Install JavaScript Modules
+        type: grid-large
+        file: setup/npm-install.en.html
+
+    setup/source-dir/:
+        name: Source Code Structure
+        type: grid-large
+        file: setup/source-dir.en.html
+
+    setup/commands/:
+        name: Useful Commands
+        type: grid-large
+        file: setup/commands.en.html
+
+    # Definition of the Courses
+    course-definition/basic-structure/:
+        name: Basic Structure of a Course
+        type: grid-large
+        file: course-definition/basic-structure.en.html
+
+    course-definition/json-primer/:
+        name: A Small JSON Primer
+        type: grid-large
+        file: course-definition/json-primer.en.html
+
+    course-definition/directory-structure/:
+        name: Recommended Directory Structure
+        type: grid-large
+        file: course-definition/directory-structure.en.html
+
+    # Available Page Types
+    page-types/plain/:
+        name: Simple Pages Without a Template
+        type: grid-large
+        file: page-types/plain.en.html
+
+    page-types/fullscreen/:
+        name: Screen-filling Pages
+        type: fullscreen
+        file: page-types/fullscreen.en.html
+
+    page-types/tabs/:
+        name: Tabbed Sub-Pages
+        type: tabs-large
+        pages:
+            1:
+                pos: 1
+                name: That's How It looks
+                file: page-types/tabs1.en.html
+
+            2:
+                pos: 2
+                name: course.json Example
+                file: page-types/tabs2.en.html
+
+            3:
+                pos: 3
+                name: Content of the HTML Pages
+                file: page-types/tabs3.en.html
+
+    page-types/steps/:
+        name: Step-For-Step Sequences
+        type: steps-large
+        pages:
+            1:
+                pos: 1
+                name: That's How It Looks
+                file: page-types/steps1.en.html
+
+            2:
+                pos: 2
+                name: course.json Example
+                file: page-types/steps2.en.html
+
+            3:
+                pos: 3
+                name: Content of the HTML Pages
+                file: page-types/steps3.en.html
+
+    page-types/chapters/:
+        name: Chapters Like a Book
+        type: chapters-large
+        pages:
+            1:
+                pos: 1
+                name: That's How It Looks
+                file: page-types/chapters1.en.html
+
+            2:
+                pos: 2
+                name: course.json Example
+                file: page-types/chapters2.en.html
+
+            3:
+                pos: 3
+                name: Content of the HTML Pages
+                file: page-types/chapters3.en.html
+
+    # Page Contents
+    page-content/html/:
+        name: Course Pages Are Plain HTML
+        type: grid-large
+        file: page-content/html.en.html
+
+    page-content/markdown/:
+        name: Formatted Text via Markdown
+        type: grid-large
+        file: page-content/markdown.en.html
+
+    page-content/sourcecode/:
+        name: Syntax Highlighted Source Codes
+        type: grid-large
+        file: page-content/sourcecode.en.html
+
+    page-content/tiles/:
+        name: Tiles on the Start Page
+        type: grid-large
+        file: page-content/tiles.en.html
+
+    page-content/grid/:
+        name: Responsive Grid Elements
+        type: grid-large
+        file: page-content/grid.en.html
+
+    page-content/images/:
+        name: What to Think About for Pictures
+        type: grid-large
+        file: page-content/images.en.html
+
+    page-content/spectre.css/:
+        name: Elements Defined by Spectre.css
+        type: grid-large
+        file: page-content/spectre.css.en.html
+
+---
+language: de
+name: Buzz Tutorial
+pages:
+    # Startseite
+    "":
+        file: index.de.html
+        type: grid-large
+
+    # Installation und Einrichtung
+    setup/software/:
+        name: Benötigte Programme
+        type: grid-large
+        file: setup/software.de.html
+
+    setup/git-setup/:
+        name: Git einrichten
+        type: grid-large
+        file: setup/git-setup.de.html
+
+    setup/git-clone/:
+        name: Klonen des git-Repositories
+        type: grid-large
+        file: setup/git-clone.de.html
+
+    setup/npm-install/:
+        name: JavaScript-Module installieren
+        type: grid-large
+        file: setup/npm-install.de.html
+
+    setup/source-dir/:
+        name: Gliederung des Quellcodes
+        type: grid-large
+        file: setup/source-dir.de.html
+
+    setup/commands/:
+        name: Nützliche Befehle
+        type: grid-large
+        file: setup/commands.de.html
+
+    # Definition der Kursinhalte
+    course-definition/basic-structure/:
+        name: Grundstruktur eines Kurses
+        type: grid-large
+        file: course-definition/basic-structure.de.html
+
+    course-definition/json-primer/:
+        name: Das kleine JSON 1x1
+        type: grid-large
+        file: course-definition/json-primer.de.html
+
+    course-definition/directory-structure/:
+        name: Empfohlene Ordnerstruktur
+        type: grid-large
+        file: course-definition/directory-structure.de.html
+
+    # Die verschiedenen Seitentypen
+    page-types/plain/:
+        name: Einfache Seiten ohne Template
+        type: grid-large
+        file: page-types/plain.de.html
+
+    page-types/fullscreen/:
+        name: Bildschirmfüllende Seiten
+        type: fullscreen
+        file: page-types/fullscreen.de.html
+
+    page-types/tabs/:
+        name: Per Tabreiter umschaltbare Unterseiten
+        type: tabs-large
+        pages:
+            1:
+                pos: 1
+                name: So sieht es aus
+                file: page-types/tabs1.de.html
+
+            2:
+                pos: 2
+                name: Beispiel für course.json
+                file: page-types/tabs2.de.html
+
+            3:
+                pos: 3
+                name: Inhalt der HTML-Dateien
+                file: page-types/tabs3.de.html
+
+    page-types/steps/:
+        name: Schritt-Für-Schritt-Abläufe
+        type: steps-large
+        pages:
+            1:
+                pos: 1
+                name: So sieht es aus
+                file: page-types/steps1.de.html
+
+            2:
+                pos: 2
+                name: Beispiel für course.json
+                file: page-types/steps2.de.html
+
+            3:
+                pos: 3
+                name: Inhalt der HTML-Dateien
+                file: page-types/steps3.de.html
+
+    page-types/chapters/:
+        name: Unterkapitel wie in einem Buch
+        type: chapters-large
+        pages:
+            1:
+                pos: 1
+                name: So sieht es aus
+                file: page-types/chapters1.de.html
+
+            2:
+                pos: 2
+                name: Beispiel für course.json
+                file: page-types/chapters2.de.html
+
+            3:
+                pos: 3
+                name: Inhalt der HTML-Dateien
+                file: page-types/chapters3.de.html
+
+    # Inhalte einer Seite
+    page-content/html/:
+        name: Kursseiten sind einfach HTML
+        type: grid-large
+        file: page-content/html.de.html
+
+    page-content/markdown/:
+        name: Formatierter Text mit Markdown
+        type: grid-large
+        file: page-content/markdown.de.html
+
+    page-content/sourcecode/:
+        name: Quellcodebeispiele mit Syntaxhighlighting
+        type: grid-large
+        file: page-content/sourcecode.de.html
+
+    page-content/tiles/:
+        name: Kacheln für die Startseite
+        type: grid-large
+        file: page-content/tiles.de.html
+
+    page-content/grid/:
+        name: Responsive Grid-Elemente
+        type: grid-large
+        file: page-content/grid.de.html
+
+    page-content/images/:
+        name: Worauf bei Bildern zu achten ist
+        type: grid-large
+        file: page-content/images.de.html
+
+    page-content/spectre.css/:
+        name: Durch spectre.css vordefinierte Elemente
+        type: grid-large
+        file: page-content/spectre.css.de.html
