@@ -19,12 +19,12 @@
                     "file": "setup/git-setup.en.html"
                 },
                 "setup/git-clone/": {
-                    "name": "Clone git repository",
+                    "name": "Clone git Repository",
                     "type": "grid-large",
                     "file": "setup/git-clone.en.html"
                 },
                 "setup/npm-install/": {
-                    "name": "Install JavaScript modules",
+                    "name": "Install JavaScript Modules",
                     "type": "grid-large",
                     "file": "setup/npm-install.en.html"
                 },

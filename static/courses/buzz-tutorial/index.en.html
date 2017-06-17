@@ -1,36 +1,259 @@
 <h2>Installation and Setup</h2>
-<ul>
-    <li> <a href="#setup/software/">Required Software</a> </li>
-    <li> <a href="#setup/git-setup/">Setup git</a> </li>
-    <li> <a href="#setup/git-clone/">Clone git repository</a> </li>
-    <li> <a href="#setup/npm-install/">Install JavaScript modules</a> </li>
-    <li> <a href="#setup/source-dir/">Source Code Structure</a> </li>
-    <li> <a href="#setup/commands/">Useful Commands</a> </li>
-</ul>
+
+<div class="columns">
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/software/">Required Software</a>
+        </div>
+        <div class="card-body">
+            Are your ready? Fine. But before you can start you need a few
+            programs on your computer. Here you'll see which ones you need
+            and where you can get them.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/git-setup/">Setup git</a>
+        </div>
+        <div class="card-body">
+            The Buzz source code is available in a public git repository.
+            So in order to keep up to date you need a git client to which you
+            need to tell your name.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/git-clone/">Clone git Repository</a>
+        </div>
+        <div class="card-body">
+            Here you'll see how you can get the Buzz source code and how you
+            can manage your own changes with git.
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/npm-install/">Source Code Structure</a>
+        </div>
+        <div class="card-body">
+            After you got the source code, you need to download some JavaScript
+            modules which are needed by Buzz. Luckily all it takes is just a simple
+            command on the command line.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/commands/">Useful Commands</a>
+        </div>
+        <div class="card-body">
+            Here you'll learn about all commands you need when working on Buzz
+            itself or while creating new content. Plain and simple.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#setup/source-dir/">Gliederung des Quellcodes</a>
+        </div>
+        <div class="card-body">
+            This chapter is for real hackers only. Here you'll be introduced to
+            the structure of the Buzz source code. Just in case you want to take
+            a look or you want to help with the development.
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
 
 <h2>Definition of the Courses</h2>
-<ul>
-    <li> <a href="#course-definition/basic-structure/">Basic Structure of a Course</a> </li>
-    <li> <a href="#course-definition/json-primer/">A Small JSON Primer</a> </li>
-    <li> <a href="#course-definition/directory-structure/">Recommended Directory Structure</a> </li>
-</ul>
+
+<div class="columns">
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#course-definition/basic-structure/">Basic Structure of a Course</a>
+        </div>
+        <div class="card-body">
+            Ready, set, go. We create our first course. Here you'll learn which
+            files you need to create and where to put them.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#course-definition/json-primer/">A Small JSON Primer</a>
+        </div>
+        <div class="card-body">
+            Always trouble with the <tt>course.json</tt> file? Don't worry.
+            Unfortunately the JSON format is a bit picky. But with these simple
+            rules it isn't hard, either.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#course-definition/directory-structure/">Recommended Directory Structure</a>
+        </div>
+        <div class="card-body">
+            Here you'll see how you can structure your course contents so that
+            the course will be easy to maintain or to translate to foreign
+            languages in the future.
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
 
 <h2>Available Page Types</h2>
-<ul>
-        <li> <a href="#page-types/plain/">Simple Pages Without a Template</a> </li>
-        <li> <a href="#page-types/fullscreen/">Screen-filling Pages</a> </li>
-        <li> <a href="#page-types/tabs/">Tabbed Sub-Pages</a> </li>
-        <li> <a href="#page-types/steps/">Step-For-Step Sequences</a> </li>
-        <li> <a href="#page-types/chapters/">Chapters Like a Book</a> </li>
-</ul>
+
+<div class="columns">
+    <div class="card column col-6">
+        <div class="card-header">
+            <a class="card-title" href="#page-types/plain/">Simple Pages Without a Template</a>
+        </div>
+        <div class="card-body">
+            This is the most simple page type. Simply a bit of HTML without
+            anything else. Plain and simple.
+        </div>
+    </div>
+
+    <div class="card column col-6">
+        <div class="card-header">
+            <a class="card-title" href="#page-types/fullscreen/">Screen-filling Pages</a>
+        </div>
+        <div class="card-body">
+            Special occaisions need special foramts. If you like to design your
+            presentation or other graphical content in an aesthetically pleasing
+            manner this page type could be something for you.
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-types/tabs/">Tabbed Sub-Pages</a>
+        </div>
+        <div class="card-body">
+            Here you see how you can divide a page into several sub pages
+            between which the user may switch at the top of the screen.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-types/steps/">Step-For-Step Sequences</a>
+        </div>
+        <div class="card-body">
+            This page type is best suited for step-for-step tutorials. With a
+            few simple HTML tricks you can create beautiful process descriptions.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-types/chapters/">Chapters Like a Book</a>
+        </div>
+        <div class="card-body">
+            A man, a word. A woman, a dictionary. In case you have to say a bit
+            more you may create book-like chapters for your pages.
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
 
 <h2>Page Contents</h2>
-<ul>
-    <li> <a href="#page-content/html/">Course Pages Are Plain HTML</a> </li>
-    <li> <a href="#page-content/markdown/">Formatted Text via Markdown</a> </li>
-    <li> <a href="#page-content/sourcecode/">Syntax Highlighted Source Codes</a> </li>
-    <li> <a href="#page-content/tiles/">Tiles on the Start Page</a> </li>
-    <li> <a href="#page-content/grid/">Responsive Grid Elements</a> </li>
-    <li> <a href="#page-content/images/">What to Think About for Pictures</a> </li>
-    <li> <a href="#page-content/spectre.css/">Elements Defined by Spectre.css</a> </li>
-</ul>
+
+<div class="columns">
+    <div class="card column col-6">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/html/">Course Pages Are Plain HTML</a>
+        </div>
+        <div class="card-body">
+            I guess you thought so. But just to be safe, course pages are
+            simple HTML fragments which give you maximum freedom in the
+            realization of your ideas.
+        </div>
+    </div>
+
+    <div class="card column col-6">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/markdown/">Formatted Text via Markdown</a>
+        </div>
+        <div class="card-body">
+            If all you want is to write some text with a few simple formattings
+            (bold, italic, underlined, enumerations etc.) you don't need to
+            use HTML at all. Markdown is much easier to write and read, instead.
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/sourcecode/">Syntax Highlighted Source Codes</a>
+        </div>
+        <div class="card-body">
+            What would be a programing course without source code examples?
+            Creating these is actually quite simple, including automatic syntax
+            highlighting.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/tiles/">Tiles on the Start Page</a>
+        </div>
+        <div class="card-body">
+            Did you notice? This page is completely made with tiles. In order for
+            you to also get this look you'll learn here which HTML code it takes.
+        </div>
+    </div>
+
+    <div class="card column col-4">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/grid/">Responsive Grid Elements</a>
+        </div>
+        <div class="card-body">
+            Besides simple tiles you can align almost any content along a
+            responsive CSS grid. This gives you total layout control for small
+            and large screens alike. No matter what the page will always remain
+            usable.
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="card column col-5">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/images/">What to Think About for Pictures</a>
+        </div>
+        <div class="card-body">
+            A picture is worth a thousand words. Including pictures is acutally
+            quite simple thanks to HTML. But for them to be equally usable on
+            small and large screens alike you need to consider a few simple rules.
+        </div>
+    </div>
+
+    <div class="card column col-7">
+        <div class="card-header">
+            <a class="card-title" href="#page-content/spectre.css/">Elements Defined by Spectre.css</a>
+        </div>
+        <div class="card-body">
+            Buzz uses the astonishing <tt>spectre.css</tt> framework. Therefor
+            you can use everthing offered by <tt>spectre.css</tt> yourself.
+            And this is acutally quite a lot.
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
