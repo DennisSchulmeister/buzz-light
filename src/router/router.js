@@ -208,8 +208,16 @@ class Router {
      * @param {Boolean} updateHistory Whether a new entry should be pushed to
      *     the browser history. Usually this is wanted except when reloading
      *     the current screen or going back in history. (Default: true)
+     * @param {Integer} scrollX Horizontal window scroll position (Default: 0)
+     * @param {Integer} scrollY Vertical window scroll position (Default: 0)
      */
-    async goto(newPath, updateHistory) {
+    async goto(newPath, updateHistory, scrollX, scrollY) {
+        // Remember scroll position fro the history entry
+        let oldScrollX = window.scrollX;
+        let oldScrollY = window.scrollY;
+        let newScrollX = scrollX || 0;
+        let newScrollY = scrollY || 0;
+
         // Apply handler for the current path and render screen
         let oldPath = this.currentPath();
         let oldTitle = document.title;
@@ -248,10 +256,23 @@ class Router {
             // Apply handler and thus update all surfaces
             newPath = await this.applyHandler(matchedRoute.handler, matchResult, oldPath, newPath);
             newTitle = document.title;
+            window.scrollTo(newScrollX, newScrollY);
         }
 
         newPath = this.currentPath();
         this.loading(false);
+
+        // Remember scroll position
+        if (history.scrollRestoration) {
+            history.scrollRestoration = "manual";
+        }
+
+        if (history.state) {
+            let state = JSON.parse(history.state);
+            state.scrollX = oldScrollX;
+            state.scrollY = oldScrollY;
+            history.replaceState(JSON.stringify(state), "", oldPath);
+        }
 
         // Update browser history
         if (updateHistory && this.config.pushHistory) {
@@ -278,8 +299,14 @@ class Router {
             document.title = oldTitle; // Modifies previous history entry
 
             window.setTimeout(() => {
-                if (oldPath.length) history.pushState(newPath, "", url);
-                else history.replaceState(newPath, "", url);
+                let state = {
+                    path: newPath,
+                    scrollX: newScrollX,
+                    scrollY: newScrollY,
+                };
+
+                if (oldPath.length) history.pushState(JSON.stringify(state), "", url);
+                else history.replaceState(JSON.stringify(state), "", url);
 
                 document.title = newTitle; // Modifies current history entry
             }, 50);
@@ -459,8 +486,19 @@ class Router {
      */
     _onHistoryChanged(event) {
         if (!this.active) return
-        let path = event.state ? event.state : this._getPathFromUrl();
-        this.goto(path, false);
+        let state = null;
+
+        if (event.state) {
+            state = JSON.parse(event.state)
+        } else {
+            state = {
+                path: this._getPathFromUrl(),
+                scrollX: 0,
+                scrollY: 0
+            };
+        }
+
+        this.goto(state.path, false, state.scrollX, state.scrollY);
     }
 
     /**
