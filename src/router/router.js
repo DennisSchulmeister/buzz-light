@@ -335,6 +335,10 @@ class Router {
             let surfaceDOM = document.getElementById(surfaceId);
             if (!surfaceDOM) continue;
 
+            for (let i = 0; i < surfaceDOM.children.length; i++) {
+                ko.removeNode(surfaceDOM.children[i]);
+            }
+
             let content = screen ? await screen.getSurfaceContent(surfaceId) : null;
 
             if (content && content.componentName) {
@@ -345,10 +349,7 @@ class Router {
 
                 let componentDOM = document.createElement(content.componentName);
                 if (content.componentClasses) componentDOM.classList.add(content.componentClasses);
-
-                surfaceDOM.innerHTML = "";
                 surfaceDOM.appendChild(componentDOM);
-
                 ko.applyBindings(this.config.bindingContext, componentDOM);
             } else {
                 surfaceDOM.innerHTML = "";

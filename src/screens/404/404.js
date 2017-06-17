@@ -333,9 +333,17 @@ class The404ScreenMain {
             this.queueCommand(CMD_REDRAW);
             this.prevTimestamp = performance.now();
 
+            this.running = true;
             window.addEventListener("resize", () => this.queueCommand(CMD_REDRAW));
             window.requestAnimationFrame(this.animationLoop.bind(this));
         });
+    }
+
+    /**
+     * Stop the animation loop when the page is left.
+     */
+    dispose() {
+        this.running = false;
     }
 
     /**
@@ -418,7 +426,9 @@ class The404ScreenMain {
             }
         } while(true)
 
-        window.requestAnimationFrame(this.animationLoop.bind(this));
+        if (this.running) {
+            window.requestAnimationFrame(this.animationLoop.bind(this));
+        }
     }
 
     /**
