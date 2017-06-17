@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-body">
         <p>
-            In the <tt>course.json</tt> files sub-pages must be defined. The following
-            page types are available for that:
+            In the <tt>course.yaml</tt> files sub-pages must be defined. The
+            following page types are available for that:
         </p>
         <dl>
             <dt>steps-large</dt>
@@ -16,37 +16,27 @@
         </dl>
     </div>
     <div class="card-image">
-<pre class="code" data-lang="course.json"><code>{
-    "language": {
-        "": {
-            "name": "Buzz Tutorial",
-            "pages": {
-                ...
-                "page-types/tabs/": {
-                    "name": "Step-For-Step Sequences",
-                    "type": "steps-large",
-                    "pages": {
-                        "1": {
-                            "pos": 1,
-                            "name": "That's How It Looks",
-                            "file": "page-types/steps1.en.html"
-                        },
-                        "2": {
-                            "pos": 2,
-                            "name": "course.json Example",
-                            "file": "page-types/steps2.en.html"
-                        },
-                        "3": {
-                            "pos": 3,
-                            "name": "Content of the HTML Pages",
-                            "file": "page-types/steps3.en.html"
-                        }
-                    }
-                }
-            }
-        }
-    }
-}</code></pre>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: "Buzz Tutorial"
+pages:
+    page-types/steps/:
+        name: Step-For-Step Sequences
+        type: steps-large
+        pages:
+            1:
+                pos: 1
+                name: That's How It Looks
+                file: page-types/steps1.en.html
+            2:
+                pos: 2
+                name: course.yaml Example
+                file: page-types/steps2.en.html
+            3:
+                pos: 3,
+                name: Content of the HTML Pages
+                file: page-types/steps3.en.html
+    ...</code></pre>
     </div>
     <div class="card-footer">
         <a href="#../1/" class="btn">Previous</a>

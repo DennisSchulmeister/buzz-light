@@ -44,10 +44,10 @@ pages:
         type: grid-large
         file: course-definition/basic-structure.en.html
 
-    course-definition/json-primer/:
-        name: A Small JSON Primer
+    course-definition/yaml-primer/:
+        name: A Small YAML Primer
         type: grid-large
-        file: course-definition/json-primer.en.html
+        file: course-definition/yaml-primer.en.html
 
     course-definition/directory-structure/:
         name: Recommended Directory Structure
@@ -76,7 +76,7 @@ pages:
 
             2:
                 pos: 2
-                name: course.json Example
+                name: course.yaml Example
                 file: page-types/tabs2.en.html
 
             3:
@@ -95,7 +95,7 @@ pages:
 
             2:
                 pos: 2
-                name: course.json Example
+                name: course.yaml Example
                 file: page-types/steps2.en.html
 
             3:
@@ -114,7 +114,7 @@ pages:
 
             2:
                 pos: 2
-                name: course.json Example
+                name: course.yaml Example
                 file: page-types/chapters2.en.html
 
             3:
@@ -204,10 +204,10 @@ pages:
         type: grid-large
         file: course-definition/basic-structure.de.html
 
-    course-definition/json-primer/:
-        name: Das kleine JSON 1x1
+    course-definition/yaml-primer/:
+        name: Das kleine YAML 1x1
         type: grid-large
-        file: course-definition/json-primer.de.html
+        file: course-definition/yaml-primer.de.html
 
     course-definition/directory-structure/:
         name: Empfohlene Ordnerstruktur
@@ -236,7 +236,7 @@ pages:
 
             2:
                 pos: 2
-                name: Beispiel für course.json
+                name: Beispiel für course.yaml
                 file: page-types/tabs2.de.html
 
             3:
@@ -255,7 +255,7 @@ pages:
 
             2:
                 pos: 2
-                name: Beispiel für course.json
+                name: Beispiel für course.yaml
                 file: page-types/steps2.de.html
 
             3:
@@ -274,7 +274,7 @@ pages:
 
             2:
                 pos: 2
-                name: Beispiel für course.json
+                name: Beispiel für course.yaml
                 file: page-types/chapters2.de.html
 
             3:

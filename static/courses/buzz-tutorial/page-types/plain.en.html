@@ -23,22 +23,16 @@
 </dl>
 <br />
 
-<h2>course.json Example</h2>
+<h2>course.yaml Example</h2>
 <p>
-    And this is how the <tt>course.json</tt> looks:
+    And this is how the <tt>course.yaml</tt> looks:
 </p>
-<pre class="code" data-lang="course.json"><code>{
-    "language": {
-        "": {
-            "name": "Buzz Tutorial",
-            "pages": {
-                ...
-                "page-types/plain/": {
-                    "name": "Simple Pages Without a Template",
-                    "type": "grid-large",
-                    "file": "page-types/plain.en.html"
-                }
-            }
-        }
-    }
-}</code></pre>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: Buzz Tutorial
+pages:
+    page-types/plain/:
+        name: Simple Pages Without a Template
+        type: grid-large
+        file: page-types/plain.en.html
+    ...</code></pre>
