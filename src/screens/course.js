@@ -239,7 +239,6 @@ class CourseScreenPlugin extends ScreenPlugin {
         let _breadcrumbPage = (pagePath, subpagePath) => {
             // Return single breadcrumb entry for a page or subpage
             let courseUrl = this.getCourseUrl(this.course.courseId);
-            let definition = this.course.getPageDefinition(pagePath, subpagePath);
 
             pagePath = pagePath || "";
             subpagePath = subpagePath || "";
@@ -247,6 +246,10 @@ class CourseScreenPlugin extends ScreenPlugin {
             return {
                 path: `${courseUrl}${pagePath}${subpagePath}`,
                 title: ko.computed(() => {
+                    // getPageDefinition() queries current language, therefor
+                    // the event handler will be called when the language changes
+                    let definition = this.course.getPageDefinition(pagePath, subpagePath);
+
                     if (definition.subpage && definition.subpage.name.length > 0) {
                         return definition.subpage.name;
                     } else if (definition.page && definition.page.name.length > 0) {
