@@ -37,4 +37,5 @@ export default {
     "Page type ${pageType} does not support subpages.": "Seitentyp ${pageType} unterstützt keine Unterseiten.",
     "Definition of sub page ${subpagePath} of page ${pagePath} is missing.": "Die Definition der Unterseite ${subpagePath} der Seite ${pagePath} fehlt.",
     "The page content could not be loaded. (Technical error: ${error})": "Der Seiteninhalt konnte nicht geladen werden. (Technischer Fehler: ${error})",
+    "Unknown markup type: ${markup}": "Unbekannter Markup-Typ: ${markup}",
 };

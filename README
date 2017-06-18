@@ -5,6 +5,13 @@ $ yarn add --dev knockout
 $ yarn add --dev spectre.css
 $ yarn add --dev jquery
 $ yarn add --dev js-yaml
+$ yarn add --dev esprima
+
+$ yarn add --dev markdown-it
+$ yarn add --dev markdown-it-abbr
+$ yarn add --dev markdown-it-container
+$ yarn add --dev markdown-it-sub
+$ yarn add --dev markdown-it-sup
 
 $ yarn add --dev webpack
 $ yarn add --dev extract-text-webpack-plugin

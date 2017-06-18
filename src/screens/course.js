@@ -168,8 +168,6 @@ class CourseScreenPlugin extends ScreenPlugin {
                         break;
                 }
             });
-
-            console.log(manifestRaw);
         } catch (error) {
             // Failed to load the course.json manifest
             let _ = this.plugins["I18n"].translate;
@@ -208,6 +206,7 @@ class CourseScreenPlugin extends ScreenPlugin {
             if (!page.pages) page.pages = {};
             if (!page.type) page.type = "plain";
             if (!page.name) page.name = "";
+            if (!page.markup) page.markup = "html";
 
             // Recursively traverse sub-pages
             if ("pages" in page) {

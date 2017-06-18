@@ -13,8 +13,16 @@ import styles from "./course.less";
 
 import $ from "jquery";
 import ko from "knockout";
+
+import markdown from "markdown-it";
+import markdownAbbr from "markdown-it-abbr";
+import markdownContainer from "markdown-it-container";
+import markdownSub from "markdown-it-sub";
+import markdownSup from "markdown-it-sup";
+
 import Screen from "../../router/screen.js";
 import CourseScreenMain from "./course.js";
+import utils from "../../utils.js";
 
 import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
@@ -143,6 +151,18 @@ class CourseScreen extends Screen {
             return this.the500screen.onShow(oldPath, newPath);
         }
 
+        // Register custom binding for markup inside HTML elements
+        ko.bindingHandlers.markup = {
+            init: (element, valueAccessor, allBindings, viewModel, bindingContext) => {
+                element.dataset.buzzRawMarkup = utils.shiftLinesLeft(element.innerHTML);
+            },
+
+            update: (element, valueAccessor, allBindings, viewModel, bindingContext) => {
+                let markup = valueAccessor();
+                element.innerHTML = this.renderTemplate(element.dataset.buzzRawMarkup, markup);
+            },
+        };
+
         // Register ko-components according to page type
         let viewModel = new CourseScreenMain(this);
 
@@ -160,7 +180,7 @@ class CourseScreen extends Screen {
                     dataType: "html",
                 });
 
-                template = template.replace("%content-url%", this.course.contentUrl);
+                template = this.renderTemplate(template, this.subpage.markup);
 
                 ko.components.register("course-screen-content", {
                     viewModel: { instance: viewModel },
@@ -172,7 +192,7 @@ class CourseScreen extends Screen {
                     dataType: "html",
                 });
 
-                template = template.replace("%content-url%", this.course.contentUrl);
+                template = this.renderTemplate(template, this.page.markup);
 
                 ko.components.register("course-screen-content", {
                     viewModel: { instance: viewModel },
@@ -189,6 +209,45 @@ class CourseScreen extends Screen {
             this.the500screen = await plugins["500Screen"].getScreen();
             return this.the500screen.onShow(oldPath, newPath);
         }
+    }
+
+    /**
+     * Render HTML for a downloaded page template. This is the method that e.g.
+     * resolves the markdown code to HTML and cleans up the HTML before it is
+     * displayed.
+     *
+     * @param  {String} template HTML/Markdown template
+     * @param  {String} markup Markup type (html or markdown)
+     * @return {String} Final HTML string ready to display
+     */
+    renderTemplate(template, markup) {
+        template = template.replace("%content-url%", this.course.contentUrl);
+
+        switch (markup) {
+            case "markdown":
+                let md = markdown({
+                    html: true,
+                    xhtmlOut: true,
+                    langPrefix: "language-",
+                    linkify: true,
+                    typogrpaher: true,
+                }).disable("code")
+                  .use(markdownAbbr)
+                  .use(markdownContainer)
+                  .use(markdownSub)
+                  .use(markdownSup);
+
+                template = md.render(template);
+                break;
+            case "html":
+                break;
+            default:
+                let errorMessage = _("Unknown markup type: ${markup}.").replace("${markup}", page.markup);
+                plugins["Toast"].error(errorMessage);
+                break;
+        }
+
+        return template;
     }
 
     /**
@@ -209,6 +268,8 @@ class CourseScreen extends Screen {
         if (this.the500screen) {
             this.the500screen.onLeave(oldPath, newPath);
         }
+
+        if (ko.bindingHandlers.markup) delete ko.bindingHandlers.markup;
     }
 
     /**
