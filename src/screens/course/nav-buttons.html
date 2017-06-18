@@ -1,0 +1,11 @@
+<span data-bind="if: prevHref">
+    <a class="btn" data-bind="attr: {href: prevHref}">
+        <span data-bind="text: prevLabel"></span>
+    </a>
+</span>
+
+<span data-bind="if: nextHref">
+    <a class="btn btn-primary" data-bind="attr: {href: nextHref}">
+        <span data-bind="text: nextLabel"></span>
+    </a>
+</span>

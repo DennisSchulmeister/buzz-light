@@ -268,10 +268,18 @@ class Router {
         }
 
         if (history.state) {
+            let url = "";
+
+            if (this.config.hashBang) {
+                url = `${this.config.basePath}#${oldPath}`;
+            } else {
+                url = `${this.config.basePath}${oldPath}`;
+            }
+
             let state = JSON.parse(history.state);
             state.scrollX = oldScrollX;
             state.scrollY = oldScrollY;
-            history.replaceState(JSON.stringify(state), "", oldPath);
+            history.replaceState(JSON.stringify(state), "", url);
         }
 
         // Update browser history
@@ -443,9 +451,8 @@ class Router {
      * how and when the link elements were created.
      *
      * Normal links will continue to work as usual, triggering the browser
-     * to load a new page. However if the link contains a special CSS class
-     * (see internalCssClass configuration value), the link's pathname will be
-     * used to render a new screen.
+     * to load a new page. However if the link contains a hash URL the link
+     * will be used to render a new screen.
      *
      * Thus the following link loads a new page from the server:
      *
@@ -453,7 +460,7 @@ class Router {
      *
      * The following link shows a new screen without leaving the page:
      *
-     *   <a href="/goto/new/screen" class="internal">New Screen</a>
+     *   <a href="#/goto/new/screen">New Screen</a>
      *
      * @param {DOMEvent} event The captured click event
      */

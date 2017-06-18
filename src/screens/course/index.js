@@ -23,6 +23,7 @@ import markdownSup from "markdown-it-sup";
 import Screen from "../../router/screen.js";
 import CourseScreenMain from "./course.js";
 import utils from "../../utils.js";
+import SubpageNavButtons from "./nav-buttons.js";
 
 import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
@@ -91,6 +92,10 @@ let pageTypes = {
     */
 }
 
+let customHtmlTags = [
+    SubpageNavButtons,
+];
+
 /**
  * Interface to the SPA router for the course screen. When this is called the
  * SPA router already contains one route per course page with each route holding
@@ -112,9 +117,9 @@ class CourseScreen extends Screen {
         this.pagePath = pagePath;
         this.subpagePath = subpagePath;
 
-        this.page;
-        this.subpage;
-        this.pageType;
+        this.page = null;
+        this.subpage = null;
+        this.pageType = null;
 
         this.the500screen = null;
     }
@@ -164,6 +169,8 @@ class CourseScreen extends Screen {
         };
 
         // Register ko-components according to page type
+        // These will be used by the SPA router and the page templates to
+        // show the page content
         let viewModel = new CourseScreenMain(this);
 
         try {
@@ -209,6 +216,9 @@ class CourseScreen extends Screen {
             this.the500screen = await plugins["500Screen"].getScreen();
             return this.the500screen.onShow(oldPath, newPath);
         }
+
+        // Register additional ko-components with custom HTML tags
+        customHtmlTags.forEach(component => component.register(viewModel));
     }
 
     /**
@@ -255,6 +265,10 @@ class CourseScreen extends Screen {
      * router rules when the user navigates away from the current course.
      */
     onLeave(oldPath, newPath) {
+        // Remove custom binding for markup in HTML elements
+        if (ko.bindingHandlers.markup) delete ko.bindingHandlers.markup;
+
+        // Unregister ko-components with page content
         if (!newPath.startsWith(plugins["CourseScreen"].getCourseUrl(this.course.courseId))) {
             plugins["CourseScreen"].removeCourseRoutes(this.course.courseId);
         }
@@ -269,7 +283,8 @@ class CourseScreen extends Screen {
             this.the500screen.onLeave(oldPath, newPath);
         }
 
-        if (ko.bindingHandlers.markup) delete ko.bindingHandlers.markup;
+        // Unregister additional ko-components with custom HTML tags
+        customHtmlTags.forEach(component => component.unregister());
     }
 
     /**
