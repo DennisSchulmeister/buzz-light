@@ -1,0 +1,42 @@
+<h2>Description</h2>
+<p>
+    Course pages contain no background of their own by default, so that the
+    website background is fully visible. However this can make pages with a
+    lot of text hard to read. Thus each page may be assigned one or more
+    classes in the <tt>course.yaml</tt> file in order to influence their
+    background.
+</p>
+<p>
+    The following classes can be used:
+</p>
+<dl>
+    <dt>white</dt>
+    <dd>Bright background with dark font</dd>
+
+    <dt>black</dt>
+    <dd>Dark background with bright font</dd>
+
+    <dt>padding</dt>
+    <dd>
+        Adds a little space around the text so that it doesn't stick so much
+        at the border
+    </dd>
+</dl>
+<br />
+
+<h2>course.yaml Example</h2>
+<p>
+    The background is set like this:
+</p>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: Buzz Tutorial
+pages:
+    page-types/plain/white/:
+        name: Simple Page With White Background
+        type: grid-large
+        file: page-types/plain-white.en.html
+        classes:
+            - white
+            - padding
+    ...</code></pre>

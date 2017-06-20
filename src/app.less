@@ -14,6 +14,12 @@
 @shadow: rgba(255, 255, 255, 0.6) 1px 1px;
 @padding: 4rem;
 
+@semi-white-bg: rgba(255, 255, 255, 0.55);
+@semi-white-border: rgba(255, 255, 255, 0.75);
+
+@semi-black-bg: rgba(0, 0, 0, 0.75);
+@semi-black-border: rgba(0, 0, 0, 0.55);
+
 /*
  * Basic screen layout with header and main body
  */
@@ -122,6 +128,24 @@ body {
         color: white !important;
     }
 
+    a.btn:hover,
+    btn a:hover,
+    btn:hover a {
+        color: white !important;
+    }
+
+    .padding {
+        padding: 1rem;
+    }
+
+    /*
+     * Colors for pages with white or no background
+     */
+     .white {
+         background: @semi-white-bg;
+         border: 1px solid @semi-white-border;
+     }
+
     .code {
         background: rgb(36, 36, 36);
     }
@@ -132,7 +156,35 @@ body {
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.55);
+        background: @semi-white-bg;
+        border: 1px solid @semi-white-border;
+    }
+
+    /*
+     * Colors for pages with black background
+     */
+    .black {
+        background: @semi-black-bg;
+        border: 1px solid @semi-black-border;
+        color: rgb(219, 219, 219);
+
+        .code {
+            background: rgb(219, 219, 219);
+        }
+
+        .code code {
+            background: transparent;
+            color: black;
+        }
+
+        pre.code::before {
+            color: rgb(36, 36, 36);
+        }
+
+        .card {
+            background: @semi-black-bg;
+            border: 1px solid @semi-black-border;
+        }
     }
 }
 

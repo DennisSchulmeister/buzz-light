@@ -207,6 +207,7 @@ class CourseScreenPlugin extends ScreenPlugin {
             if (!page.type) page.type = "plain";
             if (!page.name) page.name = "";
             if (!page.markup) page.markup = "html";
+            if (!page.classes) page.classes = [];
 
             // Recursively traverse sub-pages
             if ("pages" in page) {

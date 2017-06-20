@@ -291,7 +291,8 @@ class CourseScreen extends Screen {
      * Return the ko-component names which render the page content.
      *
      * @param  {String} id Surface id whose content is requested
-     * @return {String} Name of the ko-component to be shown inside the surface
+     * @return {Object} Name of the ko-component to be shown inside the surface
+     *     and class names for the Surface element and the component element
      */
     async getSurfaceContent(id) {
         if (this.the500screen) {
@@ -303,10 +304,13 @@ class CourseScreen extends Screen {
                 componentName = this.pageType.template ? "course-screen-template" : "course-screen-content";
             }
 
+            let pageClasses = [];
+            if (!this.pageType.template) pageClasses = this.page.classes;
+
             return {
                 componentName: componentName,
-                surfaceClasses: this.pageType.surfaceClasses || "",
-                componentClasses: this.pageType.componentClasses || "",
+                surfaceClasses: (this.pageType.surfaceClasses || []).concat(pageClasses),
+                componentClasses: this.pageType.componentClasses || [],
             }
         }
     }

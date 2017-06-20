@@ -383,7 +383,7 @@ class Router {
                 this._surfaceClasses[surfaceId] = content.surfaceClasses;
 
                 let componentDOM = document.createElement(content.componentName);
-                if (content.componentClasses) componentDOM.classList.add(content.componentClasses);
+                content.componentClasses.forEach(c => componentDOM.classList.add(c));
                 surfaceDOM.appendChild(componentDOM);
                 ko.applyBindings(this.config.bindingContext, componentDOM);
             } else {

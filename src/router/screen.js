@@ -72,7 +72,12 @@ class Screen {
      * override this method.
      *
      * @param  {String} id Surface id whose content is requested
-     * @return {String} Name of the ko-component to be shown inside the surface
+     * @return {Object} Name of the ko-component to be shown inside the surface
+     *     plus list of CSS classes. The object may have the following properties:
+     *
+     *       * componentName: Name of the ko-component
+     *       * surfaceClasses: List of CSS classes for the surface DOM element
+     *       * componentClasses: List of CSS classes for the component DOM element
      */
     async getSurfaceContent(id) {
         if (this.content) {

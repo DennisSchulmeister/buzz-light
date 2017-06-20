@@ -53,6 +53,8 @@ class CourseScreenMain {
         this.subpage = courseScreen.subpage;
         this.thePage = this.subpage ? this.subpage : this.page;
 
+        this.pageClasses = this.thePage.classes.join(" ");
+
         // Ordered list of all subpages
         let subpagePaths = Object.keys(courseScreen.page.pages);
         this.subpages = [];

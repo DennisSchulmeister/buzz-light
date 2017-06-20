@@ -13,7 +13,7 @@
     <dd>Tabreiter mit einer Maximalbreite von 480 px</dd>
 </dl>
 <p>
-    Und so sieht die <tt>course.json</tt> aus:
+    Und so sieht die <tt>course.yaml</tt> aus:
 </p>
 <pre class="code" data-lang="course.yaml"><code>---
 language: ""
@@ -23,16 +23,25 @@ pages:
         name: Per Tabreiter umschaltbare Unterseiten
         type: tabs-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: So sieht es aus
                 file: page-types/tabs1.de.html
-            2:
+                classes:
+                    - white
+                    - padding
+            2/:
                 pos: 2
                 name: Beispiel für course.yaml
                 file: page-types/tabs2.de.html
-            3:
+                classes:
+                    - white
+                    - padding
+            3/:
                 pos: 3,
                 name: Inhalt der HTML-Dateien
                 file: page-types/tabs3.de.html
+                classes:
+                    - white
+                    - padding
     ...</code></pre>

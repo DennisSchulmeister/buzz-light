@@ -1,0 +1,34 @@
+<h2>Description</h2>
+<p>
+    This is an example of how a page with dark background looks. This is
+    basically the same as a page with bright background except that in the
+    <tt>course.yaml</tt> file the class <tt>black</tt> instead of <tt>white</tt>
+    is assigned.
+</p>
+<p>
+    Pages with a dark background make logos with bright colors really shine:
+</p>
+
+<br />
+<img src="%content-url%/page-types/img/python-logo.png" class="centered" />
+<br />
+
+<p class="text-center">
+    <small>
+        Logo of the Python programming language
+    </small>
+</p>
+
+<h2>course.yaml Example</h2>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: Buzz Tutorial
+pages:
+    page-types/plain/white/:
+        name: Simple Page With Black Background
+        type: grid-large
+        file: page-types/plain-black.en.html
+        classes:
+            - black
+            - padding
+    ...</code></pre>

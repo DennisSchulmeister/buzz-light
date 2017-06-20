@@ -57,8 +57,26 @@ pages:
     # Available Page Types
     page-types/plain/:
         name: Simple Pages Without a Template
-        type: grid-large
-        file: page-types/plain.en.html
+        type: tabs-large
+        pages:
+            noclass/:
+                pos: 1
+                name: No Background
+                file: page-types/plain-noclass.en.html
+            white/:
+                pos: 2
+                name: White Background
+                file: page-types/plain-white.en.html
+                classes:
+                    - white
+                    - padding
+            black/:
+                pos: 3
+                name: Black Background
+                file: page-types/plain-black.en.html
+                classes:
+                    - black
+                    - padding
 
     page-types/fullscreen/:
         name: Screen-filling Pages
@@ -69,36 +87,41 @@ pages:
         name: Tabbed Sub-Pages
         type: tabs-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: That's How It looks
                 file: page-types/tabs1.en.html
-
-            2:
+                classes:
+                    - white
+                    - padding
+            2/:
                 pos: 2
                 name: course.yaml Example
                 file: page-types/tabs2.en.html
-
-            3:
+                classes:
+                    - white
+                    - padding
+            3/:
                 pos: 3
                 name: Content of the HTML Pages
                 file: page-types/tabs3.en.html
+                classes:
+                    - white
+                    - padding
 
     page-types/steps/:
         name: Step-For-Step Sequences
         type: steps-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: That's How It Looks
                 file: page-types/steps1.en.html
-
-            2:
+            2/:
                 pos: 2
                 name: course.yaml Example
                 file: page-types/steps2.en.html
-
-            3:
+            3/:
                 pos: 3
                 name: Content of the HTML Pages
                 file: page-types/steps3.en.html
@@ -107,17 +130,17 @@ pages:
         name: Chapters Like a Book
         type: chapters-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: That's How It Looks
                 file: page-types/chapters1.en.html
 
-            2:
+            2/:
                 pos: 2
                 name: course.yaml Example
                 file: page-types/chapters2.en.html
 
-            3:
+            3/:
                 pos: 3
                 name: Content of the HTML Pages
                 file: page-types/chapters3.en.html
@@ -217,8 +240,26 @@ pages:
     # Die verschiedenen Seitentypen
     page-types/plain/:
         name: Einfache Seiten ohne Template
-        type: grid-large
-        file: page-types/plain.de.html
+        type: tabs-large
+        pages:
+            noclass/:
+                pos: 1
+                name: Ohne Hintergrund
+                file: page-types/plain-noclass.de.html
+            white/:
+                pos: 2
+                name: Weißer Hintergrund
+                file: page-types/plain-white.de.html
+                classes:
+                    - white
+                    - padding
+            black/:
+                pos: 3
+                name: Schwarzer Hintergrund
+                file: page-types/plain-black.de.html
+                classes:
+                    - black
+                    - padding
 
     page-types/fullscreen/:
         name: Bildschirmfüllende Seiten
@@ -229,36 +270,41 @@ pages:
         name: Per Tabreiter umschaltbare Unterseiten
         type: tabs-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: So sieht es aus
                 file: page-types/tabs1.de.html
-
-            2:
+                classes:
+                    - white
+                    - padding
+            2/:
                 pos: 2
                 name: Beispiel für course.yaml
                 file: page-types/tabs2.de.html
-
-            3:
+                classes:
+                    - white
+                    - padding
+            3/:
                 pos: 3
                 name: Inhalt der HTML-Dateien
                 file: page-types/tabs3.de.html
+                classes:
+                    - white
+                    - padding
 
     page-types/steps/:
         name: Schritt-Für-Schritt-Abläufe
         type: steps-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: So sieht es aus
                 file: page-types/steps1.de.html
-
-            2:
+            2/:
                 pos: 2
                 name: Beispiel für course.yaml
                 file: page-types/steps2.de.html
-
-            3:
+            3/:
                 pos: 3
                 name: Inhalt der HTML-Dateien
                 file: page-types/steps3.de.html
@@ -267,17 +313,15 @@ pages:
         name: Unterkapitel wie in einem Buch
         type: chapters-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: So sieht es aus
                 file: page-types/chapters1.de.html
-
-            2:
+            2/:
                 pos: 2
                 name: Beispiel für course.yaml
                 file: page-types/chapters2.de.html
-
-            3:
+            3/:
                 pos: 3
                 name: Inhalt der HTML-Dateien
                 file: page-types/chapters3.de.html

@@ -13,7 +13,7 @@
     <dd>Tab pages with a maximum width of 480 px</dd>
 </dl>
 <p>
-    And this is how <tt>course.json</tt> looks:
+    And this is how <tt>course.yaml</tt> looks:
 </p>
 <pre class="code" data-lang="course.yaml"><code>---
 language: ""
@@ -23,15 +23,21 @@ pages:
         name: Tabbed Sub-Pages
         type: tabs-large
         pages:
-            1:
+            1/:
                 pos: 1
                 name: That's How It Looks
                 file: page-types/tabs1.en.html
-            2:
+                classes:
+                    - white
+                    - padding
+            2/:
                 pos: 2
                 name: course.yaml Example
                 file: page-types/tabs2.en.html
-            3:
+                classes:
+                    - white
+                    - padding
+            3/:
                 pos: 3,
                 name: Content of the HTML Pages
                 file: page-types/tabs3.en.html

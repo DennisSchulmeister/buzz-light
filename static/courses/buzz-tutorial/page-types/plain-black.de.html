@@ -1,0 +1,34 @@
+<h2>Beschreibung</h2>
+<p>
+    Dies ist ein Beispiel dafür, wir eine Seite mit dunklem Hintergrund
+    aussieht. Die Funktionsweise ist dieselbe wie bei einer Seite mit hellem
+    Hintergrund, nur dass der Seite in der <tt>course.yaml</tt> die Klasse
+    <tt>black</tt> anstatt <tt>white</tt> zugewiesen wird.
+</p>
+<p>
+    Seiten mit dunklem Hintergrund lassen Logos mit hellen Farben richtig leuchten:
+</p>
+
+<br />
+<img src="%content-url%/page-types/img/python-logo.png" class="centered" />
+<br />
+
+<p class="text-center">
+    <small>
+        Logo der Programmiersprache Python
+    </small>
+</p>
+
+<h2>Beispiel für die course.yaml</h2>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: Buzz Tutorial
+pages:
+    page-types/plain/white/:
+        name: Einfache Seite mit schwarzem Hintergrund
+        type: grid-large
+        file: page-types/plain-black.de.html
+        classes:
+            - black
+            - padding
+    ...</code></pre>

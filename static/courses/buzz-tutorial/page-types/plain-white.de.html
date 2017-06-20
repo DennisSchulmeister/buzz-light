@@ -1,0 +1,42 @@
+<h2>Beschreibung</h2>
+<p>
+    Standardmäßig werden alle Seiten ohne eigenen Hintergrund dargestellt,
+    so dass das Hintergrundbild der Webseite komplett sichtbar ist. Wenn eine
+    Seite viel Text beinhaltet, kann dieser dadurch aber schwer lesbar sein.
+    Deshalb gibt es in der <tt>course.yaml</tt> die Möglichkeit, jeder Seite
+    durch Verwendung einer der folgenden Klassen einen Hintergrund zu geben:
+</p>
+<p>
+    Folgende Klassen können den Seiten zugeordnet werden:
+</p>
+<dl>
+    <dt>white</dt>
+    <dd>Heller Hintergrund mit dunkler schrift</dd>
+
+    <dt>black</dt>
+    <dd>Dunkler Hintergrund mit heller Schrift</dd>
+
+    <dt>padding</dt>
+    <dd>
+        Fügt einen kleinen Randabstand hinzu, damit der Text nicht so sehr am
+        Rand klebt
+    </dd>
+</dl>
+<br />
+
+<h2>Beispiel für die course.yaml</h2>
+<p>
+    Der Hintergrund wird wie folgt festgelegt:
+</p>
+<pre class="code" data-lang="course.yaml"><code>---
+language: ""
+name: Buzz Tutorial
+pages:
+    page-types/plain/white/:
+        name: Einfache Seiten mit weißem Hintergrund
+        type: grid-large
+        file: page-types/plain-white.de.html
+        classes:
+            - white
+            - padding
+    ...</code></pre>
