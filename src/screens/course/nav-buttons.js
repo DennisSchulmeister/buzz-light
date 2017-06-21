@@ -45,29 +45,44 @@ class SubpageNavButtons {
      * @param {Array} params Parameters from the params-binding
      */
     constructor(params) {
+        console.log(params)
         let courseModel = SubpageNavButtons.courseModel;
 
-        this.prevLabel = ko.computed(() => {
-            let label = _("Previous");
-            return params.prevLabel ? params.prevLabel : label;
-        });
-
-        this.nextLabel = ko.computed(() => {
-            let label = _("Next");
-            return params.nextLabel ? params.nextLabel : label;
-        });
-
         this.prevHref = "";
+        this.prevName = "";
         this.nextHref = "";
+        this.nextName = "";
 
         if (courseModel.subpage) {
             let index = courseModel.subpages.findIndex(e => e.pos == courseModel.subpage.pos);
             let prevSubpage = courseModel.subpages[index - 1];
             let nextSubpage = courseModel.subpages[index + 1];
 
-            if (prevSubpage) this.prevHref = `#${prevSubpage.fullPath}`;
-            if (nextSubpage) this.nextHref = `#${nextSubpage.fullPath}`;
+            if (prevSubpage) {
+                this.prevHref = `#${prevSubpage.fullPath}`;
+                this.prevName = prevSubpage.name;
+            }
+
+            if (nextSubpage) {
+                this.nextHref = `#${nextSubpage.fullPath}`;
+                this.nextName = nextSubpage.name;
+            }
         }
+
+        this.prevLabel = ko.computed(() => {
+            let label = _("Previous");
+            if (params.prevLabel) label = params.prevLabel;
+            if (params.showName) label = `${label}: ${this.prevName}`;
+            return label;
+        });
+
+        this.nextLabel = ko.computed(() => {
+            let label = _("Next");
+            if (params.nextLabel) label = params.nextLabel;
+            if (params.showName) label = `${label}: ${this.nextName}`;
+
+            return label;
+        });
     }
 }
 

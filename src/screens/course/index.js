@@ -28,6 +28,9 @@ import SubpageNavButtons from "./nav-buttons.js";
 import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
 
+// surfaceClasses: Added to the DOM Surface element (parent)
+// componentClasses: Added to the ko-component inside the Surface element
+// pageClasses: Added to the page content container inside the template
 let pageTypes = {
     plain: {
         subpages: false,
@@ -82,6 +85,26 @@ let pageTypes = {
         subpages: true,
         template: require("./steps.html"),
         surfaceClasses: ["container", "grid-480",],
+    },
+    "chapters-fullwidth": {
+        subpages: true,
+        template: require("./chapters.html"),
+        pageClasses: ["container",],
+    },
+    "chapters-large": {
+        subpages: true,
+        template: require("./chapters.html"),
+        pageClasses: ["container", "grid-1280",],
+    },
+    "chapters-medium": {
+        subpages: true,
+        template: require("./chapters.html"),
+        pageClasses: ["container", "grid-960",],
+    },
+    "chapters-small": {
+        subpages: true,
+        template: require("./chapters.html"),
+        pageClasses: ["container", "grid-480",],
     },
     /*
     "impress.js": {

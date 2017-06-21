@@ -53,7 +53,20 @@ class CourseScreenMain {
         this.subpage = courseScreen.subpage;
         this.thePage = this.subpage ? this.subpage : this.page;
 
-        this.pageClasses = this.thePage.classes.join(" ");
+        this.pageClasses = this.thePage.classes;
+        if (courseScreen.pageType.pageClasses) {
+            this.pageClasses = this.pageClasses.concat(courseScreen.pageType.pageClasses);
+        }
+        this.pageClasses = this.pageClasses.join(" ");
+
+        // CSS classes for the chapters page type Table Of Contents
+        if (this.thePage.classes.includes("samecolor")) {
+            this.tocClasses = "white";
+            if (this.thePage.classes.includes("black")) this.tocClasses = "black";
+        } else {
+            this.tocClasses = "black";
+            if (this.thePage.classes.includes("black")) this.tocClasses = "white";
+        }
 
         // Ordered list of all subpages
         let subpagePaths = Object.keys(courseScreen.page.pages);

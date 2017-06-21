@@ -8,4 +8,46 @@
  * License, or (at your option) any later version.
  */
 
-:local(.dummy) {}
+//:local(.dummy) {}
+
+.course_chapters_container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+
+    .course_chapters_toc {
+        width: 35rem;
+
+        ul, li {
+            margin: 0;
+            list-style: none;
+        }
+
+        .current {
+            font-weight: bold;
+        }
+
+        &.black ul {
+            a, a:visited {
+                color: rgb(220, 220, 220) !important;
+            }
+
+            a:hover {
+                color: white !important;
+            }
+        }
+    }
+
+    .course_chapters_content {
+        margin: 0;
+        margin-left: -1px;
+    }
+
+    .nobg {
+        background: none !important;
+        border: 0 !important;
+    }
+
+    // TODO: Make responsive
+}

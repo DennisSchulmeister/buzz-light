@@ -134,16 +134,23 @@ pages:
                 pos: 1
                 name: That's How It Looks
                 file: page-types/chapters1.en.html
-
+                classes:
+                    - white
+                    - padding
             2/:
                 pos: 2
                 name: course.yaml Example
                 file: page-types/chapters2.en.html
-
+                classes:
+                    - white
+                    - padding
             3/:
                 pos: 3
                 name: Content of the HTML Pages
                 file: page-types/chapters3.en.html
+                classes:
+                    - white
+                    - padding
 
     # Page Contents
     page-content/html/:
@@ -317,14 +324,23 @@ pages:
                 pos: 1
                 name: So sieht es aus
                 file: page-types/chapters1.de.html
+                classes:
+                    - white
+                    - padding
             2/:
                 pos: 2
                 name: Beispiel für course.yaml
                 file: page-types/chapters2.de.html
+                classes:
+                    - white
+                    - padding
             3/:
                 pos: 3
                 name: Inhalt der HTML-Dateien
                 file: page-types/chapters3.de.html
+                classes:
+                    - black
+                    - padding
 
     # Inhalte einer Seite
     page-content/html/:
