@@ -254,8 +254,17 @@ class CourseScreen extends Screen {
      * @return {String} Final HTML string ready to display
      */
     renderTemplate(template, markup) {
-        template = template.replace("%content-url%", this.course.contentUrl);
+        // Replace %content-url% prefix for asset URLs
+        let template2 = "";
 
+        while (template2 != template) {
+            template2 = template;
+            template = template2.replace("%content-url%", this.course.contentUrl);
+        }
+
+        template = template2;
+
+        // Render markup
         switch (markup) {
             case "markdown":
                 let md = markdown({
