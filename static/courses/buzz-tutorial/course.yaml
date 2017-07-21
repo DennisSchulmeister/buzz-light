@@ -188,6 +188,12 @@ pages:
         type: grid-large
         file: page-content/spectre.css.en.html
 
+    # Interaktive Elemente
+    interactive/assign-words/:
+        name: Assign Words
+        type: fullscreen
+        file: interactive/assign-words.en.html
+
 ---
 language: de
 name: Buzz Tutorial
@@ -377,3 +383,9 @@ pages:
         name: Durch spectre.css vordefinierte Elemente
         type: grid-large
         file: page-content/spectre.css.de.html
+
+    # Interaktive Elemente
+    interactive/assign-words/:
+        name: Begriffe zuordnen
+        type: fullscreen
+        file: interactive/assign-words.de.html

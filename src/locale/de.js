@@ -41,4 +41,8 @@ export default {
 
     "Previous": "Zurück",
     "Next": "Weiter",
+
+    // Quizes
+    "Show Solution": "Lösung anzeigen",
+    "Hide Solution": "Lösung ausblenden",
 };

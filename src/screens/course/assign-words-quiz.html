@@ -1,0 +1,61 @@
+<!-- Title -->
+<div data-bind="if: quiz.title">
+    <h2 data-bind="html: quiz.title"></h2>
+</div>
+
+<!-- Description -->
+<div data-bind="if: quiz.description">
+    <div class="description" data-bind="html: quiz.description"></div>
+</div>
+
+<!-- Rows with cards -->
+<div class="container" data-bind="foreach: quiz.rows">
+    <div class="columns" data-bind="foreach: $data">
+        <div data-bind="attr: {'class': 'card-padding column ' + $data.class()}">
+            <div class="card" data-bind="click: $component.toggleAnswerSelection.bind($component), clickBubble: false, css: { inactive: !$component.solutionHidden() }">
+                <!-- Card content-->
+                <div class="card-content" data-bind="html: $data.innerHTML"></div>
+
+                <!-- Chips with selected answers -->
+                <div class="card-answers" data-bind="foreach: $data.selectedAnswers">
+                    <label data-bind="attr: { class: 'chip ' + $data.class() }">
+                        <span data-bind="html: $data.innerHTML"></span>
+                        <button class="btn btn-clear" data-bind="click: function() { $component.removeAnswer($parent, $data) }, clickBubble: false"></button>
+                    </label>
+                </div>
+
+                <!-- Answer selection menu -->
+                <div class="card-answer-selection animated" data-bind="css: { hidden: $data.answerSelectionHidden }">
+                    <ul class="menu" data-bind="foreach: $data.answers">
+                        <li class="menu-item" data-bind="if: $data.amount() > 0">
+                            <div class="menu-badge" data-bind="if: $data.initialAmount > 1">
+                                <label class="label label-primary" data-bind="text: $data.amount"></label>
+                            </div>
+                            <a data-bind="html: $data.innerHTML, click: function() { $component.addAnswer($parent, $data) }, clickBubble: false"></a>
+                        </li>
+                    </ul>
+
+                    <!--
+                        Dirty hack to work around the problem that CSS cannot animate the default height of an element.
+                        The animation only works if the start and end height are explicitly set. Otherwise setting the
+                        height to zero makes the element simply disappear. Therefor we determine the natural height of
+                        the element here and assign it to the height style property.
+
+                        For this to work the element must initially not have the invisible class. That's why the card's
+                        hideAnswerSelection() is initially set to false and will be set to true here.
+                    -->
+                    <div data-bind="if: $component.initAnswerSelectionAnimation($element, $data)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Solution button and feedback -->
+<div data-bind="if: initFeedbackAnimation($element)">
+    <div class="feedback" data-bind="html: feedbackHtml, css: { hidden: solutionHidden }"></div>
+</div>
+
+<div class="buttons">
+    <button class="btn btn-primary" data-bind="text: textToggleSolution, click: toggleSolution"></button>
+</div>

@@ -1,0 +1,85 @@
+<assign-words-quiz class="black padding" style="margin: 4rem; margin-top: 0;">
+    <quiz-title>
+        Ein tierisches Bilderrätsel
+    </quiz-title>
+    <quiz-description>
+        Welche Tiere siehst du hier und was machen sie gerade? Tippe die
+        Bilder an und ordne ihnen die richtigen zwei Begriffe zu.
+    </quiz-description>
+    <quiz-answers name="answers">
+        <quiz-answer name="dog" amount="2">Hund</quiz-answer>
+        <quiz-answer name="cat" amount="2">Katze</quiz-answer>
+        <quiz-answer name="mouse">Maus</quiz-answer>
+        <quiz-answer name="tired">Müde</quiz-answer>
+        <quiz-answer name="ancious">Neugierig</quiz-answer>
+        <quiz-answer name="happy">Fröhlich</quiz-answer>
+        <quiz-answer name="watching">Beobachtend</quiz-answer>
+        <quiz-answer name="waiting">Abwartend</quiz-answer>
+    </quiz-answers>
+
+    <quiz-feedback-positive>
+        Sehr gut. Du hast alles richtig erraten.
+    </quiz-feedback-positive>
+    <quiz-feedback-negative>
+        Das stimmt noch nicht ganz. Schaue lieber nochmal genau hin.
+    </quiz-feedback-negative>
+
+    <quiz-row>
+        <quiz-card
+            class    = "col-4"
+            answers  = "answers"
+            correct  = "dog happy"
+        >
+            <img src="%content-url%/interactive/img/dog1.jpg" style="width: 100%" />
+            <p>
+                <small>Bildnachweis: <a href="https://pixabay.com/de/hund-gl%C3%BCcklich-bulldogge-happy-dog-2365014/">Pixabay: istvangyal</a></small>
+            </p>
+        </quiz-card>
+
+        <quiz-card
+            class    = "col-4"
+            answers  = "answers"
+            correct  = "dog ancious"
+        >
+            <img src="%content-url%/interactive/img/dog2.jpg" style="width: 100%" />
+            <p>
+                <small>Bildnachweis: <a href="https://pixabay.com/de/bulldog-welpen-hund-haustier-sweet-1047518/">Pixabay: vlaaitje</a></small>
+            </p>
+        </quiz-card>
+
+        <quiz-card
+            class    = "col-4"
+            answers  = "answers"
+            correct  = "cat waiting"
+        >
+            <img src="%content-url%/interactive/img/cat1.jpg" style="width: 100%" />
+            <p>
+                <small>Bildnachweis: <a href="https://pixabay.com/de/bulldog-welpen-hund-haustier-sweet-1047518/">Pixabay: Kadres</a></small>
+            </p>
+        </quiz-card>
+    </quiz-row>
+
+    <quiz-row>
+        <quiz-card
+            class    = "col-6"
+            answers  = "answers"
+            correct  = "cat tired"
+        >
+            <img src="%content-url%/interactive/img/cat2.jpg" style="width: 100%" />
+            <p>
+                <small>Bildnachweis: <a href="https://pixabay.com/de/bulldog-welpen-hund-haustier-sweet-1047518/">Pixabay: wilkernet</a></small>
+            </p>
+        </quiz-card>
+
+        <quiz-card
+            class    = "col-6"
+            answers  = "answers"
+            correct  = "mouse watching"
+        >
+            <img src="%content-url%/interactive/img/mouse.jpg" style="width: 100%" />
+            <p>
+                <small>Bildnachweis: <a href="https://pixabay.com/de/maus-natur-nagetier-knopfaugen-1974359/">Pixabay: RolandKuck</a></small>
+            </p>
+        </quiz-card>
+    </quiz-row>
+</assign-words-quiz>

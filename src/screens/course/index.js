@@ -24,6 +24,7 @@ import Screen from "../../router/screen.js";
 import CourseScreenMain from "./course.js";
 import utils from "../../utils.js";
 import SubpageNavButtons from "./nav-buttons.js";
+import AssignWordsQuiz from "./assign-words-quiz.js";
 
 import plugins from "../../app.js";
 const _ = plugins["I18n"].translate;
@@ -117,6 +118,7 @@ let pageTypes = {
 
 let customHtmlTags = [
     SubpageNavButtons,
+    AssignWordsQuiz,
 ];
 
 /**

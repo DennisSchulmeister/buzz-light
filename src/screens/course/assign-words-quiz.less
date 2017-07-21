@@ -1,0 +1,87 @@
+/*
+ * Buzz - The Social LMS (https://www.buzzlms.de)
+ * © 2017  Dennis Schulmeister-Zimolong <dennis@pingu-mail.de>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ */
+
+@padding: 0.5rem;
+@duration: 0.75s;
+
+:local(.quiz) {
+    display: flex;
+    flex-direction: column;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .container {
+        flex-grow: 1;
+        margin: 1em 0 1em 0;
+    }
+
+    .buttons {
+        align-self: flex-start;
+        padding: @padding;
+    }
+
+    .card-padding {
+        padding: @padding;
+    }
+
+    .card {
+        &.inactive,
+        &.inactive * {
+            cursor: default !important;
+        }
+
+        cursor: pointer;
+    }
+    .card-answers {
+        .missing {
+            background: rgba(14, 42, 255, 0.75);
+            color: rgb(240, 240, 255);
+            font-weight: bold;
+        }
+
+        .wrong {
+            background: rgba(255, 42, 14, 0.75);
+            color: rgb(255, 240, 240);
+            text-decoration: line-through;
+        }
+    }
+
+    .card-answer-selection {
+        &.hidden {
+            height: 0 !important;
+        }
+
+        &.animated {
+            transition: height @duration;
+        }
+
+        overflow: hidden;
+    }
+
+    .feedback {
+        &.hidden {
+            height: 0 !important;
+        }
+
+        margin: 1em 0 2em 0;
+        padding-left: @padding;
+        padding-right: @padding;
+
+        overflow: hidden;
+        transition: height @duration;
+    }
+}
