@@ -188,11 +188,23 @@ pages:
         type: grid-large
         file: page-content/spectre.css.en.html
 
-    # Interaktive Elemente
+    # Interactive Elements
     interactive/assign-words/:
         name: Assign Words
-        type: fullscreen
-        file: interactive/assign-words.en.html
+        type: tabs-fullwidth
+        pages:
+            1/:
+                pos: 1
+                name: How it looks
+                file: interactive/assign-words1.en.html
+            2/:
+                pos: 2
+                name: Content of the HTML Page
+                file: interactive/assign-words2.en.html
+            3/:
+                pos: 3
+                name: Meaning of the HTML Tags
+                file: interactive/assign-words3.en.html
 
 ---
 language: de
@@ -387,5 +399,17 @@ pages:
     # Interaktive Elemente
     interactive/assign-words/:
         name: Begriffe zuordnen
-        type: fullscreen
-        file: interactive/assign-words.de.html
+        type: tabs-fullwidth
+        pages:
+            1/:
+                pos: 1
+                name: So sieht es aus
+                file: interactive/assign-words1.de.html
+            2/:
+                pos: 2
+                name: Inhalt der HTML-Datei
+                file: interactive/assign-words2.de.html
+            3/:
+                pos: 3
+                name: Bedeutung der HTML-Tags
+                file: interactive/assign-words3.de.html

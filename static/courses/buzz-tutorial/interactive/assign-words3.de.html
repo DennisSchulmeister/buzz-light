@@ -1,0 +1,109 @@
+<style scoped>
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin: 0;
+    }
+</style>
+
+<div class="white padding">
+    <dl>
+        <dt>
+            <tt>&lt;assign-words-quiz&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Dies ist das Hauptelement des Quiz, in dem alle anderen Elemente enhalten sind.</li>
+                <li>Optional können dem Tag <tt>style</tt> und <tt>class</tt>-Attribute hinzugefügt werden, um das Aussehen des Quiz zu beinflussen.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-title&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Legt den Namen des Quiz fest.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-description&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Beinhaltet eine kleine Beschreibung mit Hinweisen für den Spieler.</li>
+                <li>Die Beschreibung kann durch beliebige HTML-Tags formatiert werden.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-answers name="all-answers"&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Definiert eine Liste mit möglichen Antworten. Der Name der Liste wird später verwendet, um sie den Bildern zuzuordnen.</li>
+                <li>Jedes Quiz muss daher mindestens eine Liste mit Antworten enthalten.</li>
+                <li>Innerhalb dieses Elements sind nur <tt></tt>&lt;quiz-answer"&gt;</tt>-Elemente erlaubt.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-answer name="dog" amount="2"&gt;Hund&lt;/quiz-answer&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Definiert eine einzelne Antwort innerhalb einer <tt>&lt;quiz-answers&gt;</tt>-Liste.</li>
+                <li>Der Name der Antwort wird benötigt, um die Antwort mit einem Bild zu verknüpfen.</li>
+                <li>Fehlt das <tt>amount</tt>-Attribut, kann die Antwort nur einem Bild zugeordnet werden. Andernfalls definiert das Attribut, wie oft die Antwort zulässig ist.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-feedback-positive&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Die hier definierte Nachricht wird am Ende des Spiels angezeigt, wenn alle Antworten korrekt sind.</li>
+                <li>Die Nachricht kann mit beliebigen HTML-Elementen formatiert werden.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-feedback-negative&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Wie <tt>&lt;quiz-feedback-positive&gt;</tt>, nur dass die Nachricht immer dann angezeigt wird, wenn mindestens eine Antworte falsch ist oder fehlt.</li>
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-row&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Dieses HTML-Tag definiert eine Reihe mit einem oder mehreren Bildern (Karten).</li>
+                <li>Innerhalb das Elements sind daher nur <tt>&lt;quiz-card&gt;</tt>-Tags erlaubt.</li>
+                <li>Jedes Quiz muss mindestens eine <tt>&lt;quiz-row&gt;</tt>-Element mit mindestens einer <tt>&lt;quiz-card&gt;</tt> besitzen.
+            </ul>
+        </dd>
+
+        <dt>
+            <tt>&lt;quiz-card answers="all-answers" correct="dog happy"&gt;</tt>
+        </dt>
+        <dd>
+            <ul>
+                <li>Definiert ein einzelnes Bild (eine sog. Karte), dem der Spieler die richtigen Begriffe zuordnen muss.</li>
+                <li>Welche Antworten zur Auswahl stehen, wird durch das <tt>answers</tt>-Attribut bestimmt. Es verweist auf den Namen eines &lt;quiz-answers&gt;-Elements.</li>
+                <li>Welche Antworten die richtigen sind, wird durch das <tt>correct</tt>-Attribut festgelegt. Es enthält eine durch Leeerzeichen getrennte Liste mit den Namen der Antworten.</li>
+                <li>Der Inhalt der Karte kann mit beliebigem HTML-Code formatiert werden.</li>
+                <li>Optional können die Attribute <tt>style</tt> und <tt>class</tt> verwendet werden, um das Aussehen der Karte zu beeinflussen.</li>
+                <li>Damit die Karten einheitlich erscheinen, sollte der Inhalt aller Karten exakt gleich hoch sein. Bilder müssen daher identische Proportionen haben.</li>
+            </ul>
+        </dd>
+    </dl>
+</div>

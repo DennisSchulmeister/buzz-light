@@ -1,0 +1,51 @@
+<div class="white padding">
+    <p>
+        Special HTML tags are used to define the quiz. This is the basic
+        structure of the here shown quiz:
+    </p>
+
+    <pre class="code" data-lang="assign-words.html"><code>&lt;assign-words-quiz class="black padding"&gt;
+        &lt;quiz-title&gt;
+            An Animalistic Picture Puzzle
+        &lt;/quiz-title&gt;
+        &lt;quiz-description&gt;
+            Which animals do you see and what are they doing?
+            Tip on each picture and assign the right two words.
+        &lt;/quiz-description&gt;
+        &lt;quiz-answers name="all-answers"&gt;
+            &lt;quiz-answer name="dog" amount="2"&gt;Dog&lt;/quiz-answer&gt;
+            &lt;quiz-answer name="cat" amount="2"&gt;Cat&lt;/quiz-answer&gt;
+            &lt;quiz-answer name="mouse"&gt;Mouse&lt;/quiz-answer&gt;
+            ...
+        &lt;/quiz-answers&gt;
+
+        &lt;quiz-feedback-positive&gt;
+            Very good. You guessed everything right.
+        &lt;/quiz-feedback-positive&gt;
+        &lt;quiz-feedback-negative&gt;
+            That's no quite right, yet. Better have a closer look.
+        &lt;/quiz-feedback-negative&gt;
+
+        &lt;quiz-row&gt;
+            &lt;quiz-card
+                class    = "col-4"
+                answers  = "all-answers"
+                correct  = "dog happy"
+            &gt;
+                &lt;img src="%content-url%/interactive/img/dog1.jpg" style="width: 100%" /&gt;
+                &lt;p&gt;
+                    &lt;small&gt;Image source: ...&lt;/small&gt;
+                &lt;/p&gt;
+            &lt;/quiz-card&gt;
+
+            &lt;quiz-card&gt;
+                …
+            &lt;/quiz-card&gt;
+            …
+        &lt;/quiz-row&gt;
+
+        &lt;quiz-row&gt;
+            …
+        &lt;/quiz-row&gt;
+    &lt;/assign-words-quiz&gt;</code></pre>
+</div>
