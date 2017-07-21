@@ -38,24 +38,32 @@ body {
 
     main {
         margin: @padding;
+        margin-top: @padding / 2;
         flex-grow: 1;
     }
 
-    main.fullscreen {
+    .fullscreen {
         margin: 0;
     }
 
     // Make main content fill the entire vertical space when in fullscreen mode
-    main.fullscreen,
-    main.fullscreen > *:first-child {
+    .fullscreen,
+    .fullscreen > *:first-child {
         display: flex;
         flex-direction: column;
     }
 
-    main.fullscreen > *:first-child,
-    main.fullscreen > *:first-child > * {
+    .fullscreen > *:first-child,
+    .fullscreen > *:first-child > * {
         flex-grow: 1;
     }
+
+    .flex-grow-0 { flex-grow: 0 !important; }
+    .flex-grow-1 { flex-grow: 1 !important; }
+    .flex-grow-2 { flex-grow: 2 !important; }
+    .flex-grow-3 { flex-grow: 3 !important; }
+    .flex-grow-4 { flex-grow: 4 !important; }
+    .flex-grow-5 { flex-grow: 5 !important; }
 }
 
 /*

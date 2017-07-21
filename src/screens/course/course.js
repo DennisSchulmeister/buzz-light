@@ -60,10 +60,20 @@ class CourseScreenMain {
         this.pageClasses = this.pageClasses.join(" ");
 
         // Extra CSS classes for the page type templates
-        this.extraClasses = "";
-        if (courseScreen.pageType.extraClasses) {
-            this.extraClasses = courseScreen.pageType.extraClasses.join(" ");
-        }
+        this.extraClasses1 = "";
+        if (courseScreen.pageType.extraClasses1) this.extraClasses1 = courseScreen.pageType.extraClasses1.join(" ");
+
+        this.extraClasses2 = "";
+        if (courseScreen.pageType.extraClasses2) this.extraClasses2 = courseScreen.pageType.extraClasses2.join(" ");
+
+        this.extraClasses3 = "";
+        if (courseScreen.pageType.extraClasses3) this.extraClasses3 = courseScreen.pageType.extraClasses3.join(" ");
+
+        this.extraClasses4 = "";
+        if (courseScreen.pageType.extraClasses4) this.extraClasses4 = courseScreen.pageType.extraClasses4.join(" ");
+
+        this.extraClasses5 = "";
+        if (courseScreen.pageType.extraClasses5) this.extraClasses5 = courseScreen.pageType.extraClasses5.join(" ");
 
         // CSS classes for the chapters page type Table Of Contents
         if (this.thePage.classes.includes("samecolor")) {

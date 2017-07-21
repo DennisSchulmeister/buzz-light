@@ -1,13 +1,13 @@
-<div data-bind="attr: {class: 'columns ' + extraClasses }">
-    <ul class="step" data-bind="foreach: subpages">
-        <li class="step-item" data-bind="css: {active: path == $parent.subpagePath}">
-            <a data-bind="text: name, attr: {href: '#' + fullPath}"></a>
-        </li>
-    </ul>
-</div>
+<div data-bind="attr: { class: extraClasses1 }">
+    <div data-bind="attr: { class: 'columns small-margin-bottom ' + extraClasses2 }">
+        <ul data-bind="foreach: subpages, attr: { class: 'step ' + extraClasses3 }">
+            <li class="step-item" data-bind="css: { active: path == $parent.subpagePath }">
+                <a data-bind="text: name, attr: { href: '#' + fullPath }"></a>
+            </li>
+        </ul>
+    </div>
 
-<br />
-
-<div data-bind="attr: {class: 'columns ' + pageClasses }">
-    <course-screen-content style="width: 100%"></course-screen-content>
+    <div data-bind="attr: { class: 'columns ' + pageClasses }">
+        <course-screen-content style="width: 100%" data-bind="attr: { class: extraClasses4 }"></course-screen-content>
+    </div>
 </div>

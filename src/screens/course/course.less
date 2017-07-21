@@ -21,11 +21,18 @@
     }
 
     .course_chapters_toc {
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        display: flex;
+        flex-direction: column;
+
         width: 35rem;
 
         ul, li {
             margin: 0;
             list-style: none;
+            flex-grow: 1;
         }
 
         .current {
@@ -44,6 +51,8 @@
     }
 
     .course_chapters_content {
+        flex-grow: 1;
+
         margin: 0;
         margin-left: -1px;
     }

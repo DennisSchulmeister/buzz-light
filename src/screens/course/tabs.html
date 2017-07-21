@@ -1,11 +1,11 @@
-<div class="columns">
-    <div class="btn-group" data-bind="foreach: subpages, attr: {class: extraClasses }">
-        <a class="btn" data-bind="text: name, attr: {href: '#' + fullPath}, css: {'btn-primary': path == $parent.subpagePath}"></a>
+<div data-bind="attr: { class: extraClasses1 }">
+    <div data-bind="attr: { class: 'columns small-margin-bottom ' + extraClasses2 }" style="align-self: flex-start">
+        <div data-bind="foreach: subpages, attr: { class: 'btn-group ' + extraClasses3 }">
+            <a class="btn" data-bind="text: name, attr: { href: '#' + fullPath }, css: { 'btn-primary': path == $parent.subpagePath }"></a>
+        </div>
     </div>
-</div>
 
-<br />
-
-<div data-bind="attr: {class: 'columns ' + pageClasses }">
-    <course-screen-content style="width: 100%"></course-screen-content>
+    <div data-bind="attr: { class: 'columns ' + pageClasses }">
+        <course-screen-content style="width: 100%" data-bind="attr: { class: extraClasses4 }"></course-screen-content>
+    </div>
 </div>
