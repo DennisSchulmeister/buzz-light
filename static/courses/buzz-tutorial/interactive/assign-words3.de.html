@@ -12,17 +12,17 @@
 <div class="white padding">
     <dl>
         <dt>
-            <tt>&lt;assign-words-quiz&gt;</tt>
+            <src-code language="html">&lt;assign-words-quiz&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Dies ist das Hauptelement des Quiz, in dem alle anderen Elemente enhalten sind.</li>
-                <li>Optional können dem Tag <tt>style</tt> und <tt>class</tt>-Attribute hinzugefügt werden, um das Aussehen des Quiz zu beinflussen.</li>
+                <li>Optional können dem Tag <src-code language="html">style</src-code> und <src-code language="html">class</src-code>-Attribute hinzugefügt werden, um das Aussehen des Quiz zu beinflussen.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-title&gt;</tt>
+            <src-code language="html">&lt;quiz-title&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -31,7 +31,7 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-description&gt;</tt>
+            <src-code language="html">&lt;quiz-description&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -41,29 +41,29 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-answers name="all-answers"&gt;</tt>
+            <src-code language="html">&lt;quiz-answers name="all-answers"&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Definiert eine Liste mit möglichen Antworten. Der Name der Liste wird später verwendet, um sie den Bildern zuzuordnen.</li>
                 <li>Jedes Quiz muss daher mindestens eine Liste mit Antworten enthalten.</li>
-                <li>Innerhalb dieses Elements sind nur <tt></tt>&lt;quiz-answer"&gt;</tt>-Elemente erlaubt.</li>
+                <li>Innerhalb dieses Elements sind nur <src-code language="html"></src-code>&lt;quiz-answer"&gt;</src-code>-Elemente erlaubt.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-answer name="dog" amount="2"&gt;Hund&lt;/quiz-answer&gt;</tt>
+            <src-code language="html">&lt;quiz-answer name="dog" amount="2"&gt;Hund&lt;/quiz-answer&gt;</src-code>
         </dt>
         <dd>
             <ul>
-                <li>Definiert eine einzelne Antwort innerhalb einer <tt>&lt;quiz-answers&gt;</tt>-Liste.</li>
+                <li>Definiert eine einzelne Antwort innerhalb einer <src-code language="html">&lt;quiz-answers&gt;</src-code>-Liste.</li>
                 <li>Der Name der Antwort wird benötigt, um die Antwort mit einem Bild zu verknüpfen.</li>
-                <li>Fehlt das <tt>amount</tt>-Attribut, kann die Antwort nur einem Bild zugeordnet werden. Andernfalls definiert das Attribut, wie oft die Antwort zulässig ist.</li>
+                <li>Fehlt das <src-code language="html">amount</src-code>-Attribut, kann die Antwort nur einem Bild zugeordnet werden. Andernfalls definiert das Attribut, wie oft die Antwort zulässig ist.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-feedback-positive&gt;</tt>
+            <src-code language="html">&lt;quiz-feedback-positive&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -73,35 +73,35 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-feedback-negative&gt;</tt>
+            <src-code language="html">&lt;quiz-feedback-negative&gt;</src-code>
         </dt>
         <dd>
             <ul>
-                <li>Wie <tt>&lt;quiz-feedback-positive&gt;</tt>, nur dass die Nachricht immer dann angezeigt wird, wenn mindestens eine Antworte falsch ist oder fehlt.</li>
+                <li>Wie <src-code language="html">&lt;quiz-feedback-positive&gt;</src-code>, nur dass die Nachricht immer dann angezeigt wird, wenn mindestens eine Antworte falsch ist oder fehlt.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-row&gt;</tt>
+            <src-code language="html">&lt;quiz-row&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Dieses HTML-Tag definiert eine Reihe mit einem oder mehreren Bildern (Karten).</li>
-                <li>Innerhalb das Elements sind daher nur <tt>&lt;quiz-card&gt;</tt>-Tags erlaubt.</li>
-                <li>Jedes Quiz muss mindestens eine <tt>&lt;quiz-row&gt;</tt>-Element mit mindestens einer <tt>&lt;quiz-card&gt;</tt> besitzen.
+                <li>Innerhalb das Elements sind daher nur <src-code language="html">&lt;quiz-card&gt;</src-code>-Tags erlaubt.</li>
+                <li>Jedes Quiz muss mindestens eine <src-code language="html">&lt;quiz-row&gt;</src-code>-Element mit mindestens einer <src-code language="html">&lt;quiz-card&gt;</src-code> besitzen.
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-card answers="all-answers" correct="dog happy"&gt;</tt>
+            <src-code language="html">&lt;quiz-card answers="all-answers" correct="dog happy"&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Definiert ein einzelnes Bild (eine sog. Karte), dem der Spieler die richtigen Begriffe zuordnen muss.</li>
-                <li>Welche Antworten zur Auswahl stehen, wird durch das <tt>answers</tt>-Attribut bestimmt. Es verweist auf den Namen eines &lt;quiz-answers&gt;-Elements.</li>
-                <li>Welche Antworten die richtigen sind, wird durch das <tt>correct</tt>-Attribut festgelegt. Es enthält eine durch Leeerzeichen getrennte Liste mit den Namen der Antworten.</li>
+                <li>Welche Antworten zur Auswahl stehen, wird durch das <src-code language="html">answers</src-code>-Attribut bestimmt. Es verweist auf den Namen eines &lt;quiz-answers&gt;-Elements.</li>
+                <li>Welche Antworten die richtigen sind, wird durch das <src-code language="html">correct</src-code>-Attribut festgelegt. Es enthält eine durch Leeerzeichen getrennte Liste mit den Namen der Antworten.</li>
                 <li>Der Inhalt der Karte kann mit beliebigem HTML-Code formatiert werden.</li>
-                <li>Optional können die Attribute <tt>style</tt> und <tt>class</tt> verwendet werden, um das Aussehen der Karte zu beeinflussen.</li>
+                <li>Optional können die Attribute <src-code language="html">style</src-code> und <src-code language="html">class</src-code> verwendet werden, um das Aussehen der Karte zu beeinflussen.</li>
                 <li>Damit die Karten einheitlich erscheinen, sollte der Inhalt aller Karten exakt gleich hoch sein. Bilder müssen daher identische Proportionen haben.</li>
             </ul>
         </dd>

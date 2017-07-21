@@ -13,6 +13,8 @@ $ yarn add --dev markdown-it-container
 $ yarn add --dev markdown-it-sub
 $ yarn add --dev markdown-it-sup
 
+$ yarn add --dev highlight.js
+
 $ yarn add --dev webpack
 $ yarn add --dev extract-text-webpack-plugin
 $ yarn add --dev css-loader

@@ -70,11 +70,6 @@ body {
  * Making the navbar more responsive
  */
 header.buzz-navbar {
-/*
-    section {
-        display: block;
-    }
-*/
     @media (min-width: @size-md) {
         .buzz-navbar-container {
             display: flex;
@@ -192,14 +187,14 @@ body {
         .code {
             background: rgb(219, 219, 219);
         }
-
-        .code code {
-            background: transparent;
-            color: black;
+        code {
+            background: rgb(36, 36, 36);
         }
 
+        .code code,
         pre.code::before {
-            color: rgb(36, 36, 36);
+            filter: invert(100%) contrast(200%); // Doesn't work in IE 11 and below
+            background: transparent;
         }
 
         .card {

@@ -1,0 +1,75 @@
+<h3>Larger Blocks of Source Code</h3>
+<p>
+    Integrating source code examples into a page is quite easy. All you need
+    is the <src-code language="html">&lt;source-code&gt;</src-code> HTML element:
+</p>
+<source-code language="html" filename="sourcecode.html">
+    &lt;source-code language="javascript" filename="factorial.js"&gt;
+        function factorial(n) {
+            if (n > 1) return n * factorial(n - 1);
+            else return 1;
+        }
+    &lt;/source-code&gt;
+</source-code>
+
+<p>
+    The result looks like this:
+</p>
+<source-code language="javascript" filename="factorial.js">
+    function factorial(n) {
+        if (n > 1) return n * factorial(n - 1);
+        else return 1;
+    }
+</source-code>
+
+<dl>
+    <dt><src-code language="html">language</src-code></dt>
+    <dd>Sets the programming language for the syntax highlighting</dd>
+
+    <dt><src-code language="html">filename</src-code></dt>
+    <dd>Sets the name of the source file that will be shown in the top-right</dd>
+</dl>
+<br />
+
+<h3>Within a Line</h3>
+<p>
+    If you simply want to highlight a small area within a line or an enumaration
+    you can use the <src-code language="html">&lt;src-code&gt;</src-code> element,
+    instead. Basicaly it also highlights the source code but doesn't render a
+    new block.
+</p>
+<source-code language="html" filename="sourcecode.html">
+    The syntax
+    &lt;src-code language="javascript"&gt;if (…) { … } else if (…) { … } else { … }&lt;/src-code&gt;
+    allows to check conditionals in JavaScript.
+</source-code>
+<p class="text-italic">
+    The syntax
+    <src-code language="javascript">if (…) { … } else if (…) { … } else { … }</src-code>
+    allows to check conditionals in JavaScript.
+</p>
+<br />
+
+<h3>Beware: Special Characters</h3>
+<p>
+    Since the source code is simply pasted into the page's HTML code,
+    you need to replace any special character not allowed in HTML. Especially
+    the following characters are affected, even when you want to show HTML-code
+    itself.
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Special Character</th> <th>&nbsp;</th> <th>Replacement</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>&amp;</td> <td></td> <td>&amp;amp;</td>
+    </tr>
+    <tr>
+        <td>&gt;</td> <td></td> <td>&amp;gt;</td>
+    </tr>
+    <tr>
+        <td>&gt;</td> <td></td> <td>&amp;gt;</td>
+    </tr>
+</table>

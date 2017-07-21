@@ -4,48 +4,50 @@
         Dies ist das Grundgerüst für das hier gezeigte Quiz:
     </p>
 
-    <pre class="code" data-lang="assign-words.html"><code>&lt;assign-words-quiz class="black padding"&gt;
-        &lt;quiz-title&gt;
-            Ein tierisches Bilderrätsel
-        &lt;/quiz-title&gt;
-        &lt;quiz-description&gt;
-            Welche Tiere siehst du hier und was machen sie gerade? Tippe die
-            Bilder an und ordne ihnen die richtigen zwei Begriffe zu.
-        &lt;/quiz-description&gt;
-        &lt;quiz-answers name="all-answers"&gt;
-            &lt;quiz-answer name="dog" amount="2"&gt;Hund&lt;/quiz-answer&gt;
-            &lt;quiz-answer name="cat" amount="2"&gt;Katze&lt;/quiz-answer&gt;
-            &lt;quiz-answer name="mouse"&gt;Maus&lt;/quiz-answer&gt;
-            ...
-        &lt;/quiz-answers&gt;
+    <source-code language="html" filename="assign-words.html">
+        &lt;assign-words-quiz class="black padding"&gt;
+            &lt;quiz-title&gt;
+                Ein tierisches Bilderrätsel
+            &lt;/quiz-title&gt;
+            &lt;quiz-description&gt;
+                Welche Tiere siehst du hier und was machen sie gerade? Tippe die
+                Bilder an und ordne ihnen die richtigen zwei Begriffe zu.
+            &lt;/quiz-description&gt;
+            &lt;quiz-answers name="all-answers"&gt;
+                &lt;quiz-answer name="dog" amount="2"&gt;Hund&lt;/quiz-answer&gt;
+                &lt;quiz-answer name="cat" amount="2"&gt;Katze&lt;/quiz-answer&gt;
+                &lt;quiz-answer name="mouse"&gt;Maus&lt;/quiz-answer&gt;
+                ...
+            &lt;/quiz-answers&gt;
 
-        &lt;quiz-feedback-positive&gt;
-            Sehr gut. Du hast alles richtig erraten.
-        &lt;/quiz-feedback-positive&gt;
-        &lt;quiz-feedback-negative&gt;
-            Das stimmt noch nicht ganz. Schaue lieber nochmal genau hin.
-        &lt;/quiz-feedback-negative&gt;
+            &lt;quiz-feedback-positive&gt;
+                Sehr gut. Du hast alles richtig erraten.
+            &lt;/quiz-feedback-positive&gt;
+            &lt;quiz-feedback-negative&gt;
+                Das stimmt noch nicht ganz. Schaue lieber nochmal genau hin.
+            &lt;/quiz-feedback-negative&gt;
 
-        &lt;quiz-row&gt;
-            &lt;quiz-card
-                class    = "col-4"
-                answers  = "all-answers"
-                correct  = "dog happy"
-            &gt;
-                &lt;img src="%content-url%/interactive/img/dog1.jpg" style="width: 100%" /&gt;
-                &lt;p&gt;
-                    &lt;small&gt;Bildnachweis: ...&lt;/small&gt;
-                &lt;/p&gt;
-            &lt;/quiz-card&gt;
+            &lt;quiz-row&gt;
+                &lt;quiz-card
+                    class    = "col-4"
+                    answers  = "all-answers"
+                    correct  = "dog happy"
+                &gt;
+                    &lt;img src="%content-url%/interactive/img/dog1.jpg" style="width: 100%" /&gt;
+                    &lt;p&gt;
+                        &lt;small&gt;Bildnachweis: ...&lt;/small&gt;
+                    &lt;/p&gt;
+                &lt;/quiz-card&gt;
 
-            &lt;quiz-card&gt;
+                &lt;quiz-card&gt;
+                    …
+                &lt;/quiz-card&gt;
                 …
-            &lt;/quiz-card&gt;
-            …
-        &lt;/quiz-row&gt;
+            &lt;/quiz-row&gt;
 
-        &lt;quiz-row&gt;
-            …
-        &lt;/quiz-row&gt;
-    &lt;/assign-words-quiz&gt;</code></pre>
+            &lt;quiz-row&gt;
+                …
+            &lt;/quiz-row&gt;
+        &lt;/assign-words-quiz&gt;
+    </source-code>
 </div>

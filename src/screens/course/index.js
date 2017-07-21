@@ -234,7 +234,9 @@ class CourseScreen extends Screen {
         // Register custom binding for markup inside HTML elements
         ko.bindingHandlers.markup = {
             init: (element, valueAccessor, allBindings, viewModel, bindingContext) => {
-                element.dataset.buzzRawMarkup = utils.shiftLinesLeft(element.innerHTML);
+                let markup = utils.trimLines(element.innerHTML);
+                markup = utils.shiftLinesLeft(markup);
+                element.dataset.buzzRawMarkup = markup;
             },
 
             update: (element, valueAccessor, allBindings, viewModel, bindingContext) => {

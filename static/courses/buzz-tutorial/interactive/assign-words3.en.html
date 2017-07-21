@@ -12,17 +12,17 @@
 <div class="white padding">
     <dl>
         <dt>
-            <tt>&lt;assign-words-quiz&gt;</tt>
+            <src-code language="html">&lt;assign-words-quiz&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>This is the main element of the quiz, which contains all other elements.</li>
-                <li>Optionaly the <tt>style</tt> and <tt>class</tt> attributes can be used to influence the quiz's look.</li>
+                <li>Optionaly the <src-code language="html">style</src-code> and <src-code language="html">class</src-code> attributes can be used to influence the quiz's look.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-title&gt;</tt>
+            <src-code language="html">&lt;quiz-title&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -31,7 +31,7 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-description&gt;</tt>
+            <src-code language="html">&lt;quiz-description&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -41,29 +41,29 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-answers name="all-answers"&gt;</tt>
+            <src-code language="html">&lt;quiz-answers name="all-answers"&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Defines a list with possible answers. The name of the list is used to assign it to the pictures.</li>
                 <li>Therefor each quiz must contain at least one list of answers.</li>
-                <li>This tag may only contain <tt></tt>&lt;quiz-answer"&gt;</tt> tags.</li>
+                <li>This tag may only contain <src-code language="html"></src-code>&lt;quiz-answer"&gt;</src-code> tags.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-answer name="dog" amount="2"&gt;Dog&lt;/quiz-answer&gt;</tt>
+            <src-code language="html">&lt;quiz-answer name="dog" amount="2"&gt;Dog&lt;/quiz-answer&gt;</src-code>
         </dt>
         <dd>
             <ul>
-                <li>Defines a single answer inside a <tt>&lt;quiz-answers&gt;</tt> list.</li>
+                <li>Defines a single answer inside a <src-code language="html">&lt;quiz-answers&gt;</src-code> list.</li>
                 <li>The name of the answer is needed in order to link it to a picture.</li>
-                <li>If the <tt>amount</tt> attribute is missing, the answer can only be assigned to one picture. Otherwise the attribute sets how often the answer can be used.</li>
+                <li>If the <src-code language="html">amount</src-code> attribute is missing, the answer can only be assigned to one picture. Otherwise the attribute sets how often the answer can be used.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-feedback-positive&gt;</tt>
+            <src-code language="html">&lt;quiz-feedback-positive&gt;</src-code>
         </dt>
         <dd>
             <ul>
@@ -73,35 +73,35 @@
         </dd>
 
         <dt>
-            <tt>&lt;quiz-feedback-negative&gt;</tt>
+            <src-code language="html">&lt;quiz-feedback-negative&gt;</src-code>
         </dt>
         <dd>
             <ul>
-                <li>Just like <tt>&lt;quiz-feedback-positive&gt;</tt> except that the message will be shwon if at least one answer was wrong or missing.</li>
+                <li>Just like <src-code language="html">&lt;quiz-feedback-positive&gt;</src-code> except that the message will be shwon if at least one answer was wrong or missing.</li>
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-row&gt;</tt>
+            <src-code language="html">&lt;quiz-row&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>This HTML tag defines a row with one or more pictures (cards).</li>
-                <li>Thus this tag may only contain <tt>&lt;quiz-card&gt;</tt> elements.</li>
-                <li>Each quiz must have at least one <tt>&lt;quiz-row&gt;</tt> element with at least one <tt>&lt;quiz-card&gt;</tt>.
+                <li>Thus this tag may only contain <src-code language="html">&lt;quiz-card&gt;</src-code> elements.</li>
+                <li>Each quiz must have at least one <src-code language="html">&lt;quiz-row&gt;</src-code> element with at least one <src-code language="html">&lt;quiz-card&gt;</src-code>.
             </ul>
         </dd>
 
         <dt>
-            <tt>&lt;quiz-card answers="all-answers" correct="dog happy"&gt;</tt>
+            <src-code language="html">&lt;quiz-card answers="all-answers" correct="dog happy"&gt;</src-code>
         </dt>
         <dd>
             <ul>
                 <li>Defines a single picture (a so-called card), to which the player must assign the correct words.</li>
-                <li>Which answers can be selected is determined by the <tt>answers</tt> attribute. It refers to the name of a &lt;quiz-answers&gt; tag</li>
-                <li>Which answers are the right ones is determined by the <tt>correct</tt> attribute. It contains a space-separated list with the names of the answers.</li>
+                <li>Which answers can be selected is determined by the <src-code language="html">answers</src-code> attribute. It refers to the name of a &lt;quiz-answers&gt; tag</li>
+                <li>Which answers are the right ones is determined by the <src-code language="html">correct</src-code> attribute. It contains a space-separated list with the names of the answers.</li>
                 <li>The card's content may be formated with arbitrary HTML code.</li>
-                <li>Optionaly the attibutes <tt>style</tt> and <tt>class</tt> can be used, to influence the card's look.</li>
+                <li>Optionaly the attibutes <src-code language="html">style</src-code> and <src-code language="html">class</src-code> can be used, to influence the card's look.</li>
                 <li>In order for all cards to appear the same, their content should have exactly the same height. Thus pictures must have the same aspect ratio.</li>
             </ul>
         </dd>

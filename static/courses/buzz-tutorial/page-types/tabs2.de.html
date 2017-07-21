@@ -21,33 +21,35 @@
 <p>
     Und so sieht die <tt>course.yaml</tt> aus:
 </p>
-<pre class="code" data-lang="course.yaml"><code>---
-language: ""
-name: "Buzz Tutorial"
-pages:
-    page-types/tabs/:
-        name: Per Tabreiter umschaltbare Unterseiten
-        type: tabs-large
-        pages:
-            1/:
-                pos: 1
-                name: So sieht es aus
-                file: page-types/tabs1.de.html
-                classes:
-                    - white
-                    - padding
-            2/:
-                pos: 2
-                name: Beispiel für course.yaml
-                file: page-types/tabs2.de.html
-                classes:
-                    - white
-                    - padding
-            3/:
-                pos: 3,
-                name: Inhalt der HTML-Dateien
-                file: page-types/tabs3.de.html
-                classes:
-                    - white
-                    - padding
-    ...</code></pre>
+<source-code language="yaml" filename="course.yaml">
+    ---
+    language: ""
+    name: "Buzz Tutorial"
+    pages:
+        page-types/tabs/:
+            name: Per Tabreiter umschaltbare Unterseiten
+            type: tabs-large
+            pages:
+                1/:
+                    pos: 1
+                    name: So sieht es aus
+                    file: page-types/tabs1.de.html
+                    classes:
+                        - white
+                        - padding
+                2/:
+                    pos: 2
+                    name: Beispiel für course.yaml
+                    file: page-types/tabs2.de.html
+                    classes:
+                        - white
+                        - padding
+                3/:
+                    pos: 3,
+                    name: Inhalt der HTML-Dateien
+                    file: page-types/tabs3.de.html
+                    classes:
+                        - white
+                        - padding
+        ...
+</source-code>

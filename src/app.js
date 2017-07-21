@@ -20,6 +20,7 @@ import I18nPlugin from "./i18n.js";
 import BreadcrumbPlugin from "./breadcrumb.js";
 import IconLinkPlugin from "./icon_link.js";
 import ToastPlugin from "./toast.js";
+import SyntaxHighlightPlugin from "./syntax_highlight.js";
 import RedirectHomePlugin from "./home.js";
 import CourseScreenPlugin from "./screens/course.js";
 import The500ScreenPlugin from "./screens/500.js";
@@ -35,6 +36,7 @@ let pluginClasses = [
     BreadcrumbPlugin,
     IconLinkPlugin,
     ToastPlugin,
+    SyntaxHighlightPlugin,
     RedirectHomePlugin,
     CourseScreenPlugin,
     The500ScreenPlugin,

@@ -1,0 +1,76 @@
+<h3>Größere Quellcode-Blöcke</h3>
+<p>
+    Quellcodeausschnitte lassen sich ganz einfach in eine Seite integrieren.
+    Alles, was man dazu braucht, ist das <src-code language="html">&lt;source-code&gt;</src-code>
+    HTML-Element:
+</p>
+<source-code language="html" filename="sourcecode.html">
+    &lt;source-code language="javascript" filename="factorial.js"&gt;
+        function factorial(n) {
+            if (n > 1) return n * factorial(n - 1);
+            else return 1;
+        }
+    &lt;/source-code&gt;
+</source-code>
+
+<p>
+    Das Ergebnis sieht dann wie folgt aus:
+</p>
+<source-code language="javascript" filename="factorial.js">
+    function factorial(n) {
+        if (n > 1) return n * factorial(n - 1);
+        else return 1;
+    }
+</source-code>
+
+<dl>
+    <dt><src-code language="html">language</src-code></dt>
+    <dd>Legt die Programmiersprache für das Syntax Highlighting fest</dd>
+
+    <dt><src-code language="html">filename</src-code></dt>
+    <dd>Legt den Namen der Quellcodedatei fest, der oben rechts angezeigt wird</dd>
+</dl>
+<br />
+
+<h3>Innerhalb einer Zeile</h3>
+<p>
+    Will man innerhalb einer Zeile oder einer Aufzählung nur einen kleinen
+    Bereich einfärben, kann hierfür das <src-code language="html">&lt;src-code&gt;</src-code>-Element
+    verwendet werden. Es bewirkt ebenfalls eine Einfärbung des Quellcodes,
+    stellt diesen jedoch nicht in einem eigenen Block dar.
+</p>
+<source-code language="html" filename="sourcecode.html">
+    Die Syntax
+    &lt;src-code language="javascript"&gt;if (…) { … } else if (…) { … } else { … }&lt;/src-code&gt;
+    erlaubt es, Bedingungen in JavaScript abzuprüfen.
+</source-code>
+<p class="text-italic">
+    Die Syntax
+    <src-code language="javascript">if (…) { … } else if (…) { … } else { … }</src-code>
+    erlaubt es, Bedingungen in JavaScript abzuprüfen.
+</p>
+<br />
+
+<h3>Achtung: Sonderzeichen</h3>
+<p>
+    Da der Quellcode ganz einfach in den HTML-Code der Seite eingefügt wird,
+    muss man darauf achten, in HTML nicht erlaubte Sonderzeichen zu ersetzen.
+    Dies betrifft insbesondere die folgenden Zeichen, auch dann, wenn man
+    HTML-Code selbst darstellen will.
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Sonderzeichen</th> <th>&nbsp;</th> <th>Zu ersetzen durch</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>&amp;</td> <td></td> <td>&amp;amp;</td>
+    </tr>
+    <tr>
+        <td>&gt;</td> <td></td> <td>&amp;gt;</td>
+    </tr>
+    <tr>
+        <td>&gt;</td> <td></td> <td>&amp;gt;</td>
+    </tr>
+</table>

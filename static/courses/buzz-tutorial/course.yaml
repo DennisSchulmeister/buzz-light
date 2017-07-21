@@ -165,8 +165,28 @@ pages:
 
     page-content/sourcecode/:
         name: Syntax Highlighted Source Codes
-        type: grid-large
-        file: page-content/sourcecode.en.html
+        type: tabs-large
+        pages:
+            nobg/:
+                pos: 1
+                name: No Background
+                file: page-content/sourcecode.en.html
+                classes:
+                    - padding
+            white/:
+                pos: 2
+                name: White Background
+                file: page-content/sourcecode.en.html
+                classes:
+                    - white
+                    - padding
+            black/:
+                pos: 3
+                name: Black Background
+                file: page-content/sourcecode.en.html
+                classes:
+                    - black
+                    - padding
 
     page-content/tiles/:
         name: Tiles on the Start Page
@@ -372,9 +392,29 @@ pages:
         file: page-content/markdown.de.html
 
     page-content/sourcecode/:
-        name: Quellcodebeispiele mit Syntaxhighlighting
-        type: grid-large
-        file: page-content/sourcecode.de.html
+        name: Quellcodebeispiele mit Syntax Highlighting
+        type: tabs-large
+        pages:
+            nobg/:
+                pos: 1
+                name: Ohne Hintergrund
+                file: page-content/sourcecode.de.html
+                classes:
+                    - padding
+            white/:
+                pos: 2
+                name: Weißer Hintergrund
+                file: page-content/sourcecode.de.html
+                classes:
+                    - white
+                    - padding
+            black/:
+                pos: 3
+                name: Schwarzer Hintergrund
+                file: page-content/sourcecode.de.html
+                classes:
+                    - black
+                    - padding
 
     page-content/tiles/:
         name: Kacheln für die Startseite

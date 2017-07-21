@@ -22,27 +22,29 @@
         </dl>
     </div>
     <div class="card-image">
-<pre class="code" data-lang="course.yaml"><code>---
-language: ""
-name: "Buzz Tutorial"
-pages:
-    page-types/steps/:
-        name: Schritt-Für-Schritt-Abläufe
-        type: steps-large
-        pages:
-            1/:
-                pos: 1
-                name: So sieht es aus
-                file: page-types/steps1.de.html
-            2/:
-                pos: 2
-                name: Beispiel für course.yaml
-                file: page-types/steps2.de.html
-            3/:
-                pos: 3,
-                name: Inhalt der HTML-Dateien
-                file: page-types/steps3.de.html
-    ...</code></pre>
+        <source-code language="yaml" filename="course.yaml">
+            ---
+            language: ""
+            name: "Buzz Tutorial"
+            pages:
+                page-types/steps/:
+                    name: Schritt-Für-Schritt-Abläufe
+                    type: steps-large
+                    pages:
+                        1/:
+                            pos: 1
+                            name: So sieht es aus
+                            file: page-types/steps1.de.html
+                        2/:
+                            pos: 2
+                            name: Beispiel für course.yaml
+                            file: page-types/steps2.de.html
+                        3/:
+                            pos: 3,
+                            name: Inhalt der HTML-Dateien
+                            file: page-types/steps3.de.html
+                ...
+        </source-code>
     </div>
     <div class="card-footer">
         <subpage-nav-buttons></subpage-nav-buttons>
