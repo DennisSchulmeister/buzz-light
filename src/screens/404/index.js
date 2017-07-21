@@ -27,6 +27,7 @@ class The404Screen extends Screen {
         super({
             "main-content": {
                 componentName: "the-404-screen-main",
+                componentClasses: [],
                 surfaceClasses: ["fullscreen",],
             },
         })
