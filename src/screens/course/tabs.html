@@ -1,5 +1,5 @@
 <div class="columns">
-    <div class="btn-group" data-bind="foreach: subpages">
+    <div class="btn-group" data-bind="foreach: subpages, attr: {class: extraClasses }">
         <a class="btn" data-bind="text: name, attr: {href: '#' + fullPath}, css: {'btn-primary': path == $parent.subpagePath}"></a>
     </div>
 </div>

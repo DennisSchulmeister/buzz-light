@@ -42,6 +42,17 @@ let pageTypes = {
         template: null,
         surfaceClasses: ["fullscreen",],
     },
+    "grid-fullscreen": {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["fullscreen", "container",],
+    },
+    "grid-fullwidth": {
+        subpages: false,
+        template: null,
+        surfaceClasses: ["container",],
+        extraClasses: ["big-margin-left", "big-margin-right",],
+    },
     "grid-large": {
         subpages: false,
         template: null,
@@ -56,6 +67,18 @@ let pageTypes = {
         subpages: false,
         template: null,
         surfaceClasses: ["container", "grid-480",],
+    },
+    "tabs-fullscreen": {
+        subpages: true,
+        template: require("./tabs.html"),
+        surfaceClasses: ["container", "fullscreen",],
+        extraClasses: ["big-margin-left", "big-margin-right", "small-margin-bottom",],
+    },
+    "tabs-fullwidth": {
+        subpages: true,
+        template: require("./tabs.html"),
+        surfaceClasses: ["container",],
+        extraClasses: ["big-margin-left", "big-margin-right",],
     },
     "tabs-large": {
         subpages: true,
@@ -72,6 +95,18 @@ let pageTypes = {
         template: require("./tabs.html"),
         surfaceClasses: ["container", "grid-480",],
     },
+    "steps-fullscreen": {
+        subpages: true,
+        template: require("./steps.html"),
+        surfaceClasses: ["container", "fullscreen",],
+        extraClasses: ["big-margin-left", "big-margin-right", "small-margin-bottom",],
+    },
+    "steps-fullwidth": {
+        subpages: true,
+        template: require("./steps.html"),
+        surfaceClasses: ["container",],
+        extraClasses: ["big-margin-left", "big-margin-right",],
+    },
     "steps-large": {
         subpages: true,
         template: require("./steps.html"),
@@ -86,6 +121,12 @@ let pageTypes = {
         subpages: true,
         template: require("./steps.html"),
         surfaceClasses: ["container", "grid-480",],
+    },
+    "chapters-fullscreen": {
+        subpages: true,
+        template: require("./chapters.html"),
+        surfaceClasses: ["container", "fullscreen",],
+        extraClasses: ["justify-left",],
     },
     "chapters-fullwidth": {
         subpages: true,

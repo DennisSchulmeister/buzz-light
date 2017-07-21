@@ -1,4 +1,4 @@
-<div class="columns">
+<div data-bind="attr: {class: 'columns ' + extraClasses }">
     <ul class="step" data-bind="foreach: subpages">
         <li class="step-item" data-bind="css: {active: path == $parent.subpagePath}">
             <a data-bind="text: name, attr: {href: '#' + fullPath}"></a>

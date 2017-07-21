@@ -1,6 +1,6 @@
 <div class="course_chapters_container">
     <!-- Table of Contents -->
-    <div data-bind="attr: {class: 'course_chapters_toc padding ' + tocClasses }">
+    <div data-bind="attr: { class: 'course_chapters_toc padding ' + tocClasses }">
         <ul data-bind="foreach: subpages">
             <li>
                 <a data-bind="text: name, attr: {href: '#' + fullPath}, css: {'current': path == $parent.subpagePath}"></a>
@@ -9,14 +9,14 @@
     </div>
 
     <!-- Page Content -->
-    <div data-bind="attr: {class: 'course_chapters_content ' + pageClasses }">
+    <div data-bind="attr: { class: 'course_chapters_content ' + pageClasses }">
         <course-screen-content style="width: 100%"></course-screen-content>
     </div>
 </div>
 
 <!-- Navigation Buttons -->
-<div class="course_chapters_container">
-    <div data-bind="attr: {class: 'course_chapters_toc padding nobg ' + tocClasses }">
+<div data-bind="attr: { class: 'course_chapters_container ' + extraClasses }">
+    <div data-bind="attr: { class: 'course_chapters_toc padding nobg ' + tocClasses }">
         <subpage-nav-buttons></subpage-nav-buttons>
     </div>
 

@@ -59,6 +59,12 @@ class CourseScreenMain {
         }
         this.pageClasses = this.pageClasses.join(" ");
 
+        // Extra CSS classes for the page type templates
+        this.extraClasses = "";
+        if (courseScreen.pageType.extraClasses) {
+            this.extraClasses = courseScreen.pageType.extraClasses.join(" ");
+        }
+
         // CSS classes for the chapters page type Table Of Contents
         if (this.thePage.classes.includes("samecolor")) {
             this.tocClasses = "white";

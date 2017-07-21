@@ -13,6 +13,7 @@
 @red: rgb(172, 33, 33);
 @shadow: rgba(255, 255, 255, 0.6) 1px 1px;
 @padding: 4rem;
+@padding-small: 1rem;
 
 @semi-white-bg: rgba(255, 255, 255, 0.55);
 @semi-white-border: rgba(255, 255, 255, 0.75);
@@ -135,8 +136,20 @@ body {
     }
 
     .padding {
-        padding: 1rem;
+        padding: @padding-small;
     }
+
+    .big-margin { margin: @padding; }
+    .big-margin-top { margin-top: @padding; }
+    .big-margin-right { margin-right: @padding; }
+    .big-margin-bottom { margin-bottom: @padding; }
+    .big-margin-left { margin-left: @padding; }
+
+    .small-margin { margin: @padding-small; }
+    .small-margin-top { margin-top: @padding-small; }
+    .small-margin-right { margin-right: @padding-small; }
+    .small-margin-bottom { margin-bottom: @padding-small; }
+    .small-margin-left { margin-left: @padding-small; }
 
     /*
      * Colors for pages with white or no background
