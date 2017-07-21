@@ -64,8 +64,10 @@ function shiftLinesLeft(text) {
     let shift = commonPrefix.length;
 
     for (let i = 0; i < lines.length; i++) {
-        if (!lines[i].length) continue;
-        lines[i] = lines[i].slice(shift, lines[i].length);
+        if (lines[i].length) {
+            lines[i] = lines[i].slice(shift, lines[i].length);
+        }
+
         text += lines[i] + linebreak;
     }
 
